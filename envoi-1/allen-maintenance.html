@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Allen Maintenance | Controlnet | Site web | Maeva Benakli</title>
+<meta name="description" content="Site vitrine bilingue pour Allen Maintenance et Controlnet.">
+<meta property="og:title" content="Allen Maintenance | Controlnet | Site web | Maeva Benakli">
+<style>html{overflow-x:hidden}body{overflow-x:clip}</style>
+<meta property="og:description" content="Site vitrine bilingue pour Allen Maintenance et Controlnet.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Geist:wght@200;300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#EEF3F5}
+*{box-sizing:border-box}
+.cna{font-family:Manrope,system-ui,sans-serif;color:#08344B;background:#EEF3F5;min-height:100vh}
+.cna a{color:inherit}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase}
+.geist{font-family:Geist,system-ui,sans-serif}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 28px;background:#08344B;color:#FFFFFF;border-radius:0 0 28px 28px;font-size:12px}
+.topbar a{text-decoration:none;padding:10px 0;color:#FFFFFF}
+.split{display:grid;grid-template-columns:minmax(0,1fr) 460px;align-items:start}
+.left{display:flex;flex-direction:column;gap:20px;padding:20px 12px 20px 20px}
+.right{position:sticky;top:0;height:100vh;min-height:640px;display:flex;flex-direction:column;justify-content:space-between;gap:22px;padding:30px 34px 26px 26px;overflow-y:auto}
+.blk{position:relative;border-radius:26px;overflow:hidden;scroll-margin-top:56px}
+.cap{align-self:flex-start;display:inline-flex;align-items:center;margin:6px 0 -8px 4px;padding:6px 10px;border-radius:8px;background:#08344B;color:#FFFFFF;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:500;pointer-events:none}
+.cap-l{background:#FFFFFF;color:#08344B}
+.sechead{display:flex;align-items:center;gap:16px}
+.pill{flex-shrink:0;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:10px;background:#08344B;color:#FFFFFF;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.04em}
+.pill b{font-weight:500;padding-right:10px;border-right:1px solid rgba(255,255,255,.35)}
+.rule{flex:1;height:1px;background:rgba(8,52,75,.85)}
+.mark{background:linear-gradient(transparent 52%,#D3E57A 52%,#D3E57A 92%,transparent 92%);padding:0 4px;border-radius:2px}
+.h2{margin:0;font-weight:800;font-size:30px;line-height:1.12;letter-spacing:-.025em}
+.p{margin:0;font-size:15px;line-height:1.58;color:rgba(8,52,75,.8)}
+.meta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 20px}
+.meta span{display:block}
+.meta .k{font-size:12px;color:rgba(8,52,75,.55);margin-bottom:4px}
+.meta .v{font-size:14px;font-weight:800;line-height:1.3}
+.chip{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;border:1px solid #08344B;font-size:12.5px;font-weight:600}
+.brief{border-radius:22px;background:#08344B;color:#FFFFFF;padding:22px;display:flex;flex-direction:column;gap:14px}
+.stat{padding:12px;border-radius:14px;background:rgba(255,255,255,.1)}
+.stat b{display:block;font-size:24px;font-weight:800;line-height:1.1;color:#C0D84C}
+.stat span{font-size:12px;line-height:1.35;opacity:.88}
+.navseg{display:flex;gap:3px;padding:4px;border-radius:13px;background:#FFFFFF;border:1px solid rgba(8,52,75,.12);box-shadow:0 16px 40px -28px rgba(8,52,75,.4)}
+.navseg a{flex:1;padding:9px 6px;border-radius:9px;text-align:center;text-decoration:none;font-size:12.5px;font-weight:700;white-space:nowrap;transition:background .3s,color .3s}
+.prog{position:relative;padding-top:22px}
+.prog-num{position:absolute;top:0;font-size:12px;font-weight:500;white-space:nowrap;transition:left .2s linear,transform .2s linear}
+.prog-track{position:relative;height:3px;border-radius:3px;background:rgba(8,52,75,.14);overflow:hidden}
+.prog-track span{position:absolute;left:0;top:0;bottom:0;background:#08344B;transition:width .2s linear}
+.ptag{position:absolute;z-index:7;display:inline-flex;align-items:center;padding:13px 24px 14px;border-radius:3px 26px 26px 26px;border:2px solid #FFFFFF;background:#08344B;color:#FFFFFF;font-family:Manrope,system-ui,sans-serif;font-size:19px;font-weight:600;line-height:1;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 14px 30px -14px rgba(0,0,0,.45);transform-origin:0 0;cursor:default}
+.ptag:hover{animation:ptag-wiggle .7s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes ptag-wiggle{0%{transform:translate(0,0) rotate(0)}15%{transform:translate(-3px,-2px) rotate(-6deg)}30%{transform:translate(3px,1px) rotate(5deg)}45%{transform:translate(-2px,0) rotate(-3deg)}60%{transform:translate(2px,-1px) rotate(2deg)}78%{transform:translate(-1px,0) rotate(-1deg)}100%{transform:translate(0,0) rotate(0)}}
+.bw{border-radius:12px;overflow:hidden;background:#FFFFFF;box-shadow:0 50px 90px -40px rgba(0,0,0,.6)}
+.bw-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#EEF3F5}
+.bw-bar i{width:9px;height:9px;border-radius:50%;background:#C9D5DB}
+.bw-url{margin-left:10px;padding:3px 12px;border-radius:6px;background:#FFFFFF;color:#08344B;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bw img{display:block;width:100%;height:auto}
+.mq{overflow:hidden;width:100%}
+.mq-track{display:flex;width:max-content;animation:cnaLeft 50s linear infinite}
+.mq-track.rev{animation-name:cnaRight}
+.mq-set{display:flex;flex-shrink:0}
+.mq:hover .mq-track{animation-play-state:paused}
+@keyframes cnaLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes cnaRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.sx{display:flex;align-items:center;gap:26px;padding-right:26px;flex-shrink:0}
+.sw{font-family:Geist,system-ui,sans-serif;font-weight:400;font-size:60px;line-height:1;letter-spacing:-.01em;color:#08344B;white-space:nowrap}
+.sc{display:block;width:100px;height:100px;border-radius:50%}
+.bub{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:194px;height:194px;margin-right:2px;border-radius:50%;background:#EBF2F5}
+.bub img{display:block;height:auto}
+.g-h{margin:0;text-align:center;font-family:Geist,system-ui,sans-serif;font-weight:400;font-size:28px;line-height:1.2;color:#08344B}
+.g-h b{font-weight:600}
+.cnt{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;border-bottom:1px solid rgba(8,52,75,.12)}
+.cnt:last-child{border-bottom:0}
+.cnt-l{font-family:Geist,system-ui,sans-serif;font-weight:300;font-size:22px;line-height:1.15;color:#08344B}
+.cnt-n{font-family:Geist,system-ui,sans-serif;font-weight:200;font-size:118px;line-height:1;letter-spacing:-.03em;color:#08344B;font-variant-numeric:tabular-nums}
+.scroller{position:relative;height:640px;overflow:hidden;background:#FFFFFF}
+.scroller img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0;animation:cnaPage 42s ease-in-out infinite alternate}
+.scroller:hover img{animation-play-state:paused}
+@keyframes cnaPage{0%,8%{object-position:50% 0}92%,100%{object-position:50% 100%}}
+.casc{position:relative;height:690px;background:radial-gradient(70% 60% at 85% 15%,rgba(192,216,76,.24),transparent 60%),#08344B}
+.casc .pg{position:absolute;width:58%;border-radius:10px;overflow:hidden;box-shadow:0 40px 70px -30px rgba(0,0,0,.8);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.casc .pg img{display:block;width:100%;height:auto}
+.casc:hover .pg1{transform:translate(-18px,-14px)}
+.casc:hover .pg2{transform:translate(-6px,-4px)}
+.casc:hover .pg3{transform:translate(8px,6px)}
+.casc:hover .pg4{transform:translate(22px,18px)}
+.acc-it{display:grid;grid-template-columns:60px minmax(0,1fr);column-gap:14px;align-items:center;padding:14px 0 16px;border-bottom:1px solid #BFD0D9;cursor:default}
+.acc-ic{display:block;height:auto;mix-blend-mode:multiply;transition:width .55s cubic-bezier(.2,.8,.2,1)}
+.acc-t{font-family:Geist,system-ui,sans-serif;font-weight:400;line-height:1.2;color:#08344B;transition:font-size .55s cubic-bezier(.2,.8,.2,1)}
+.acc-d{grid-column:2;overflow:hidden;font-family:Geist,system-ui,sans-serif;font-weight:300;font-size:14.5px;line-height:1.5;color:#08344B;transition:max-height .6s cubic-bezier(.2,.8,.2,1),opacity .5s,margin-top .5s}
+.car-ic{position:absolute;left:50%;top:50%;display:block;height:54px;width:auto;mix-blend-mode:multiply;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.pulse{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;border:2px solid #FFFFFF;animation:cnaRing 2.2s ease-out infinite;pointer-events:none}
+@keyframes cnaRing{0%{transform:scale(.6);opacity:.95}100%{transform:scale(3.2);opacity:0}}
+.dm{background:#E2E8EB;color:#08344B;padding:56px 0 60px}
+.dm-vp{overflow:hidden;padding:4px 0 8px}
+.dm-track{display:flex;gap:18px;padding-left:48px;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.dm-card{flex-shrink:0;width:300px;min-height:330px;display:flex;flex-direction:column;gap:16px;padding:22px;border-radius:8px;font-family:Geist,system-ui,sans-serif;transition:background .5s,border-color .5s,opacity .5s}
+.dm-pill{padding:5px 12px;border-radius:999px;font-size:13px;transition:background .5s,border-color .5s}
+.dm-arrow{display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border-radius:6px;border:0;cursor:pointer;font-size:18px;line-height:1}
+.pill-p{flex-shrink:0;display:inline-flex;align-items:center;gap:10px;margin-right:12px;padding:10px 18px 10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.45);font-family:Geist,system-ui,sans-serif;font-size:14px;color:#FFFFFF;white-space:nowrap}
+.pill-p svg{flex-shrink:0}
+@media (prefers-reduced-motion:reduce){.mq-track,.scroller img,.pulse{animation:none}.ptag:hover{animation:none}}
+.right > div:last-child{position:sticky;bottom:0;margin-bottom:-26px;padding:14px 0 26px;background:linear-gradient(to bottom,rgba(238,243,245,0),rgb(238,243,245) 14px)}
+@media (max-width:960px){
+.right > div:last-child{position:static;margin-bottom:0;padding:0;background:none}
+.split{grid-template-columns:minmax(0,1fr)}
+.left{padding:16px}
+.right{position:relative;height:auto;min-height:0;order:-1;padding:28px 20px 8px}
+.sw{font-size:40px}.sc{width:70px;height:70px}
+.bub{width:140px;height:140px}
+.cnt-n{font-size:72px}
+.casc{height:420px}
+.scroller{height:460px}
+.acc-grid{grid-template-columns:minmax(0,1fr) !important}
+.hide-m{display:none !important}
+}
+</style>
+</head>
+<body>
+<div id="dc-app"></div>
+<template id="dc-tpl-SiteCNA"><div class="cna">
+
+<header class="topbar">
+<a href="index.html#projets" class="mono">← Retour aux projets</a>
+<span class="mono" style="padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3)">Site web 01 / 03</span>
+<span class="mono">Maeva Benakli</span>
+</header>
+
+<div id="cna-split" class="split">
+
+<!-- COLONNE GAUCHE : LE SITE -->
+<div class="left">
+
+<span class="cap">Accueil | Héros</span>
+<div id="cna-s0" class="blk" data-sec="0" style="padding: 48px clamp(20px, 5vw, 64px) 64px; background: radial-gradient(80% 70% at 85% 5%, rgba(192,216,76,0.3), transparent 60%), linear-gradient(160deg, #0E4A68 0%, #08344B 55%, #05263A 100%)">
+
+<div class="bw">
+<div class="bw-bar"><i></i><i></i><i></i><span class="bw-url">Accueil | Allen Maintenance Controlnet</span></div>
+<img src="assets/accueil/48e39e9cedcd.webp" alt="Page d’accueil : « L’excellence d’un service d’entretien conforme aux standards les plus exigeants », boutons Explorer nos services et Demander une consultation">
+</div>
+<div style="position: absolute; left: 20px; right: 20px; bottom: 18px; display: flex; justify-content: space-between; gap: 12px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #C0D84C"><span>Montréal, QC {{clock}}</span><span class="hide-m">FR | EN</span></div>
+</div>
+
+<span class="cap">Les 5 pages</span>
+<div class="blk casc" data-sec="0">
+<div class="pg pg1" style="left: 5%; top: 60px"><img src="assets/allen-maintenance/7a9322c6e952.webp" alt="En-tête de la page Services : Des espaces impeccables, une confiance durable"></div>
+<div class="pg pg2" style="left: 15%; top: 160px"><img src="assets/allen-maintenance/aed2d1d2dbc6.webp" alt="En-tête de la page Approche : Notre méthode structurée pour un entretien irréprochable"></div>
+<div class="pg pg3" style="left: 25%; top: 260px"><img src="assets/allen-maintenance/236f48f3ba96.webp" alt="En-tête de la page À propos : Un demi-siècle d’excellence au service de vos espaces"></div>
+<div class="pg pg4" style="left: 36%; top: 360px"><img src="assets/allen-maintenance/382e815a525b.webp" alt="En-tête de la page Contact : Besoin d’un partenaire fiable pour l’entretien de vos espaces ?"></div>
+</div>
+
+<span class="cap">Accueil | Un partenaire qui fait la différence</span>
+<div class="blk" data-sec="0" style="background: #FFFFFF; padding: 56px clamp(24px, 4vw, 56px) 72px" onMouseEnter="{{accEnter}}" onMouseLeave="{{accLeave}}">
+<div class="acc-grid" style="display: grid; grid-template-columns: minmax(0,0.85fr) minmax(0,1.15fr); gap: 44px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p class="geist" style="margin: 0; font-size: 34px; line-height: 1.1; letter-spacing: -0.01em"><b style="font-weight: 600">Un partenaire</b> qui fait la différence</p>
+<p class="geist" style="margin: 0; font-size: 16px; font-weight: 300; line-height: 1.6; color: rgba(8,52,75,0.8)">Nous créons des environnements impeccables, durables et sécurisés, grâce à des solutions d’entretien conçues pour répondre aux plus hautes exigences de qualité et de fiabilité.</p>
+<span class="geist" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid #C0D84C; font-size: 14px; color: #A9C02E">Découvrir notre approche <svg aria-hidden="true" width="22" height="14" viewBox="0 0 22 14"><path d="M1 7 H20 M14 1 L20 7 L14 13" fill="none" stroke="#C0D84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+</div>
+<div>
+<div class="acc-it" onMouseEnter="{{a0.enter}}"><img class="acc-ic" src="assets/allen-maintenance/c3e7b6a69e39.webp" alt="" style="width: {{a0.iw}}"><span class="acc-t" style="font-size: {{a0.ts}}">Produits écoresponsables (100 % biologiques)</span><span class="acc-d" style="max-height: {{a0.mh}}; opacity: {{a0.op}}; margin-top: {{a0.mt}}">Des solutions de nettoyage certifiées EcoLogo et Green Seal, efficaces et respectueuses de la santé des occupants comme de l’environnement.</span></div>
+<div class="acc-it" onMouseEnter="{{a1.enter}}"><img class="acc-ic" src="assets/allen-maintenance/0f521823948d.webp" alt="" style="width: {{a1.iw}}"><span class="acc-t" style="font-size: {{a1.ts}}">Équipements certifiés LEED</span><span class="acc-d" style="max-height: {{a1.mh}}; opacity: {{a1.op}}; margin-top: {{a1.mt}}">Un matériel de pointe, conforme aux normes LEED, pour réduire l’empreinte écologique et soutenir la performance énergétique de vos bâtiments.</span></div>
+<div class="acc-it" onMouseEnter="{{a2.enter}}"><img class="acc-ic" src="assets/allen-maintenance/e1eb281e15f8.webp" alt="" style="width: {{a2.iw}}"><span class="acc-t" style="font-size: {{a2.ts}}">Processus qualité et sécurité éprouvés</span><span class="acc-d" style="max-height: {{a2.mh}}; opacity: {{a2.op}}; margin-top: {{a2.mt}}">Des protocoles rigoureux, validés par des années d’expérience, assurant un entretien constant, traçable et sécuritaire dans tous les environnements, même les plus sensibles.</span></div>
+<div class="acc-it" onMouseEnter="{{a3.enter}}"><img class="acc-ic" src="assets/allen-maintenance/5556902e24b8.webp" alt="" style="width: {{a3.iw}}"><span class="acc-t" style="font-size: {{a3.ts}}">Expertise humaine et proximité</span><span class="acc-d" style="max-height: {{a3.mh}}; opacity: {{a3.op}}; margin-top: {{a3.mt}}">Des équipes sélectionnées, formées et encadrées de près, qui travaillent dans un esprit de transparence, d’intégrité et de respect au service de chaque client.</span></div>
+</div>
+</div>
+</div>
+
+<span class="cap">Accueil | Secteurs</span>
+<div class="blk" data-sec="0" style="background: #FFFFFF; padding: 48px 0 64px">
+<p class="g-h"><b>Des solutions d’entretien</b><br>adaptées à chaque secteur</p>
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 44px">
+<div class="mq"><div class="mq-track " style="animation-duration: 52s"><div class="mq-set"><span class="sx"><span class="sw">Résidentiel</span><img class="sc" src="assets/allen-maintenance/8135c1cbf409.webp" alt=""></span><span class="sx"><span class="sw">Bureaux</span><img class="sc" src="assets/allen-maintenance/fdb15ff34286.webp" alt=""></span><span class="sx"><span class="sw">Médical</span><img class="sc" src="assets/allen-maintenance/afbc82552744.webp" alt=""></span><span class="sx"><span class="sw">Institution</span><img class="sc" src="assets/allen-maintenance/a772a4380f82.webp" alt=""></span><span class="sx"><span class="sw">Commercial</span><img class="sc" src="assets/allen-maintenance/427158b937be.webp" alt=""></span><span class="sx"><span class="sw">Hôpital</span><img class="sc" src="assets/allen-maintenance/ade1524b2807.webp" alt=""></span><span class="sx"><span class="sw">Industriel</span><img class="sc" src="assets/allen-maintenance/849741c20e46.webp" alt=""></span></div><div class="mq-set" aria-hidden="true"><span class="sx"><span class="sw">Résidentiel</span><img class="sc" src="assets/allen-maintenance/8135c1cbf409.webp" alt=""></span><span class="sx"><span class="sw">Bureaux</span><img class="sc" src="assets/allen-maintenance/fdb15ff34286.webp" alt=""></span><span class="sx"><span class="sw">Médical</span><img class="sc" src="assets/allen-maintenance/afbc82552744.webp" alt=""></span><span class="sx"><span class="sw">Institution</span><img class="sc" src="assets/allen-maintenance/a772a4380f82.webp" alt=""></span><span class="sx"><span class="sw">Commercial</span><img class="sc" src="assets/allen-maintenance/427158b937be.webp" alt=""></span><span class="sx"><span class="sw">Hôpital</span><img class="sc" src="assets/allen-maintenance/ade1524b2807.webp" alt=""></span><span class="sx"><span class="sw">Industriel</span><img class="sc" src="assets/allen-maintenance/849741c20e46.webp" alt=""></span></div></div></div>
+<div class="mq"><div class="mq-track rev" style="animation-duration: 58s"><div class="mq-set"><span class="sx"><span class="sw">Institution</span><img class="sc" src="assets/allen-maintenance/a772a4380f82.webp" alt=""></span><span class="sx"><span class="sw">Commercial</span><img class="sc" src="assets/allen-maintenance/427158b937be.webp" alt=""></span><span class="sx"><span class="sw">Hôpital</span><img class="sc" src="assets/allen-maintenance/ade1524b2807.webp" alt=""></span><span class="sx"><span class="sw">Industriel</span><img class="sc" src="assets/allen-maintenance/849741c20e46.webp" alt=""></span><span class="sx"><span class="sw">Résidentiel</span><img class="sc" src="assets/allen-maintenance/8135c1cbf409.webp" alt=""></span><span class="sx"><span class="sw">Bureaux</span><img class="sc" src="assets/allen-maintenance/fdb15ff34286.webp" alt=""></span><span class="sx"><span class="sw">Médical</span><img class="sc" src="assets/allen-maintenance/afbc82552744.webp" alt=""></span></div><div class="mq-set" aria-hidden="true"><span class="sx"><span class="sw">Institution</span><img class="sc" src="assets/allen-maintenance/a772a4380f82.webp" alt=""></span><span class="sx"><span class="sw">Commercial</span><img class="sc" src="assets/allen-maintenance/427158b937be.webp" alt=""></span><span class="sx"><span class="sw">Hôpital</span><img class="sc" src="assets/allen-maintenance/ade1524b2807.webp" alt=""></span><span class="sx"><span class="sw">Industriel</span><img class="sc" src="assets/allen-maintenance/849741c20e46.webp" alt=""></span><span class="sx"><span class="sw">Résidentiel</span><img class="sc" src="assets/allen-maintenance/8135c1cbf409.webp" alt=""></span><span class="sx"><span class="sw">Bureaux</span><img class="sc" src="assets/allen-maintenance/fdb15ff34286.webp" alt=""></span><span class="sx"><span class="sw">Médical</span><img class="sc" src="assets/allen-maintenance/afbc82552744.webp" alt=""></span></div></div></div>
+<div class="mq"><div class="mq-track " style="animation-duration: 48s"><div class="mq-set"><span class="sx"><span class="sw">Hôpital</span><img class="sc" src="assets/allen-maintenance/ade1524b2807.webp" alt=""></span><span class="sx"><span class="sw">Industriel</span><img class="sc" src="assets/allen-maintenance/849741c20e46.webp" alt=""></span><span class="sx"><span class="sw">Résidentiel</span><img class="sc" src="assets/allen-maintenance/8135c1cbf409.webp" alt=""></span><span class="sx"><span class="sw">Bureaux</span><img class="sc" src="assets/allen-maintenance/fdb15ff34286.webp" alt=""></span><span class="sx"><span class="sw">Médical</span><img class="sc" src="assets/allen-maintenance/afbc82552744.webp" alt=""></span><span class="sx"><span class="sw">Institution</span><img class="sc" src="assets/allen-maintenance/a772a4380f82.webp" alt=""></span><span class="sx"><span class="sw">Commercial</span><img class="sc" src="assets/allen-maintenance/427158b937be.webp" alt=""></span></div><div class="mq-set" aria-hidden="true"><span class="sx"><span class="sw">Hôpital</span><img class="sc" src="assets/allen-maintenance/ade1524b2807.webp" alt=""></span><span class="sx"><span class="sw">Industriel</span><img class="sc" src="assets/allen-maintenance/849741c20e46.webp" alt=""></span><span class="sx"><span class="sw">Résidentiel</span><img class="sc" src="assets/allen-maintenance/8135c1cbf409.webp" alt=""></span><span class="sx"><span class="sw">Bureaux</span><img class="sc" src="assets/allen-maintenance/fdb15ff34286.webp" alt=""></span><span class="sx"><span class="sw">Médical</span><img class="sc" src="assets/allen-maintenance/afbc82552744.webp" alt=""></span><span class="sx"><span class="sw">Institution</span><img class="sc" src="assets/allen-maintenance/a772a4380f82.webp" alt=""></span><span class="sx"><span class="sw">Commercial</span><img class="sc" src="assets/allen-maintenance/427158b937be.webp" alt=""></span></div></div></div>
+</div>
+</div>
+
+<span class="cap">Accueil | Clients</span>
+<div class="blk" data-sec="0" style="background: #FFFFFF; padding: 48px 0 64px">
+<p class="g-h"><b>La confiance de nos clients,</b><br>notre meilleure référence</p>
+<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 44px">
+<div class="mq"><div class="mq-track " style="animation-duration: 44s"><div class="mq-set"><span class="bub"><img src="assets/allen-maintenance/b0057cfb4b35.webp" alt="Bell" style="width: 75px"></span><span class="bub"><img src="assets/allen-maintenance/9bb9dee939a4.webp" alt="The Ritz-Carlton" style="width: 92px"></span><span class="bub"><img src="assets/allen-maintenance/063749d2f741.webp" alt="Université de Montréal" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/d406d665bd66.webp" alt="Croix Bleue Medavie" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/1b21ce8f9db0.webp" alt="Ivanhoé Cambridge" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/4a0f01158061.webp" alt="Industrial Alliance" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/8f522315a516.webp" alt="Bentall Kennedy" style="width: 113px"></span></div><div class="mq-set" aria-hidden="true"><span class="bub"><img src="assets/allen-maintenance/b0057cfb4b35.webp" alt="Bell" style="width: 75px"></span><span class="bub"><img src="assets/allen-maintenance/9bb9dee939a4.webp" alt="The Ritz-Carlton" style="width: 92px"></span><span class="bub"><img src="assets/allen-maintenance/063749d2f741.webp" alt="Université de Montréal" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/d406d665bd66.webp" alt="Croix Bleue Medavie" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/1b21ce8f9db0.webp" alt="Ivanhoé Cambridge" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/4a0f01158061.webp" alt="Industrial Alliance" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/8f522315a516.webp" alt="Bentall Kennedy" style="width: 113px"></span></div></div></div>
+<div class="mq"><div class="mq-track rev" style="animation-duration: 50s"><div class="mq-set"><span class="bub"><img src="assets/allen-maintenance/4a0f01158061.webp" alt="Industrial Alliance" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/8f522315a516.webp" alt="Bentall Kennedy" style="width: 113px"></span><span class="bub"><img src="assets/allen-maintenance/b0057cfb4b35.webp" alt="Bell" style="width: 75px"></span><span class="bub"><img src="assets/allen-maintenance/9bb9dee939a4.webp" alt="The Ritz-Carlton" style="width: 92px"></span><span class="bub"><img src="assets/allen-maintenance/063749d2f741.webp" alt="Université de Montréal" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/d406d665bd66.webp" alt="Croix Bleue Medavie" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/1b21ce8f9db0.webp" alt="Ivanhoé Cambridge" style="width: 131px"></span></div><div class="mq-set" aria-hidden="true"><span class="bub"><img src="assets/allen-maintenance/4a0f01158061.webp" alt="Industrial Alliance" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/8f522315a516.webp" alt="Bentall Kennedy" style="width: 113px"></span><span class="bub"><img src="assets/allen-maintenance/b0057cfb4b35.webp" alt="Bell" style="width: 75px"></span><span class="bub"><img src="assets/allen-maintenance/9bb9dee939a4.webp" alt="The Ritz-Carlton" style="width: 92px"></span><span class="bub"><img src="assets/allen-maintenance/063749d2f741.webp" alt="Université de Montréal" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/d406d665bd66.webp" alt="Croix Bleue Medavie" style="width: 131px"></span><span class="bub"><img src="assets/allen-maintenance/1b21ce8f9db0.webp" alt="Ivanhoé Cambridge" style="width: 131px"></span></div></div></div>
+</div>
+</div>
+
+<span class="cap">Accueil | Chiffres clés</span>
+<div id="cna-count" class="blk" data-sec="0" style="background: #FFFFFF; padding: 48px clamp(24px, 6vw, 80px) 56px">
+<div class="cnt"><span class="cnt-l">Clients<br>satisfaits</span><span class="cnt-n">{{n1}}+</span></div>
+<div class="cnt"><span class="cnt-l">Années<br>d’expertise</span><span class="cnt-n">{{n2}}+</span></div>
+<div class="cnt"><span class="cnt-l">Villes desservies<br>en ON, QC et NS</span><span class="cnt-n">{{n3}}</span></div>
+</div>
+
+<span class="cap">Accueil | Page complète</span>
+<div class="blk" data-sec="0" style="padding: 48px clamp(20px, 5vw, 64px) 56px; background: #DCE6EC">
+<div class="bw">
+<div class="bw-bar"><i></i><i></i><i></i><span class="bw-url">Accueil | 9 sections</span></div>
+<div class="scroller"><img src="assets/allen-maintenance/85b3d4edf746.webp" alt="Page d’accueil complète, du héros au pied de page"></div>
+</div>
+<p class="mono" style="margin: 16px 0 0; font-size: 11px; text-align: center; color: rgba(8,52,75,0.7)">Survolez pour mettre en pause</p>
+</div>
+
+<span class="cap">Services | Prestations</span>
+<div id="cna-s1" class="blk" data-sec="1" style="background: #FFFFFF">
+<img src="assets/allen-maintenance/f4e3106c3839.webp" alt="Page Services : Maintenir des locaux impeccables et accueillants, puis Nettoyage d’urgence et traitements spécifiques" style="display: block; width: 100%; height: auto">
+</div>
+
+<span class="cap">Approche | Nos engagements</span>
+<div id="cna-s2" class="blk" data-sec="2" style="background: #FFFFFF; padding: 56px clamp(24px, 5vw, 64px) 80px">
+<div style="position: relative; height: 92px; max-width: 260px; margin: 0 auto">
+<img class="car-ic" src="assets/allen-maintenance/293fc70677f4.webp" alt="Procédés certifiés" style="transform: {{ci0}}">
+<img class="car-ic" src="assets/allen-maintenance/98d21efcaa39.webp" alt="Équipes formées" style="transform: {{ci1}}">
+<img class="car-ic" src="assets/allen-maintenance/2be4aaa18413.webp" alt="Suivi continu" style="transform: {{ci2}}">
+</div>
+<p class="geist" style="margin: 22px auto 0; max-width: 760px; text-align: center; font-size: 29px; font-weight: 500; line-height: 1.45">Avec des <span style="color: #C0D84C">procédés certifiés</span>, des <span style="color: #C0D84C">équipes formées</span> et un <span style="color: #C0D84C">suivi continu</span>, nous assurons un environnement sain, durable et adapté à vos besoins.</p>
+</div>
+
+<span class="cap">Approche | Démarche en 5 étapes</span>
+<div class="blk dm" data-sec="2" onMouseEnter="{{dmEnter}}" onMouseLeave="{{dmLeave}}">
+<p class="geist" style="margin: 0 auto; max-width: 600px; padding: 0 24px; text-align: center; font-size: 26px; line-height: 1.25"><b style="font-weight: 600">Notre démarche en 5 étapes</b> garantit des espaces toujours propres, sains et adaptés à vos exigences</p>
+<div style="display: flex; justify-content: space-between; padding: 0 48px; margin: 36px 0 22px">
+<button type="button" class="dm-arrow" aria-label="Étape précédente" onClick="{{dmPrev}}" style="background: #FFFFFF; color: #08344B">‹</button>
+<span class="mono" style="align-self: center; font-size: 11px">Étape {{stepNum}} / 05</span>
+<button type="button" class="dm-arrow" aria-label="Étape suivante" onClick="{{dmNext}}" style="background: #C0D84C; color: #08344B">›</button>
+</div>
+<div class="dm-vp">
+<div class="dm-track" style="transform: translateX({{trackX}})">
+<sc-for list="{{cards}}" as="c" hint-placeholder-count="5">
+<div class="dm-card" style="background: {{c.bg}}; border: 1px solid {{c.border}}; opacity: {{c.op}}">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><span style="font-size: 13px"><b style="font-weight: 700">ETAPE</b> <span style="font-weight: 300">{{c.num}}</span></span><span class="dm-pill" style="background: {{c.pillBg}}; border: 1px solid {{c.pillBorder}}">{{c.verb}}</span></div>
+<span style="padding: 46px 0 12px; border-bottom: 1px solid rgba(8,52,75,0.25); font-size: 20px; font-weight: 300; line-height: 1.2">{{c.title}}</span>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{c.items}}" as="it" hint-placeholder-count="3">
+<span style="display: flex; gap: 8px; font-size: 12px; line-height: 1.45; font-weight: 300"><span aria-hidden="true">–</span><span><b style="font-weight: 600">{{it.b}}</b> {{it.t}}</span></span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<span class="cap">À propos | Héritage</span>
+<div id="cna-s3" class="blk" data-sec="3" style="background: #08344B">
+<img src="assets/allen-maintenance/68ce707a8395.webp" alt="Page À propos : Notre héritage depuis 1967, photo d’équipe, vision et chiffres 200+, 100 % et 30" style="display: block; width: 100%; height: auto">
+</div>
+
+<span class="cap">À propos | Engagement</span>
+<div class="blk" data-sec="3" style="background: #08344B; color: #FFFFFF; padding: 48px 0 64px">
+<p class="geist" style="margin: 0; text-align: center; font-size: 28px; line-height: 1.2"><b style="font-weight: 600">Notre engagement,</b> notre fierté</p>
+<p class="geist" style="margin: 14px auto 0; max-width: 520px; padding: 0 24px; text-align: center; font-size: 14px; line-height: 1.6; font-weight: 300; color: rgba(255,255,255,0.8)">Depuis notre création, nous avons toujours placé l’humain et la communauté au cœur de notre mission.</p>
+<p class="geist" style="margin: 36px 0 16px; text-align: center; font-size: 15px">Partenaires soutenus</p>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div class="mq"><div class="mq-track" style="animation-duration: 40s"><sc-for list="{{partA}}" as="p" hint-placeholder-count="10"><span class="pill-p"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10.5" fill="#FFFFFF"></circle><path d="M11 15.5 C7 12.6 5.8 11 5.8 9.4 C5.8 8 6.9 7 8.2 7 C9.3 7 10.3 7.7 11 8.6 C11.7 7.7 12.7 7 13.8 7 C15.1 7 16.2 8 16.2 9.4 C16.2 11 15 12.6 11 15.5 Z" fill="#08344B"></path></svg>{{p.t}}</span></sc-for></div></div>
+<div class="mq"><div class="mq-track rev" style="animation-duration: 46s"><sc-for list="{{partB}}" as="p" hint-placeholder-count="10"><span class="pill-p"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10.5" fill="#FFFFFF"></circle><path d="M11 15.5 C7 12.6 5.8 11 5.8 9.4 C5.8 8 6.9 7 8.2 7 C9.3 7 10.3 7.7 11 8.6 C11.7 7.7 12.7 7 13.8 7 C15.1 7 16.2 8 16.2 9.4 C16.2 11 15 12.6 11 15.5 Z" fill="#08344B"></path></svg>{{p.t}}</span></sc-for></div></div>
+</div>
+</div>
+
+<span class="cap">Contact | Formulaire</span>
+<div id="cna-s4" class="blk" data-sec="4" style="background: #E2E8EB">
+<img src="assets/allen-maintenance/92671ab6c84a.webp" alt="Page Contact : formulaire Faites-nous parvenir votre demande, avec type de demande, coordonnées, type d’immeuble et date de rappel" style="display: block; width: 100%; height: auto">
+</div>
+
+<span class="cap">Contact | Nos bureaux</span>
+<div class="blk" data-sec="4" style="background: #E2E8EB; padding: 48px clamp(20px, 4vw, 48px) 48px">
+<div style="position: relative; border-radius: 18px; overflow: hidden">
+<img src="assets/allen-maintenance/710e47c38d82.webp" alt="Carte des bureaux de Montréal et d’Ottawa, avec adresses, téléphones et horaires" style="display: block; width: 100%; height: auto">
+<span class="pulse" style="left: 21%; top: 38.9%"></span>
+<span class="pulse" style="left: 29.46%; top: 36.35%; animation-delay: 1.1s"></span>
+</div>
+</div>
+
+<span class="cap">Pied de page</span>
+<div class="blk" data-sec="4" style="background: #08344B">
+<img src="assets/allen-maintenance/f8e2bd780a48.webp" alt="Pied de page : Un entretien durable et sécuritaire pour tous vos environnements, boutons de contact, adresses de Montréal et d’Ottawa" style="display: block; width: 100%; height: auto">
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 24px 6px 12px">
+<span class="mono" style="font-size: 12px; color: rgba(8,52,75,0.6)">Fin du défilement</span>
+<a href="index.html#projets" class="mono" style="padding: 14px 22px; border-radius: 999px; border: 1.5px solid #08344B; font-size: 12px; text-decoration: none">← Retour aux projets</a>
+</div>
+
+</div>
+
+<!-- COLONNE DROITE : FIXE -->
+<aside class="right" aria-label="Informations sur le projet">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div class="sechead"><span class="pill"><b>01</b>Contexte</span><span class="rule"></span></div>
+<h1 class="h2"><span class="mark">Allen Maintenance | Controlnet</span></h1>
+<p class="p">Deux spécialistes de l’entretien commercial réunis sous une même bannière. J’ai conçu leur site vitrine bilingue, de l’accueil au formulaire de contact, pour porter plus de 55 ans d’expertise.</p>
+<div style="position: relative; height: 2px; background: #08344B"><span style="position: absolute; left: 0; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: #08344B"></span></div>
+<div class="meta">
+<div><span class="k">Mon rôle</span><span class="v">UI design</span></div>
+<div><span class="k">Année</span><span class="v">2025</span></div>
+<div><span class="k">Support</span><span class="v">Site web, 5 pages</span></div>
+<div><span class="k">Outils</span><span class="v">Figma</span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">Webdesign</span><span class="chip">Site vitrine</span><span class="chip">Bilingue FR | EN</span><span class="chip">Animations</span></div>
+<div class="brief">
+<span style="font-size: 17px; font-weight: 800">Le groupe en bref</span>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+<div class="stat"><b>55+ ans</b><span>d’expertise en entretien</span></div>
+<div class="stat"><b>200+</b><span>clients satisfaits</span></div>
+<div class="stat"><b>32 villes</b><span>desservies en ON, QC et NS</span></div>
+<div class="stat"><b>7 secteurs</b><span>du bureau à l’industrie</span></div>
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<nav class="navseg" aria-label="Pages du site">
+<sc-for list="{{idx}}" as="x" hint-placeholder-count="5">
+<a href="{{x.href}}" style="background: {{x.bg}}; color: {{x.color}}">{{x.label}}</a>
+</sc-for>
+</nav>
+<div class="prog" role="progressbar" aria-label="Progression du défilement" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{pct}}">
+<span class="prog-num mono" style="left: {{pct}}%; transform: translateX(-{{pct}}%)">{{pct}}%</span>
+<div class="prog-track"><span style="width: {{pct}}%"></span></div>
+</div>
+</div>
+</aside>
+
+</div>
+</div></template>
+<script src="dc-runtime.js"></script>
+<script>
+DC.define("SiteCNA", function (DCLogic) {
+
+class Component extends DCLogic {
+  componentDidMount() {
+    var self = this;
+    this._step = 0; this._hover = false; this._holdUntil = 0;
+    this._acc = 0; this._accHover = false; this._car = 0;
+    this._onScroll = function () { self.measure(); };
+    window.addEventListener('scroll', this._onScroll, true);
+    window.addEventListener('resize', this._onScroll);
+    this._clockT = setInterval(function () { self.setState({ clock: self.clockStr() }); }, 1000);
+    this._dmT = setInterval(function () {
+      if (self._hover || Date.now() < self._holdUntil) { return; }
+      self._step = (self._step + 1) % 5;
+      self.setState({ step: self._step });
+    }, 3400);
+    this._accT = setInterval(function () {
+      if (self._accHover) { return; }
+      self._acc = (self._acc + 1) % 4;
+      self.setState({ acc: self._acc });
+    }, 3000);
+    this._carT = setInterval(function () {
+      self._car = (self._car + 1) % 3;
+      self.setState({ car: self._car });
+    }, 2400);
+    this._mT = setTimeout(function () {
+      self.measure();
+      var se = document.scrollingElement || document.documentElement;
+      if (se && se.scrollHeight <= window.innerHeight + 40) { self.startCount(); }
+    }, 400);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll, true);
+    window.removeEventListener('resize', this._onScroll);
+    clearInterval(this._clockT); clearInterval(this._dmT); clearInterval(this._accT); clearInterval(this._carT); clearTimeout(this._mT);
+    if (this._raf) { window.cancelAnimationFrame(this._raf); }
+  }
+  clockStr() {
+    try {
+      return new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Toronto', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(new Date());
+    } catch (e) { return ''; }
+  }
+  measure() {
+    var el = document.getElementById('cna-split');
+    if (!el) { return; }
+    var vh = window.innerHeight || 1;
+    var r = el.getBoundingClientRect();
+    var total = Math.max(1, r.height - vh);
+    var p = Math.min(1, Math.max(0, -r.top / total));
+    var act = 0;
+    var blks = document.querySelectorAll('[data-sec]');
+    for (var i = 0; i < blks.length; i++) {
+      if (blks[i].getBoundingClientRect().top < vh * 0.5) { act = parseInt(blks[i].getAttribute('data-sec'), 10) || 0; }
+    }
+    var c = document.getElementById('cna-count');
+    if (c && !this._counted) {
+      var cr = c.getBoundingClientRect();
+      if (cr.top < vh * 0.85 && cr.bottom > 0) { this.startCount(); }
+    }
+    var pct = Math.round(p * 100);
+    if (pct !== this._pct || act !== this._act) {
+      this._pct = pct; this._act = act;
+      this.setState({ pct: pct, act: act });
+    }
+  }
+  startCount() {
+    if (this._counted) { return; }
+    this._counted = true;
+    var self = this, t0 = null, dur = 1700;
+    var tick = function (now) {
+      if (t0 == null) { t0 = now; }
+      var k = Math.min(1, (now - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      self.setState({ cnt: e });
+      if (k < 1) { self._raf = window.requestAnimationFrame(tick); }
+    };
+    this._raf = window.requestAnimationFrame(tick);
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state || {};
+    var step = typeof st.step === 'number' ? st.step : 0;
+    var act = typeof st.act === 'number' ? st.act : 0;
+    var pct = typeof st.pct === 'number' ? st.pct : 0;
+    var cnt = typeof st.cnt === 'number' ? st.cnt : 0;
+    var acc = typeof st.acc === 'number' ? st.acc : 0;
+    var car = typeof st.car === 'number' ? st.car : 0;
+    var defs = [
+      ['01', 'Identifier', 'Identifier vos besoins avec précision', [['Visite des lieux', 'avec analyse des espaces et de leurs spécificités.'], ['Rencontre avec vos dirigeants', 'et intégration des priorités stratégiques.'], ['Prise en compte de la culture d’entreprise', 'et adaptation de nos méthodes à votre environnement.']]],
+      ['02', 'Élaborer', 'Élaborer des procédés sur mesure', [['Définition des objectifs mesurables', '(propreté, sécurité, image de marque).'], ['Sélection des produits et équipements', 'les plus performants et respectueux de l’environnement.'], ['Préparation de devis techniques,', 'grilles de suivi et échéanciers clairs.']]],
+      ['03', 'Valider', 'Valider les procédés avec transparence', [['Assurance qualité', 'intégrée dès la conception.'], ['Fiches signalétiques', 'des produits et équipements à votre disposition.'], ['Approbation finale', 'par le client avant lancement.']]],
+      ['04', 'Planifier', 'Planifier et organiser le travail', [['Planification des temps et mouvements', 'pour maximiser l’efficacité.'], ['Définition des horaires', 'quotidiens, hebdomadaires, mensuels et travaux spéciaux.'], ['Formations sur mesure', 'pour nos équipes, adaptées à vos besoins spécifiques.']]],
+      ['05', 'Contrôler', 'Contrôler et améliorer en continu', [['Contrôle systématique de la qualité', 'avec lecteurs optiques.'], ['Rapports instantanés', 'et actions correctives immédiates si nécessaire.'], ['Suivi de l’évolution de vos besoins', 'pour anticiper et ajuster nos services.']]]
+    ];
+    var cards = defs.map(function (d, i) {
+      var on = i === step;
+      return {
+        num: d[0], verb: d[1], title: d[2],
+        items: d[3].map(function (x) { return { b: x[0], t: x[1] }; }),
+        bg: on ? '#FFFFFF' : 'rgba(255,255,255,0.45)',
+        border: on ? '#FFFFFF' : 'rgba(255,255,255,0.9)',
+        pillBg: on ? '#C0D84C' : 'transparent',
+        pillBorder: on ? '#C0D84C' : 'rgba(8,52,75,0.45)',
+        op: on ? 1 : 0.85
+      };
+    });
+    var shift = Math.min(step, 3);
+    function accItem(i) {
+      var on = i === acc;
+      return {
+        iw: on ? '58px' : '38px',
+        ts: on ? '23px' : '17px',
+        mh: on ? '120px' : '0px',
+        op: on ? 1 : 0,
+        mt: on ? '10px' : '0px',
+        enter: function () { self._acc = i; self.setState({ acc: i }); }
+      };
+    }
+    function carT(i) {
+      var pos = ((i - car + 1) % 3 + 3) % 3 - 1;
+      var sc = pos === 0 ? 1.35 : 0.82;
+      return 'translate(-50%, -50%) translateX(' + (pos * 82) + 'px) scale(' + sc + ')';
+    }
+    var labels = ['Accueil', 'Services', 'Approche', 'À propos', 'Contact'];
+    var idx = labels.map(function (l, i) {
+      var on = i === act;
+      return { label: l, href: '#cna-s' + i, bg: on ? '#08344B' : 'transparent', color: on ? '#FFFFFF' : '#08344B' };
+    });
+    var pa = ['La Fondation de l’Hôpital Sainte-Marie', 'L’Hôpital général juif | Centre du cancer Segal', 'Big Sister', 'La Banque alimentaire d’Ottawa', 'Séminaire Chaya Mushka'];
+    var pb = ['La recherche sur le cancer pédiatrique', 'Rouler pour vaincre le cancer', 'L’Institut Weizmann des sciences', 'L’Hôpital Royal Victoria', 'Big Brother'];
+    function dbl(a) { return a.concat(a).map(function (t) { return { t: t }; }); }
+    return {
+      clock: st.clock || this.clockStr(),
+      pct: pct,
+      idx: idx,
+      n1: Math.round(200 * cnt), n2: Math.round(55 * cnt), n3: Math.round(32 * cnt),
+      cards: cards,
+      stepNum: '0' + (step + 1),
+      trackX: 'calc(' + (-shift * 318) + 'px)',
+      a0: accItem(0), a1: accItem(1), a2: accItem(2), a3: accItem(3),
+      ci0: carT(0), ci1: carT(1), ci2: carT(2),
+      partA: dbl(pa), partB: dbl(pb),
+      accEnter: function () { self._accHover = true; },
+      accLeave: function () { self._accHover = false; },
+      dmPrev: function () { self._step = (self._step + 4) % 5; self._holdUntil = Date.now() + 7000; self.setState({ step: self._step }); },
+      dmNext: function () { self._step = (self._step + 1) % 5; self._holdUntil = Date.now() + 7000; self.setState({ step: self._step }); },
+      dmEnter: function () { self._hover = true; },
+      dmLeave: function () { self._hover = false; }
+    };
+  }
+}
+
+return Component;
+}, {"$preview": {"width": 1440, "height": 900}});
+</script>
+<script>DC.mount("SiteCNA", document.getElementById("dc-app"));</script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maeva Benakli | Product designer</title>
+<meta name="description" content="Portfolio de Maeva Benakli, product designer : études de cas UX/UI, sites web et identités visuelles.">
+<meta property="og:title" content="Maeva Benakli | Product designer">
+<style>html{overflow-x:hidden}body{overflow-x:clip}</style>
+<meta property="og:description" content="Portfolio de Maeva Benakli, product designer : études de cas UX/UI, sites web et identités visuelles.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&amp;family=Geist+Mono:wght@400;500&amp;family=Geist:wght@300;400;500;600&amp;family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&amp;display=swap">
+<style>
+body{margin:0; background-color: #FFFFFF; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&amp;family=Geist+Mono:wght@400;500&amp;family=Geist:wght@300;400;500;600&amp;family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&amp;display=swap">
+<style>
+body{margin:0; background-color: #FFFFFF; }
+*{box-sizing:border-box}
+a{color:#3B5013}a:hover{color:#26340C}
+.hero-bg{background:#3B5013 url(assets/accueil/78b3680eb2a8.jpg) center/cover no-repeat}
+.hero-photo{background:#1A120A url(assets/accueil/d11f6f736368.webp) 50% 30%/cover no-repeat}
+.tools-bg{background:#FDFBD4 url(assets/accueil/a4225762dbab.jpg) center/cover no-repeat}
+.pr-bg{background:linear-gradient(rgba(30,42,8,.82),rgba(30,42,8,.82)),#26340C url(assets/accueil/78b3680eb2a8.jpg) center/cover no-repeat}
+.nav-link{color:rgba(253,251,212,.75);text-decoration:none;transition:color .2s}
+.nav-link:hover{color:#FFF6A2}
+.soc{display:flex;align-items:center;justify-content:center;width:44px;height:44px;text-decoration:none;color:#FDFBD4}
+.soc span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:rgba(253,251,212,.14);transition:background .2s,color .2s}
+.soc:hover span{background:#FFF6A2;color:#26340C}
+.dot-pulse{animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(122,214,92,.55)}70%{box-shadow:0 0 0 9px rgba(122,214,92,0)}100%{box-shadow:0 0 0 0 rgba(122,214,92,0)}}
+.folder{display:block;text-decoration:none;color:#26340C;transition:transform .3s}
+.folder:hover{transform:translateY(-4px)}
+.folder:focus-visible{outline:2px solid #FFF6A2;outline-offset:4px}
+.sheet{position:absolute;bottom:58px;left:calc(50% - 52px);width:104px;height:128px;border-radius:10px;overflow:hidden;box-shadow:0 10px 24px -10px rgba(20,26,10,.45);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.s1{transform:translate(-44px,6px) rotate(-12deg)}
+.s2{transform:translate(0,-6px) rotate(2deg)}
+.s3{transform:translate(44px,8px) rotate(11deg)}
+.folder:hover .s1,.folder:focus-visible .s1{transform:translate(-64px,-28px) rotate(-18deg)}
+.folder:hover .s2,.folder:focus-visible .s2{transform:translate(0,-42px) rotate(-1deg)}
+.folder:hover .s3,.folder:focus-visible .s3{transform:translate(64px,-24px) rotate(17deg)}
+.tool-card{position:relative;border-radius:44px;background:rgba(253,251,212,.66);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.bridge{position:absolute;left:50%;bottom:-22px;width:150px;height:22px;margin-left:-75px;background:rgba(253,251,212,.66);-webkit-mask:radial-gradient(circle at 0 50%,transparent 10.5px,#000 11px) left/50% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 10.5px,#000 11px) right/50% 100% no-repeat;mask:radial-gradient(circle at 0 50%,transparent 10.5px,#000 11px) left/50% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 10.5px,#000 11px) right/50% 100% no-repeat}
+.bridge-m{display:none}
+.caret{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.principle-note{transition:opacity .35s,transform .35s}
+.btn{transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(38,52,12,.5)}
+@property --pct{syntax:'<integer>';inherits:false;initial-value:0}
+.intro{position:fixed;top:0;left:0;width:100%;height:100vh;max-height:1400px;z-index:9999;display:flex;align-items:center;justify-content:center;background:#3B5013 url(assets/accueil/78b3680eb2a8.jpg) center/cover no-repeat;color:#FDFBD4;transition:transform .9s cubic-bezier(.76,0,.24,1)}
+.intro-out{transform:translateY(-100%)}
+.intro-inner{display:flex;flex-direction:column;align-items:center;gap:28px;transition:opacity .45s,transform .6s cubic-bezier(.76,0,.24,1)}
+.intro-out .intro-inner{opacity:0;transform:translateY(-60px)}
+.intro-fill{animation:introFill 2.4s cubic-bezier(.65,0,.35,1) .2s both}
+@keyframes introFill{from{transform:translateY(272px)}to{transform:translateY(-9px)}}
+.intro-wave{animation:introWave 1.3s linear infinite}
+@keyframes introWave{to{transform:translateX(-300px)}}
+.intro-count{counter-reset:pct var(--pct);animation:introCount 2.4s cubic-bezier(.65,0,.35,1) .2s both}
+.intro-count::before{content:counter(pct,decimal-leading-zero)}
+@keyframes introCount{from{--pct:0}to{--pct:100}}
+@media (prefers-reduced-motion:reduce){.intro-wave{animation:none}}
+@media (max-width:960px){
+.nav-role{display:none}
+.pad-x{padding-left:24px !important;padding-right:24px !important}
+.folder-wrap{position:relative !important;right:auto !important;bottom:auto !important;margin:0 24px 48px !important}
+.hero-main{padding-right:24px !important;padding-top:320px !important}
+.tools-grid{grid-template-columns:minmax(0,1fr) !important}
+.bridge-m{display:block}
+.principle-row{flex-direction:column !important;align-items:center !important;opacity:1 !important}
+.principle-note{position:static !important;transform:none !important;opacity:1 !important;width:auto !important;max-width:420px;margin-top:6px}
+}
+@media (max-width:640px){
+.hero-photo{background-position:72% 30% !important}
+.soc-wrap{display:none !important}
+.tool-card{border-radius:32px;padding:28px !important}
+.tool-illu{display:none}
+}
+</style>
+</head>
+<body>
+<div id="dc-app"></div>
+<template id="dc-tpl-ProjetsV2"><div style="font-family: Geist, system-ui, sans-serif; color: #26340C; background-color: #ffffff">
+
+<!-- ÉTUDES DE CAS -->
+<section style="box-sizing: border-box; max-width: 1440px; margin: 0 auto; padding: 140px clamp(20px, 3.4vw, 48px) 40px; display: flex; flex-direction: column; gap: 88px">
+<header style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 48px; flex-wrap: wrap; padding-bottom: 32px; border-bottom: 1px solid rgba(38,52,12,0.18)">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(38,52,12,0.72)">(01) Études de cas | Apps mobiles</span>
+<h2 style="margin: 0; font-family: {{tf}}; font-weight: 300; font-size: clamp(40px, 5.4vw, 80px); line-height: 1.02; letter-spacing: -0.02em">Faire évoluer des apps<br>à partir des usages</h2>
+</div>
+<p style="margin: 0; max-width: 380px; font-size: 17px; line-height: 1.55; color: rgba(38,52,12,0.78)">Trois études de cas sur des applications existantes : recherche utilisateur, nouvelles fonctionnalités et pistes d’amélioration, testées puis affinées.</p>
+</header>
+
+<sc-for list="{{apps}}" as="p" hint-placeholder-count="3">
+<article style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; gap: 16px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase"><span>{{p.meta}}</span><span>{{p.year}}</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="box-sizing: border-box; flex: 1.6 1 520px; min-width: 0; min-height: 600px; position: relative; overflow: hidden; border-radius: 6px; background: {{p.panel}}; display: flex; align-items: center; justify-content: flex-end; padding: 48px 12% 48px 24px">
+<span style="position: absolute; top: 26px; left: 30px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.08em; color: {{p.big}}">N°{{p.n}}</span>
+<sc-if value="{{p.isMock}}" hint-placeholder-val="{{ true }}">
+<span style="position: absolute; left: 24px; bottom: 6px; font-family: {{p.tf}}; font-weight: 300; font-size: clamp(76px, 9.4vw, 152px); line-height: 1; letter-spacing: -0.035em; color: {{p.big}}">{{p.name}}</span>
+</sc-if>
+<sc-if value="{{p.isAlan}}" hint-placeholder-val="{{ false }}">
+<img src="assets/accueil/313322a6d076.webp" alt="Logo Alan" style="position: absolute; left: 32px; top: 68px; width: clamp(150px, 16vw, 230px); height: auto">
+<img src="assets/accueil/7bdf8ad7a33d.webp" alt="" aria-hidden="true" style="position: absolute; left: 12px; bottom: 0; width: auto; height: clamp(260px, 26vw, 380px)">
+</sc-if>
+<sc-if value="{{p.isPenny}}" hint-placeholder-val="{{ false }}">
+<img src="assets/accueil/c3024dc47134.webp" alt="Logo Pennylane" style="position: absolute; left: 32px; top: 70px; width: clamp(170px, 18vw, 260px); height: auto">
+<img src="assets/accueil/dca264b933c4.webp" alt="" aria-hidden="true" style="position: absolute; left: 4px; bottom: 4px; width: clamp(250px, 26vw, 380px); height: auto">
+</sc-if>
+<sc-if value="{{p.isVc}}" hint-placeholder-val="{{ false }}">
+<img src="assets/accueil/08fd99fbcb26.webp" alt="Logo Vestiaire Collective" style="position: absolute; left: 32px; top: 66px; width: clamp(150px, 15vw, 220px); height: auto">
+<img src="assets/accueil/d03d77e00bfb.webp" alt="" aria-hidden="true" style="position: absolute; left: 24px; bottom: 24px; width: 218px; height: 228px; transform: rotate(-13deg)">
+</sc-if>
+<sc-if value="{{p.isAlan}}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing: border-box; position: relative; z-index: 1; flex-shrink: 0; width: 250px; padding: 8px; border-radius: 42px; background: #14141F; transform: rotate(-6deg); box-shadow: 0 40px 70px -26px rgba(40,30,110,0.55)">
+<img src="assets/accueil/2ec936d27af6.webp" alt="Accueil de l’app Alan avec la carte Défi solidaire contre l’AVC" style="display: block; width: 100%; height: auto; border-radius: 34px">
+</div>
+</sc-if>
+<sc-if value="{{p.isPenny}}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing: border-box; position: relative; z-index: 1; flex-shrink: 0; width: 250px; padding: 8px; border-radius: 42px; background: #0E1B19; transform: rotate(-6deg); box-shadow: 0 40px 70px -26px rgba(0,70,64,0.55)">
+<img src="assets/accueil/8f60e023accb.webp" alt="Accueil de l’app Pennylane : total des dépenses, part validée, date du prochain virement et montants en attente" style="display: block; width: 100%; height: auto; border-radius: 34px">
+</div>
+</sc-if>
+<sc-if value="{{p.isVc}}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing: border-box; position: relative; z-index: 1; flex-shrink: 0; width: 250px; padding: 8px; border-radius: 42px; background: #111111; transform: rotate(-6deg); box-shadow: 0 40px 70px -26px rgba(120,40,10,0.5)">
+<img src="assets/accueil/d4d99d13b59d.webp" alt="Mon vestiaire, onglet Mes ventes : relance des acheteurs, annonces, ventes en cours et statistiques" style="display: block; width: 100%; height: auto; border-radius: 34px">
+</div>
+</sc-if>
+<sc-if value="{{p.isMock}}" hint-placeholder-val="{{ true }}">
+<div style="box-sizing: border-box; position: relative; z-index: 1; flex-shrink: 0; width: 250px; height: 512px; padding: 9px; border-radius: 42px; background: #141A0A; transform: rotate(-6deg); box-shadow: 0 40px 70px -26px rgba(10,14,4,0.7)">
+<div style="box-sizing: border-box; position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 34px; background: {{p.screen}}; color: {{p.ink}}; display: flex; flex-direction: column; gap: 14px; padding: 46px 18px 16px">
+<div style="position: absolute; top: 11px; left: 50%; width: 76px; height: 22px; margin-left: -38px; border-radius: 12px; background: #141A0A"></div>
+<div style="display: flex; justify-content: space-between; align-items: center; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase"><span style="opacity: 0.75">{{p.appName}}</span><span style="width: 22px; height: 22px; border-radius: 50%; background: {{p.card}}"></span></div>
+<div style="font-family: {{p.tf}}; font-weight: 300; font-size: 25px; line-height: 1.08; letter-spacing: -0.01em">{{p.greeting}}</div>
+<div style="box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; min-height: 126px; padding: 14px; border-radius: 18px; background: {{p.card}}; color: {{p.cardInk}}">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 8px; letter-spacing: 0.1em; opacity: 0.85">{{p.cardLabel}}</span>
+<span style="font-size: 17px; font-weight: 500; line-height: 1.2">{{p.cardValue}}</span>
+</div>
+<sc-for list="{{p.rows}}" as="r" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 14px; background: {{r.bg}}; font-size: 11px; line-height: 1.3"><span style="flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; background: {{r.dot}}"></span><span>{{r.t}}</span></div>
+</sc-for>
+<div style="margin-top: auto; display: flex; justify-content: space-around; align-items: center; padding: 9px; border-radius: 999px; background: {{p.tabBg}}">
+<span style="width: 26px; height: 26px; border-radius: 50%; background: {{p.card}}"></span>
+<span style="width: 18px; height: 4px; border-radius: 2px; background: {{p.ink}}; opacity: 0.3"></span>
+<span style="width: 18px; height: 4px; border-radius: 2px; background: {{p.ink}}; opacity: 0.3"></span>
+<span style="width: 18px; height: 4px; border-radius: 2px; background: {{p.ink}}; opacity: 0.3"></span>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+<div style="box-sizing: border-box; flex: 1 1 340px; min-width: 0; min-height: 600px; position: relative; border-radius: 6px; background: {{p.panel2}}; display: flex; align-items: center; justify-content: center; padding: 64px 28px">
+<sc-if value="{{p.isAlan}}" hint-placeholder-val="{{ false }}">
+<img src="assets/accueil/cae2396afeee.webp" alt="Ajout d’un bilan tension et cholestérol à la checklist santé" style="display: block; width: 100%; max-width: 290px; height: auto; border-radius: 24px; transform: rotate(2deg); box-shadow: 0 30px 60px -30px rgba(40,30,110,0.45)">
+</sc-if>
+<sc-if value="{{p.isPenny}}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing: border-box; width: 100%; max-width: 330px; padding: 18px; border-radius: 24px; background: #FFFFFF; transform: rotate(2deg); box-shadow: 0 30px 60px -30px rgba(0,70,64,0.45)">
+<img src="assets/accueil/9ff8b49204e8.webp" alt="Montant d’une nuit d’hôtel avec la jauge orange : limite dépassée, remboursement de 150 € et lien vers le règlement" style="display: block; width: 100%; height: auto">
+</div>
+</sc-if>
+<sc-if value="{{p.isVc}}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing: border-box; width: 100%; max-width: 340px; padding: 14px; border-radius: 24px; background: #FFFFFF; transform: rotate(2deg); box-shadow: 0 30px 60px -30px rgba(120,40,10,0.45)">
+<img src="assets/accueil/911e5099b74b.webp" alt="Carte d’annonce avec jours en ligne, vues et favoris, et le conseil : 28 favoris, aucune offre, voir les leviers" style="display: block; width: 100%; height: auto">
+</div>
+</sc-if>
+<sc-if value="{{p.isMock}}" hint-placeholder-val="{{ true }}">
+<div style="box-sizing: border-box; width: 100%; max-width: 290px; display: flex; flex-direction: column; gap: 14px; padding: 22px; border-radius: 22px; background: {{p.detailBg}}; color: {{p.detailInk}}; transform: rotate(2deg); box-shadow: 0 30px 60px -30px rgba(10,14,4,0.6)">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.1em">{{p.detailLabel}}</span>
+<span style="flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: {{p.fill}}"></span>
+</div>
+<span style="font-family: {{p.tf}}; font-weight: 300; font-size: 30px; line-height: 1.05; letter-spacing: -0.01em">{{p.detailValue}}</span>
+<span style="font-size: 13px; line-height: 1.4; opacity: 0.8">{{p.detailNote}}</span>
+<div style="height: 8px; border-radius: 4px; background: {{p.track}}; overflow: hidden"><div style="height: 100%; width: {{p.progress}}; border-radius: 4px; background: {{p.fill}}"></div></div>
+</div>
+</sc-if>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px 32px; flex-wrap: wrap; margin-top: 6px">
+<p style="margin: 0; max-width: 560px; font-size: 17px; line-height: 1.5"><strong style="font-weight: 500">{{p.title}}.</strong> <span style="color: rgba(38,52,12,0.78)">{{p.desc}}</span></p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<sc-for list="{{p.tagList}}" as="t" hint-placeholder-count="3">
+<span style="padding: 6px 11px; border-radius: 999px; background: #FFF6A2; border: 1px solid rgba(59,80,19,0.2); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; border-style: none; color: #A19103">{{t.t}}</span>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(38,52,12,0.18)">
+<a href="{{p.href}}" style="padding: 16px 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: #26340C">LIRE L’ÉTUDE DE CAS</a>
+<span aria-hidden="true" style="display: flex; gap: 6px"><span style="width: 6px; height: 6px; border-radius: 50%; background: #26340C"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #26340C"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #26340C"></span></span>
+</div>
+</article>
+</sc-for>
+</section>
+
+<!-- SITES WEB -->
+<section style="box-sizing: border-box; max-width: 1440px; margin: 0 auto; padding: 100px clamp(20px, 3.4vw, 48px) 140px; display: flex; flex-direction: column; gap: 88px">
+<header style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 48px; flex-wrap: wrap; padding-bottom: 32px; border-bottom: 1px solid rgba(38,52,12,0.18)">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(38,52,12,0.72)">(02) Sites web | Freelance</span>
+<h2 style="margin: 0; font-family: {{tf}}; font-weight: 300; font-size: clamp(40px, 5.4vw, 80px); line-height: 1.02; letter-spacing: -0.02em">Des sites qui clarifient<br>une offre et une identité</h2>
+</div>
+<p style="margin: 0; max-width: 380px; font-size: 17px; line-height: 1.55; color: rgba(38,52,12,0.78)">Identité visuelle, webdesign et animations : deux sites vitrines conçus en freelance, pour une entreprise de services et une association culturelle.</p>
+</header>
+
+<sc-for list="{{sites}}" as="w" hint-placeholder-count="2">
+<article style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; gap: 16px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase"><span>{{w.meta}}</span><span>{{w.year}}</span></div>
+<div style="position: relative; overflow: hidden; box-sizing: border-box; min-height: 540px; border-radius: 6px; background: {{w.frame}}; display: flex; align-items: center; justify-content: center; padding: clamp(24px, 6vw, 96px)">
+<sc-if value="{{w.isCna}}" hint-placeholder-val="{{ false }}">
+<img src="assets/accueil/81f15f061521.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.12)">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 45%, rgba(4,30,46,0.28) 100%)"></span>
+</sc-if>
+<sc-if value="{{w.isLouvre}}" hint-placeholder-val="{{ false }}">
+<img src="assets/accueil/36c545a16c62.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.12)">
+<span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 45%, rgba(60,0,30,0.22) 100%)"></span>
+</sc-if>
+<div style="position: relative; z-index: 1; width: 100%; max-width: 900px; container-type: inline-size; border-radius: 6px; overflow: hidden; background: {{w.siteBg}}; color: {{w.siteInk}}; box-shadow: 0 50px 90px -36px rgba(4,20,30,0.65)">
+<sc-if value="{{w.isCna}}" hint-placeholder-val="{{ false }}">
+<img src="assets/accueil/48e39e9cedcd.webp" alt="Page d’accueil du site Allen Maintenance | Controlnet" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 0">
+</sc-if>
+<sc-if value="{{w.isLouvre}}" hint-placeholder-val="{{ false }}">
+<img src="assets/accueil/ceaafbbb0d78.webp" alt="Page d’accueil du site Chill au Louvre" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 0">
+</sc-if>
+<sc-if value="{{w.isMock}}" hint-placeholder-val="{{ true }}">
+<div style="aspect-ratio: 16 / 9; display: flex">
+<div style="box-sizing: border-box; flex: 1 1 58%; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 2cqw; padding: 4.5cqw 5cqw">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 2cqw">
+<span style="font-family: {{w.tf}}; font-size: 2cqw; white-space: nowrap">{{w.name}}</span>
+<span style="display: flex; gap: 1.8cqw; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 1.1cqw; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8"><sc-for list="{{w.nav}}" as="l" hint-placeholder-count="3"><span>{{l.t}}</span></sc-for></span>
+</div>
+<span style="font-family: {{w.tf}}; font-weight: 300; font-size: 4.6cqw; line-height: 1.04; letter-spacing: -0.02em">{{w.hero}}</span>
+<span style="align-self: flex-start; padding: 0.9cqw 1.8cqw; border-radius: 999px; background: {{w.accent}}; color: {{w.btnInk}}; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 1.1cqw; letter-spacing: 0.08em; text-transform: uppercase">{{w.cta}}</span>
+</div>
+<div style="flex: 1 1 42%; position: relative; background: {{w.visual}}">
+<div style="position: absolute; left: 50%; top: 50%; width: 46%; aspect-ratio: 3 / 4; transform: translate(-50%, -50%); border-radius: {{w.shapeRadius}}; background: {{w.shape}}; box-shadow: 0 20px 40px -20px rgba(0,0,0,0.35)"></div>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px 32px; flex-wrap: wrap; margin-top: 6px">
+<p style="margin: 0; max-width: 560px; font-size: 17px; line-height: 1.5; width: 771px"><strong style="font-weight: 500">{{w.title}}.</strong> <span style="color: rgba(38,52,12,0.78)">{{w.desc}}</span></p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<sc-for list="{{w.tagList}}" as="t" hint-placeholder-count="3">
+<span style="padding: 6px 11px; border-radius: 999px; background: #FFF6A2; border: 1px solid rgba(59,80,19,0.2); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: #A19103; border-style: none">{{t.t}}</span>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(38,52,12,0.18)">
+<a href="{{w.href}}" style="padding: 16px 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: #26340C">VOIR LE PROJET</a>
+<span aria-hidden="true" style="display: flex; gap: 6px"><span style="width: 6px; height: 6px; border-radius: 50%; background: #26340C"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #26340C"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #26340C"></span></span>
+</div>
+</article>
+</sc-for>
+</section>
+
+</div></template>
+<template id="dc-tpl-MainV2"><div style="font-family: Geist, system-ui, sans-serif; color: #26340C; background: #FDFBD4">
+
+<!-- INTRO DE CHARGEMENT -->
+<sc-if value="{{introOn}}" hint-placeholder-val="{{ false }}">
+<div class="intro {{introClass}}" aria-hidden="true">
+<div class="intro-inner">
+<svg viewBox="0 0 600 261" style="display: block; width: min(72vw, 560px); height: auto; overflow: visible">
+<defs>
+<clipPath id="maeIntroClip"><path id="maeIntroPath" clip-rule="evenodd" d="M511.9 259.9C463.8 254.8 430.8 219.3 430.7 172.5C430.6 127.3 459.3 92.5 502.3 85.5C543.2 78.9 583.4 93.6 595.9 120C599.9 128.5 599.7 144 595.6 152.3C589.9 163.4 580.5 169.3 568.5 169.4C550 169.5 535.4 158.4 511.3 126C492.4 100.5 485.9 95.4 477.4 99.6C465 105.8 466.9 123 481.7 139C496.8 155.3 515.2 165 551.3 175.6C582.3 184.6 592.5 190.8 596.5 203.1C605.3 229.4 576.3 255.9 534.2 260C523.3 261.1 522.6 261.1 511.9 259.9ZM67.6 255.2C78.3 239.1 95.6 211.2 101.2 201.3C127.3 154.6 134.2 121.6 120.7 107.2C112.2 98 91.9 97.6 73 106.2C67.2 108.8 52 117.7 52 118.5C52 118.6 54.9 118.5 58.5 118.2C76.2 116.8 88.4 132.3 85 151.8C81.4 172.9 62.3 192.8 42.8 196C20.6 199.5 2.1 183.5 1.2 159.9C0.3 138.1 12.5 116.9 45.4 83.2C109.4 17.7 160.3 -6.5 215.6 2.5C258.3 9.4 283.7 35.4 285.8 74.3L286.5 86.1L293 80.9C317.7 61 339.7 51.8 363.5 51.6C384.9 51.4 397.2 56 410.1 68.9C427.9 86.7 433.1 111.4 426.5 146.5C422.5 167.6 422 171.5 422 184C422 213.4 435.2 241.3 455.2 254.3L460.3 257.5L422.4 257.8C381.2 258.1 376.6 257.6 370.2 253C363.7 248.3 361.6 242.7 362.3 231.7C362.5 226.6 363.1 221.6 363.5 220.5C363.9 219.4 362.5 220.5 360.4 223C349 236.6 332.9 249.5 321.3 254.1C312.2 257.7 295.6 257.6 287.9 253.7C269.2 244.5 259.9 222.6 265.6 200.6C275.3 163 319.1 143 340 166.7C347 174.7 348.7 185.8 345 199.8C341.1 214.4 349.1 218.9 359.9 208.2C376.5 191.6 378.9 155.2 364.5 139.2C344.4 116.9 298.9 130.5 274.3 166.2C250.1 201.3 252.1 236.3 279.5 255.8L282.5 257.9L245.2 258C224.7 258 208.1 257.7 208.3 257.2C225.9 227.5 251.9 176.3 256.3 162.5C268.2 125.5 260.9 103.3 235.9 100.4C220.3 98.6 196.8 110.9 180.9 129.2C172.8 138.4 172.9 139 181 132.1C198.6 117.3 214 115.3 219.9 126.9C225.9 138.6 221.7 147.8 176.6 221.8L154.5 258L110.2 258L65.8 258L67.6 255.2ZM473.7 73C448.6 66.6 439.1 34.8 456.8 16.2C464.3 8.2 468.6 6.5 480.5 6.5C493 6.5 498 8.8 508 19.1C511.7 22.9 515.2 26 515.8 26C518.4 26 521.7 23.6 524.4 19.9C531.2 10.2 540.9 5.7 554.5 5.6C564.2 5.5 564.7 5.6 571 9.1C591.2 20.2 593.8 45.2 576.5 62.6C568.5 70.7 561.8 73.3 550.5 72.8C540.1 72.4 534.6 69.7 525.8 60.8C516.5 51.4 516 51.5 506 63.2C499.4 71 484.1 75.6 473.7 73Z"></path></clipPath>
+</defs>
+<use href="#maeIntroPath" fill="#FFF6A2" fill-opacity="0.1" fill-rule="evenodd" stroke="#FFF6A2" stroke-opacity="0.45" stroke-width="1.2"></use>
+<g clip-path="url(#maeIntroClip)">
+<g class="intro-fill">
+<path class="intro-wave" fill="#FFF6A2" d="M0 0Q37.5 -14 75 0T150 0T225 0T300 0T375 0T450 0T525 0T600 0T675 0T750 0T825 0T900 0T975 0T1050 0T1125 0T1200 0L1200 300L0 300Z"></path>
+</g>
+</g>
+</svg>
+<div style="display: flex; align-items: baseline; gap: 14px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(253,251,212,0.8)">
+<span>Chargement</span>
+<span style="min-width: 4ch; color: #FFF6A2"><span class="intro-count"></span>%</span>
+</div>
+</div>
+<div class="pad-x" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; gap: 16px; padding: 24px 48px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(253,251,212,0.7)">
+<span>Maeva Benakli</span>
+<span>Creative product designer</span>
+</div>
+</div>
+</sc-if>
+
+<!-- HERO (version photo) -->
+<section id="top" class="hero-photo" style="position: relative; min-height: 900px; display: flex; flex-direction: column; color: #FDFBD4; overflow: hidden; font-family: Geist, system-ui, sans-serif">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,13,6,0.72) 0%, rgba(20,13,6,0) 22%), linear-gradient(0deg, rgba(20,13,6,0.94) 0%, rgba(20,13,6,0.62) 34%, rgba(20,13,6,0) 62%), linear-gradient(90deg, rgba(20,13,6,0.5) 0%, rgba(20,13,6,0) 55%)"></div>
+
+<header class="pad-x" style="position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 16px 28px; flex-wrap: wrap; padding: 22px 48px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase">
+<div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap">
+<a href="#top" class="nav-link" style="font-weight: 500; padding: 12px 0">Maeva Benakli</a>
+<span class="nav-role" style="color: #FDFBD481">Creative product designer | AI product</span>
+</div>
+<nav aria-label="Navigation principale" style="display: flex; gap: 28px; flex-wrap: wrap">
+<a href="#projets" class="nav-link">Projets</a>
+<a href="#" class="nav-link" style="letter-spacing: 0px">Qui je suis ?</a>
+<a href="#" class="nav-link">CV</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<div class="soc-wrap" style="display: flex; align-items: center">
+<a href="https://www.linkedin.com/in/maevabenakli/" target="_blank" rel="noopener" class="soc" aria-label="LinkedIn"><span style="font-size: 11px">IN</span></a>
+<a href="https://x.com/Maeva_Bnkl" target="_blank" rel="noopener" class="soc" aria-label="X (Twitter)"><span style="font-size: 12px">X</span></a>
+</div>
+<a href="mailto:benakli.maeva@gmail.com" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 12px 0"><span class="dot-pulse" style="width: 9px; height: 9px; border-radius: 50%; background: #7AD65C"></span>Contact</a>
+</div>
+</header>
+
+<div class="pad-x hero-main" style="position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 30px; padding: 48px 400px 56px 48px">
+<div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 6px; border-radius: 999px; background: rgba(20,13,6,0.35); border: 1px solid rgba(253,251,212,0.22); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; width: 356px">
+<span style="font-size: 11px; letter-spacing: 0.08em; padding: 4px 9px; border-radius: 999px; background: #FFF6A2; color: #26340C">OPEN</span>
+<span>Disponible pour de nouveaux projets</span>
+</div><h1 style="margin: 0; max-width: 1000px; font-family: Geist, system-ui, sans-serif; font-weight: 300; font-size: clamp(44px, 6vw, 92px); line-height: 0.84; letter-spacing: -0.06em; color: #FFFFFF">Créative &amp; passionnée, je craft des apps <em style="font-style: italic; color: rgb(255, 255, 255)">simples et cool.</em></h1>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 24px 40px">
+<p style="margin: 0; max-width: 460px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 15px; line-height: 1.6; color: #FFFFFFBF">Product designer, je transforme des idées utiles en produits clairs, beaux et agréables à utiliser — du web au mobile, avec une vraie curiosité pour l’IA.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; max-width: 440px"><span style="padding: 7px 12px; border-radius: 8px; background: rgba(20, 13, 6, 0.4); border: 1px solid rgba(253, 251, 212, 0.24); backdrop-filter: blur(8px); font-size: 14px; -webkit-backdrop-filter: blur(8px)">UX Research</span><span style="padding: 7px 12px; border-radius: 8px; background: rgba(20, 13, 6, 0.4); border: 1px solid rgba(253, 251, 212, 0.24); backdrop-filter: blur(8px); font-size: 14px; -webkit-backdrop-filter: blur(8px)">UI Design</span><span style="padding: 7px 12px; border-radius: 8px; background: rgba(20, 13, 6, 0.4); border: 1px solid rgba(253, 251, 212, 0.24); backdrop-filter: blur(8px); font-size: 14px; -webkit-backdrop-filter: blur(8px)">Webdesign</span><span style="padding: 7px 12px; border-radius: 8px; background: rgba(20, 13, 6, 0.4); border: 1px solid rgba(253, 251, 212, 0.24); backdrop-filter: blur(8px); font-size: 14px; -webkit-backdrop-filter: blur(8px)">Marketing-minded</span><span style="padding: 7px 12px; border-radius: 8px; background: rgba(20, 13, 6, 0.4); border: 1px solid rgba(253, 251, 212, 0.24); backdrop-filter: blur(8px); font-size: 14px; -webkit-backdrop-filter: blur(8px)">Tech for good</span><span style="padding: 7px 12px; border-radius: 8px; background: rgb(255, 246, 162); color: rgb(38, 52, 12); font-size: 14px">IA générative</span></div>
+</div>
+</div>
+
+<div class="folder-wrap" style="position: absolute; right: 48px; bottom: 96px; z-index: 2; width: 300px">
+<a href="#" class="folder" aria-label="Ouvrir le playground : explorations, UI et visuels">
+<div style="border-radius: 18px; overflow: hidden; background: rgba(253,251,212,0.1); border: 1px solid rgba(255,255,255,0.8); -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 30px 60px -24px rgba(10,6,2,0.75)">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(20,13,6,0.45); border-bottom: 1px solid rgba(255,255,255,0.28); color: #FDFBD4; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase">
+<span>Playground</span>
+<span style="display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 5px; background: rgba(253,251,212,0.14)"><svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10"><path d="M3 1.5 L7 5 L3 8.5" fill="none" stroke="#FDFBD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+</div>
+<div style="position: relative; height: 200px; background-image: radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1.3px); background-size: 14px 14px">
+<div style="position: absolute; left: calc(50% - 100px); bottom: 22px; width: 200px; height: 118px; border-radius: 4px 12px 12px 12px; background: #3B5013">
+<div style="position: absolute; left: 0; top: -12px; width: 72px; height: 16px; border-radius: 8px 8px 0 0; background: #3B5013"></div>
+</div>
+<div class="sheet s1" style="background: #FFFFFF; padding: 12px; display: flex; flex-direction: column; gap: 8px">
+<div style="width: 34px; height: 18px; border-radius: 999px; background: #3B5013; position: relative"><div style="position: absolute; right: 2px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: #FFF6A2"></div></div>
+<div style="width: 70px; height: 6px; border-radius: 3px; background: rgba(59,80,19,0.22)"></div>
+<div style="width: 50px; height: 6px; border-radius: 3px; background: rgba(59,80,19,0.14)"></div>
+<div style="margin-top: auto; height: 24px; border-radius: 6px; background: #FFF6A2"></div>
+</div>
+<div class="sheet s2" style="background: radial-gradient(70% 60% at 60% 70%, #D9F27A 0%, #FFF6A2 45%, #FDFBD4 100%)"></div>
+<div class="sheet s3" style="background: #3B5013; display: flex; align-items: center; justify-content: center; padding: 14px">
+<img src="assets/accueil/e94a2aeeb0bb.svg" alt="" style="width: 100%; height: auto; display: block">
+</div>
+<div style="position: absolute; left: calc(50% - 108px); bottom: 14px; width: 216px; height: 92px; border-radius: 10px; background: linear-gradient(180deg, #FFF6A2 0%, #F3E77E 100%); box-shadow: 0 -6px 16px -8px rgba(20,26,10,0.35); display: flex; flex-direction: column; justify-content: flex-end; gap: 3px; padding: 12px 14px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(38,52,12,0.72)">Explorations</span>
+<span style="font-size: 14px; font-weight: 500; color: #26340C">UI, motion &amp; visuels</span>
+</div>
+</div>
+
+</div>
+</a>
+</div>
+
+<div class="pad-x" style="position: relative; z-index: 2; border-top: 1px solid rgba(253,251,212,0.18); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(253,251,212,0.75)">
+<span>Mon parcours</span>
+<span>Marketing digital → Web design freelance → Product design</span>
+<a href="#projets" class="nav-link" style="padding: 12px 0">Voir les projets ↓</a>
+</div>
+</section>
+
+<!-- PROJETS (proposition choisie dans les Tweaks) -->
+<div id="projets">
+<sc-if value="{{isA}}" hint-placeholder-val="{{ true }}">
+<dc-import name="ProjetsV2" title-font="{{titleFontName}}" hint-size="100%,5600px"></dc-import>
+</sc-if>
+<sc-if value="{{isB}}" hint-placeholder-val="{{ false }}">
+<dc-import name="ProjetsB" title-font="{{titleFontName}}" hint-size="100%,4000px"></dc-import>
+</sc-if>
+<sc-if value="{{isC}}" hint-placeholder-val="{{ false }}">
+<dc-import name="ProjetsC" title-font="{{titleFontName}}" hint-size="100%,3400px"></dc-import>
+</sc-if>
+</div>
+
+<!-- OUTILS -->
+<section id="outils" class="tools-bg pad-x" style="padding: 140px 48px; color: #26340C">
+<div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(38,52,12,0.72)">(03) Boîte à outils</span>
+<h2 style="margin: 0; font-family: {{tf}}; font-weight: 300; font-size: clamp(40px, 5.2vw, 76px); line-height: 1.04; letter-spacing: -0.02em">Des outils qui s’emboîtent</h2>
+<p style="margin: 0; max-width: 600px; font-size: 18px; line-height: 1.55; color: rgba(38,52,12,0.78)">De la recherche au prototype, chaque outil a sa place dans mon process. Ensemble, ils me permettent de passer vite d’une idée à quelque chose de concret.</p>
+</div>
+<div class="tools-grid" style="max-width: 1080px; margin: 72px auto 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px">
+
+<div class="tool-card" style="padding: 40px; min-height: 340px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px">
+<div style="display: flex; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: {{tf}}; font-size: 20px; color: #3B5013">Conception &amp; UI</span>
+<span style="font-size: 44px; font-weight: 500; letter-spacing: -0.03em; line-height: 1; color: #1E2A08">Figma</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(38,52,12,0.7)">FigJam, Illustrator, Photoshop</span>
+</div>
+<svg class="tool-illu" aria-hidden="true" width="128" height="120" viewBox="0 0 128 120" style="flex-shrink: 0">
+<rect x="6" y="10" width="72" height="92" rx="10" fill="none" stroke="#3B5013" stroke-width="1.6"></rect>
+<rect x="16" y="22" width="40" height="5" rx="2.5" fill="#3B5013" opacity="0.35"></rect>
+<rect x="16" y="33" width="28" height="5" rx="2.5" fill="#3B5013" opacity="0.2"></rect>
+<rect x="44" y="40" width="74" height="56" rx="10" fill="#FFF6A2" stroke="#3B5013" stroke-width="1.6"></rect>
+<circle cx="62" cy="60" r="8" fill="none" stroke="#3B5013" stroke-width="1.6"></circle>
+<rect x="76" y="55" width="30" height="4" rx="2" fill="#3B5013" opacity="0.5"></rect>
+<rect x="76" y="64" width="20" height="4" rx="2" fill="#3B5013" opacity="0.3"></rect>
+<path d="M92 80 L92 108 L99 101 L105 113 L110 110.5 L104 98.5 L114 98.5 Z" fill="#FDFBD4" stroke="#26340C" stroke-width="1.6" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p style="margin: 0; max-width: 380px; font-size: 15px; line-height: 1.55; color: rgba(30,42,8,0.78)">« L’endroit où les idées deviennent des écrans : wireframes, design system et maquettes haute fidélité. »</p>
+<div class="bridge"></div>
+</div>
+
+<div class="tool-card" style="padding: 40px; min-height: 340px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px">
+<span style="font-family: {{tf}}; font-size: 20px; color: #3B5013">Prototypage &amp; web</span>
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border-radius: 14px; background: #FFFFFF; font-size: 16px; box-shadow: 0 6px 16px -10px rgba(38,52,12,0.35)"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 H11 M7.5 3.5 L11 7 L7.5 10.5" fill="none" stroke="#3B5013" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Framer</span>
+<span style="margin-left: 48px; display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border-radius: 14px; background: #FFFFFF; font-size: 16px; box-shadow: 0 6px 16px -10px rgba(38,52,12,0.35)"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 H11 M7.5 3.5 L11 7 L7.5 10.5" fill="none" stroke="#3B5013" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Webflow</span>
+<span style="margin-left: 96px; display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border-radius: 14px; background: #FFF6A2; font-size: 16px; box-shadow: 0 6px 16px -10px rgba(38,52,12,0.35)"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 H11 M7.5 3.5 L11 7 L7.5 10.5" fill="none" stroke="#3B5013" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>ProtoPie</span>
+<span style="margin-left: 48px; display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border-radius: 14px; background: #FFFFFF; font-size: 16px; box-shadow: 0 6px 16px -10px rgba(38,52,12,0.35)"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 H11 M7.5 3.5 L11 7 L7.5 10.5" fill="none" stroke="#3B5013" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>WordPress</span>
+</div>
+<span style="font-size: 15px; color: rgba(30,42,8,0.72)">Donner vie aux interactions</span>
+<div class="bridge"></div>
+</div>
+
+<div class="tool-card" style="padding: 40px; min-height: 340px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px">
+<span style="font-family: {{tf}}; font-size: 20px; color: #3B5013">Recherche &amp; organisation</span>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 40px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; color: #1E2A08">Notion, Miro, Maze</span>
+<p style="margin: 0; max-width: 420px; font-size: 15px; line-height: 1.55; color: rgba(30,42,8,0.78)">Interviews, tests utilisateurs, parcours et cartes d’empathie : je structure tout avant de dessiner le premier écran.</p>
+</div>
+<span style="font-size: 15px; color: rgba(30,42,8,0.72)">Comprendre avant de concevoir</span>
+<div class="bridge bridge-m"></div>
+</div>
+
+<div class="tool-card" style="padding: 40px; min-height: 340px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px">
+<span style="font-family: {{tf}}; font-size: 20px; color: #3B5013">IA &amp; exploration</span>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 28px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; color: #1E2A08">Explorer plus vite, avec l’IA</span>
+<p style="margin: 0; max-width: 420px; font-size: 15px; line-height: 1.55; color: rgba(30,42,8,0.78)">Je m’en sers pour prototyper, tester des idées et coder des interactions, en gardant l’humain au centre.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-radius: 16px; background: #26340C; color: #FFF6A2; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px"><span style="opacity: 0.6">›</span><span>imagine une app simple et cool</span><span class="caret" style="width: 7px; height: 15px; background: #FFF6A2"></span></div>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(38,52,12,0.7)">Claude, ChatGPT, Midjourney, Cursor</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- PRINCIPES -->
+<section id="principes" class="pr-bg pad-x" style="padding: 120px 48px 140px; color: #FDFBD4">
+<div style="max-width: 1344px; margin: 0 auto; display: flex; flex-direction: column">
+<span style="align-self: center; margin-bottom: 64px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(253,251,212,0.8)">Ce qui me fait avancer</span>
+<sc-for list="{{principles}}" as="pr" hint-placeholder-count="6">
+<div class="principle-row" onMouseEnter="{{pr.enter}}" style="position: relative; display: flex; justify-content: center; align-items: flex-start; gap: 14px; padding: 30px 0; border-top: 1px solid rgba(253,251,212,0.14); opacity: {{pr.opacity}}; transition: opacity 0.35s">
+<span style="padding-top: 10px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: rgba(253,251,212,0.75)">{{pr.num}}</span>
+<h3 style="margin: 0; font-family: {{pr.tf}}; font-weight: 300; font-size: clamp(32px, 5.2vw, 78px); line-height: 1.06; letter-spacing: -0.02em; text-align: center">{{pr.title}}</h3>
+<p class="principle-note" style="position: absolute; right: 0; top: 50%; width: 260px; margin: 0; padding: 16px 18px; border-radius: 14px; background: #FFF6A2; color: #26340C; font-size: 15px; line-height: 1.45; box-shadow: 0 24px 40px -20px rgba(0,0,0,0.6); opacity: {{pr.noteOpacity}}; transform: {{pr.noteTransform}}">{{pr.text}}</p>
+</div>
+</sc-for>
+<div style="border-top: 1px solid rgba(253,251,212,0.14)"></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="pad-x" style="background: #FFF6A2; color: #26340C; padding: 140px 48px">
+<div style="max-width: 1344px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<span style="display: inline-flex; align-items: center; gap: 10px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase"><span class="dot-pulse" style="width: 9px; height: 9px; border-radius: 50%; background: #3B9A2A"></span>Ouverte à un nouveau poste</span>
+<h2 style="margin: 0; max-width: 1200px; font-family: {{tf}}; font-weight: 300; font-size: clamp(46px, 8vw, 124px); line-height: 1; letter-spacing: -0.03em">Un poste, un projet, une idée ? <em style="font-style: italic">Parlons-en.</em></h2>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="mailto:benakli.maeva@gmail.com" class="btn" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 28px; border-radius: 999px; background: #3B5013; color: #FDFBD4; text-decoration: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Écrire un email ↗</a>
+<a href="https://www.linkedin.com/in/maevabenakli/" target="_blank" rel="noopener" class="btn" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 28px; border-radius: 999px; border: 1px solid #3B5013; color: #26340C; text-decoration: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">LinkedIn ↗</a>
+<a href="#" class="btn" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 28px; border-radius: 999px; border: 1px solid #3B5013; color: #26340C; text-decoration: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Télécharger mon CV</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pad-x" style="background: #3B5013; color: #FDFBD4; padding: 96px 48px 28px">
+<img src="assets/accueil/e94a2aeeb0bb.svg" alt="maë — logo de Maeva Benakli" style="display: block; width: 100%; max-width: 1100px; height: auto; margin: 0 auto">
+<div style="max-width: 1344px; margin: 72px auto 0; padding-top: 20px; border-top: 1px solid rgba(253,251,212,0.16); display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(253,251,212,0.75)">
+<span>© 2026 Maeva Benakli</span>
+<span>Creative product designer | AI product</span>
+<a href="#top" class="nav-link" style="padding: 12px 0">Retour en haut ↑</a>
+</div>
+</footer>
+
+</div></template>
+<script src="dc-runtime.js"></script>
+<script>
+DC.define("ProjetsV2", function (DCLogic) {
+
+class Component extends DCLogic {
+  renderVals() {
+    var fontName = this.props.titleFont ?? 'Noto Serif';
+    var tf = fontName === 'BIZ UDMincho'
+      ? "'BIZ UDMincho', 'Noto Serif', Georgia, serif"
+      : "'Noto Serif', Georgia, serif";
+    function rows(list, bg, dot) {
+      return list.map(function (t) { return { t: t, bg: bg, dot: dot }; });
+    }
+    function tags(list) {
+      return list.map(function (t) { return { t: t }; });
+    }
+    var apps = [
+      {
+        n: '01', name: 'Alan', appName: 'Alan', meta: 'Alan / Concept', year: '2026',
+        isAlan: true, href: 'alan.html',
+        title: 'Faire de la prévention santé une cause commune',
+        desc: 'Alan est une assurance santé française qui mise sur la simplicité, à l’usage comme dans la compréhension des couvertures.',
+        tagList: tags(['UX RESEARCH', 'TESTS UTILISATEURS', 'APP MOBILE']),
+        panel: '#E9E7FF', panel2: '#F4F3FF', big: '#5B57F0', labelInk: 'rgba(40,30,110,0.7)',
+        screen: '#FFFFFF', ink: '#26340C', card: '#5B57F0', cardInk: '#FFFFFF', tabBg: '#F4F3FF',
+        greeting: '', cardLabel: '', cardValue: '', rows: [],
+        detailLabel: '', detailValue: '', detailNote: '',
+        detailBg: '#FFFFFF', detailInk: '#26340C', track: 'rgba(59,80,19,0.15)', fill: '#5B57F0', progress: '0%'
+      },
+      {
+        n: '02', name: 'Pennylane', appName: 'Pennylane', meta: 'Pennylane / Concept', year: '2026',
+        isPenny: true, href: 'pennylane.html',
+        title: 'Simplifier les notes de frais, de la dépense au remboursement',
+        desc: 'Pennylane est une plateforme française de comptabilité et de gestion financière, pensée pour les entreprises et leurs experts-comptables.',
+        tagList: tags(['UX RESEARCH', 'FINTECH', 'APP MOBILE']),
+        panel: '#DDF3E9', panel2: '#EEF9F3', big: '#005250', labelInk: 'rgba(0,82,80,0.7)',
+        screen: '#FFFFFF', ink: '#26340C', card: '#005250', cardInk: '#FFFFFF', tabBg: '#EEF9F3',
+        greeting: '', cardLabel: '', cardValue: '', rows: [],
+        detailLabel: '', detailValue: '', detailNote: '',
+        detailBg: '#FFFFFF', detailInk: '#26340C', track: 'rgba(59,80,19,0.15)', fill: '#005250', progress: '0%'
+      },
+      {
+        n: '03', name: 'Vestiaire Collective', appName: 'Vestiaire Collective', meta: 'Vestiaire Collective / Concept', year: '2026',
+        isVc: true, href: 'vestiaire-collective.html',
+        title: 'Redonner aux vendeurs le contrôle de leur catalogue',
+        desc: 'Vestiaire Collective est la plateforme française de seconde main de luxe, pionnière de la mode circulaire depuis 2009.',
+        tagList: tags(['UX RESEARCH', 'MARKETPLACE', 'APP MOBILE']),
+        panel: '#FFE5DA', panel2: '#FFF3EE', big: '#D9461A', labelInk: 'rgba(140,40,10,0.7)',
+        screen: '#FFFFFF', ink: '#26340C', card: '#D9461A', cardInk: '#FFFFFF', tabBg: '#FFF3EE',
+        greeting: '', cardLabel: '', cardValue: '', rows: [],
+        detailLabel: '', detailValue: '', detailNote: '',
+        detailBg: '#FFFFFF', detailInk: '#26340C', track: 'rgba(59,80,19,0.15)', fill: '#D9461A', progress: '0%'
+      }
+    ];
+    var sites = [
+      {
+        name: 'Allen Maintenance | Controlnet', meta: 'Allen Maintenance | Controlnet / Site vitrine', year: '2025', url: 'Accueil | Allen Maintenance Controlnet',
+        isCna: true, href: 'allen-maintenance.html',
+        title: 'Réunir deux experts de l’entretien sous une même voix',
+        desc: 'Site vitrine bilingue pour Allen Maintenance et Controlnet : cinq pages pour présenter leurs services, leur méthode et plus de 55 ans d’expertise.',
+        tagList: tags(['WEBDESIGN', 'SITE VITRINE', 'FIGMA']),
+        frame: 'radial-gradient(120% 100% at 50% 0%, #DCE6EC 0%, #6A98B2 50%, #08344B 100%)',
+        siteBg: '#08344B', siteInk: '#FFFFFF', accent: '#C0D84C', btnInk: '#08344B',
+        hero: '', cta: '', nav: tags([]), visual: '', shape: '', shapeRadius: ''
+      },
+      {
+        name: 'Chill au Louvre', meta: 'Chill au Louvre / Association', year: '2026', url: 'Accueil | Chill au Louvre',
+        isLouvre: true, href: 'chill-au-louvre.html',
+        title: 'Relier le quartier, le musée et la citoyenneté',
+        desc: 'Identité visuelle et site de Chill au Louvre, association née aux Malassis, à Bagnolet, qui fait découvrir les œuvres du Louvre et les institutions aux jeunes et à leurs familles.',
+        tagList: tags(['IDENTITÉ VISUELLE', 'WEBDESIGN', 'FIGMA']),
+        frame: 'radial-gradient(120% 100% at 50% 0%, #FFD1E6 0%, #FF1F8A 55%, #C4005F 100%)',
+        siteBg: '#FAF7F2', siteInk: '#111111', accent: '#FF1F8A', btnInk: '#FFFFFF',
+        hero: '', cta: '', nav: tags([]), visual: '', shape: '', shapeRadius: ''
+      },
+    ];
+    apps.forEach(function (a) {
+      a.tf = tf;
+      a.isAlan = !!a.isAlan;
+      a.isPenny = !!a.isPenny;
+      a.isVc = !!a.isVc;
+      a.isMock = !a.isAlan && !a.isPenny && !a.isVc;
+      if (!a.href) { a.href = '#'; }
+    });
+    sites.forEach(function (s) { s.tf = tf; s.isCna = !!s.isCna; s.isLouvre = !!s.isLouvre; s.isMock = !s.isCna && !s.isLouvre; if (!s.href) { s.href = '#'; } });
+    return { tf: tf, apps: apps, sites: sites };
+  }
+}
+
+return Component;
+}, {"titleFont": {"editor": "enum", "options": ["Noto Serif", "BIZ UDMincho"], "default": "Noto Serif", "section": "Typographie des titres"}, "$preview": {"width": 1440, "height": 5600}});
+</script>
+<script>
+DC.define("MainV2", function (DCLogic) {
+
+class Component extends DCLogic {
+  componentDidMount() { this.playIntro(); }
+  componentDidUpdate(prevProps) {
+    var was = prevProps.intro ?? true;
+    var now = this.props.intro ?? true;
+    if (now && !was) { this.playIntro(); }
+  }
+  componentWillUnmount() { this.clearIntro(); }
+  clearIntro() {
+    if (this._introT1) { clearTimeout(this._introT1); }
+    if (this._introT2) { clearTimeout(this._introT2); }
+  }
+  playIntro() {
+    var self = this;
+    this.clearIntro();
+    if ((this.props.intro ?? true) === false) { return; }
+    this.setState({ introPhase: 'loading' });
+    this._introT1 = setTimeout(function () { self.setState({ introPhase: 'out' }); }, 2950);
+    this._introT2 = setTimeout(function () { self.setState({ introPhase: 'gone' }); }, 3900);
+  }
+  renderVals() {
+    var introEnabled = this.props.intro ?? true;
+    var introPhase = (this.state && this.state.introPhase) ? this.state.introPhase : (introEnabled ? 'loading' : 'gone');
+    if (!introEnabled) { introPhase = 'gone'; }
+    var layout = this.props.layout ?? 'A | Éditorial';
+    var fontName = this.props.titleFont ?? 'Noto Serif';
+    var tf = fontName === 'BIZ UDMincho'
+      ? "'BIZ UDMincho', 'Noto Serif', Georgia, serif"
+      : "'Noto Serif', Georgia, serif";
+    var active = (this.state && typeof this.state.active === 'number') ? this.state.active : 0;
+    var self = this;
+    var list = [
+      ["Créer un impact positif", "Je choisis des projets qui rendent la vie des gens, et du monde, un peu meilleure."],
+      ["Partir des vrais besoins", "Avant de dessiner, j’écoute. Les utilisateurs savent mieux que moi ce qui compte."],
+      ["Rendre le complexe simple", "Une bonne interface s’efface : elle laisse les gens faire ce qu’ils sont venus faire."],
+      ["Explorer pour innover", "Nouveaux outils, IA, interactions : je teste sans cesse de nouvelles façons de faire."],
+      ["Le beau au service de l’utile", "Fonctionnel et soigné ne s’opposent pas. Chaque détail visuel sert le propos."],
+      ["Y mettre du cœur", "Je m’implique dans chaque projet comme s’il était le mien, du premier croquis au lancement."]
+    ];
+    var principles = list.map(function (p, i) {
+      var on = i === active;
+      var rot = i % 2 === 0 ? '-3deg' : '3deg';
+      return {
+        num: (i < 9 ? '0' : '') + (i + 1),
+        title: p[0],
+        text: p[1],
+        tf: tf,
+        opacity: on ? 1 : 0.5,
+        noteOpacity: on ? 1 : 0,
+        noteTransform: 'translateY(-50%) rotate(' + rot + ')' + (on ? '' : ' scale(0.94)'),
+        enter: function () { self.setState({ active: i }); }
+      };
+    });
+    return {
+      introOn: introPhase !== 'gone',
+      introClass: introPhase === 'out' ? 'intro-out' : '',
+      tf: tf,
+      titleFontName: fontName,
+      isA: layout.indexOf('A') === 0,
+      isB: layout.indexOf('B') === 0,
+      isC: layout.indexOf('C') === 0,
+      principles: principles
+    };
+  }
+}
+
+return Component;
+}, {"intro": {"editor": "boolean", "default": true, "section": "Intro de chargement"}, "layout": {"editor": "enum", "options": ["A | Éditorial", "B | Grandes cartes", "C | Grille décalée"], "default": "A | Éditorial", "section": "Mise en page des projets"}, "titleFont": {"editor": "enum", "options": ["Noto Serif", "BIZ UDMincho"], "default": "Noto Serif", "section": "Typographie des titres"}, "$preview": {"width": 1440, "height": 10200}});
+</script>
+<script>DC.mount("MainV2", document.getElementById("dc-app"));</script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
+</body>
+</html>

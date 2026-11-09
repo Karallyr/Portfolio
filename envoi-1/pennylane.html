@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pennylane | Étude de cas | Maeva Benakli</title>
+<meta name="description" content="Étude de cas Pennylane : simplifier les notes de frais, de la dépense au remboursement.">
+<meta property="og:title" content="Pennylane | Étude de cas | Maeva Benakli">
+<style>html{overflow-x:hidden}body{overflow-x:clip}</style>
+<meta property="og:description" content="Étude de cas Pennylane : simplifier les notes de frais, de la dépense au remboursement.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#F1FBF6}
+*{box-sizing:border-box}
+.pl{font-family:Manrope,system-ui,sans-serif;color:#0B2E2A;background:#F1FBF6}
+.pl a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding-left:48px;padding-right:48px}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase}
+.sechead{display:flex;align-items:center;gap:20px;margin-bottom:48px}
+.pill{flex-shrink:0;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:10px;background:#0B2E2A;color:#FFFFFF;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.04em}
+.pill b{font-weight:500;padding-right:10px;border-right:1px solid rgba(255,255,255,.35)}
+.pill-light{background:#FFFFFF;color:#0B2E2A}
+.pill-light b{border-right-color:rgba(11,46,42,.25)}
+.rule{flex:1;height:1px;background:rgba(11,46,42,.85)}
+.rule-light{background:rgba(255,255,255,.5)}
+.mark{background:linear-gradient(transparent 52%,#8DF7C6 52%,#8DF7C6 92%,transparent 92%);padding:0 4px;border-radius:2px}
+.h2{margin:0;font-weight:800;font-size:clamp(32px,3.6vw,50px);line-height:1.08;letter-spacing:-.025em}
+.h3{margin:0;font-weight:800;font-size:clamp(23px,2.1vw,29px);line-height:1.15;letter-spacing:-.015em}
+.p{margin:0;font-size:17px;line-height:1.6;color:rgba(11,46,42,.82)}
+.small{margin:0;font-size:15px;line-height:1.55;color:rgba(11,46,42,.78)}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #0B2E2A;font-size:14px;font-weight:600;background:transparent}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-top:22px}
+.meta span{display:block}
+.meta .k{font-size:13px;color:rgba(11,46,42,.55);margin-bottom:6px}
+.meta .v{font-size:16px;font-weight:800}
+.card{border-radius:26px;background:#FFFFFF;padding:30px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 50px -34px rgba(0,80,70,.35)}
+.card-mint{border-radius:26px;background:#DDF7EC;padding:30px;display:flex;flex-direction:column;gap:14px}
+.card-out{border-radius:26px;border:1.5px solid #0B2E2A;background:#FFFFFF;padding:30px;display:flex;flex-direction:column;gap:14px}
+.vbar{padding-left:16px;border-left:2px solid #0B2E2A}
+.tag{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:500}
+.tag-ok{background:#C5F6DF;color:#00695C}
+.tag-ko{background:#FFE4CC;color:#B4501A}
+.tag-n{background:#0B2E2A;color:#FFFFFF}
+.why{margin:0;padding-left:18px;font-size:15px;line-height:1.6;color:rgba(11,46,42,.82)}
+.quote{display:flex;align-items:flex-start;gap:12px;padding-top:16px;border-top:1px solid rgba(11,46,42,.12);font-size:15px;font-style:italic;line-height:1.5;color:rgba(11,46,42,.85)}
+.who{display:block;margin-top:4px;font-style:normal;font-size:13px;font-weight:700;color:rgba(11,46,42,.6)}
+.qicon{flex-shrink:0;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-size:14px}
+.ok-i{background:#C5F6DF;color:#00695C}.ko-i{background:#FFE4CC;color:#B4501A}
+.phone{flex-shrink:0;width:250px;padding:7px;border-radius:42px;background:#0B2E2A;box-shadow:0 40px 80px -30px rgba(0,60,55,.55)}
+.phone img{display:block;width:100%;height:auto;border-radius:35px}
+.duo{position:relative;display:flex;justify-content:center;align-items:flex-start;gap:20px}
+.vpill{display:inline-flex;padding:6px 12px;border-radius:999px;font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:.04em}
+.shot{display:block;width:100%;height:auto;border-radius:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;text-decoration:none;font-weight:800;font-size:16px;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.dark{background:#0A3B36;color:#FFFFFF;border-radius:48px;margin:120px 0 0;padding:110px 0 120px;position:relative;overflow:hidden}
+.dark .p,.dark .small{color:rgba(255,255,255,.8)}
+.glow{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;padding:72px 0;border-top:1px solid rgba(255,255,255,.18)}
+.navseg{display:inline-flex;gap:4px;padding:5px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(11,46,42,.12);box-shadow:0 16px 40px -28px rgba(0,80,70,.4)}
+.navseg a{padding:10px 18px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:700;color:#0B2E2A}
+.navseg a:first-child{background:#0B2E2A;color:#FFFFFF}
+.sec{padding-top:120px}
+.doodle{position:absolute;pointer-events:none;overflow:visible}
+.ico{flex-shrink:0;width:30px;height:30px}
+.ptag{position:absolute;z-index:4;display:inline-flex;align-items:center;padding:13px 24px 14px;border-radius:3px 26px 26px 26px;border:2px solid #FFFFFF;font-family:Manrope,system-ui,sans-serif;font-size:19px;font-weight:600;line-height:1;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 14px 30px -14px rgba(0,0,0,.45);transform-origin:0 0;cursor:default}
+.ptag:hover{animation:ptag-wiggle .7s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes ptag-wiggle{0%{transform:translate(0,0) rotate(0)}15%{transform:translate(-3px,-2px) rotate(-6deg)}30%{transform:translate(3px,1px) rotate(5deg)}45%{transform:translate(-2px,0) rotate(-3deg)}60%{transform:translate(2px,-1px) rotate(2deg)}78%{transform:translate(-1px,0) rotate(-1deg)}100%{transform:translate(0,0) rotate(0)}}
+@media (prefers-reduced-motion:reduce){.ptag:hover{animation:none}}
+@media (max-width:960px){
+.wrap{padding-left:20px;padding-right:20px}
+.g2,.g3,.row,.meta,.hero-grid{grid-template-columns:minmax(0,1fr) !important}
+.hide-m{display:none !important}
+.dark{border-radius:28px;padding:72px 0}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+</head>
+<body>
+<div class="pl">
+
+<!-- HÉROS -->
+<section style="position: relative; overflow: hidden; background: #0A3B36; color: #FFFFFF; border-radius: 0 0 48px 48px">
+<svg aria-hidden="true" class="hide-m" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<path d="M1460 60 C1300 40 1180 140 1210 300 C1240 470 1120 560 1020 700 C960 780 980 840 1000 860" fill="none" stroke="#00F086" stroke-width="38" stroke-linecap="round" opacity="0.95"></path>
+<path d="M1460 470 C1360 500 1320 600 1350 700 C1370 770 1330 820 1290 860 L1460 860 Z" fill="#DDF7EC"></path>
+<path d="M-40 640 C140 560 300 700 470 640 C600 594 680 640 760 700" fill="none" stroke="#00F086" stroke-width="22" stroke-linecap="round" opacity="0.55"></path>
+<circle cx="1000" cy="120" r="10" fill="#00F086"></circle>
+<path d="M940 170 l8 -22 l8 22 l22 8 l-22 8 l-8 22 l-8 -22 l-22 -8 Z" fill="#00F086"></path>
+</svg>
+
+<div class="wrap" style="position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 24px; padding-bottom: 24px">
+<a href="index.html#projets" class="mono" style="padding: 12px 0; font-size: 12px; text-decoration: none; color: #FFFFFF">← Retour aux projets</a>
+<span class="mono" style="font-size: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3)">Étude de cas 02 / 03</span>
+<span class="mono" style="font-size: 12px">Maeva Benakli</span>
+</div>
+
+<div class="wrap hero-grid" style="position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 48px; align-items: center; padding-top: 32px; min-height: 700px">
+<div style="position: relative; display: flex; justify-content: center; align-self: end">
+<div class="phone" style="width: 300px; margin-bottom: -40px; transform: rotate(-5deg); background: #061F1C; box-shadow: 0 50px 90px -30px rgba(0,0,0,0.7)"><img src="assets/accueil/8f60e023accb.webp" alt="Accueil de l’app : total des dépenses, part validée, date du prochain virement et montants en attente"></div>
+<img src="assets/accueil/dca264b933c4.webp" alt="" aria-hidden="true" class="hide-m" style="position: absolute; right: -70px; bottom: 10px; width: 220px; height: auto; transform: rotate(8deg)">
+<span class="ptag hide-m" style="left: 0; top: 60px; background: #031A17; color: #FFFFFF">Projet Pennylane</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 26px; padding-bottom: 80px">
+<img src="assets/accueil/c3024dc47134.webp" alt="Pennylane" style="display: block; width: clamp(240px, 30vw, 440px); height: auto; filter: brightness(0) invert(1)">
+<p style="margin: 0; max-width: 640px; font-weight: 800; font-size: clamp(32px, 3.8vw, 54px); line-height: 1.06; letter-spacing: -0.025em">Simplifier les notes de frais, <span style="color: #00F086">de la dépense au remboursement.</span></p>
+<div style="display: flex; align-items: center; gap: 14px; max-width: 520px; padding: 14px 18px; border-radius: 20px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.32); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px)">
+<img src="assets/pennylane/14dfe31a6f5a.webp" alt="" aria-hidden="true" style="flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px">
+<div style="flex: 1; min-width: 0">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px"><strong style="font-weight: 800">Pennylane</strong><span style="opacity: 0.75">à l’instant</span></div>
+<div style="font-size: 15px; opacity: 0.92">C’est tout bon ! La validation prend en moyenne 3 jours.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- NAVIGATION -->
+<div class="wrap" style="display: flex; justify-content: center; padding-top: 40px">
+<nav class="navseg" aria-label="Sections de l’étude de cas">
+<a href="#contexte">Contexte</a>
+<a href="#recherche">Recherche</a>
+<a href="#tests">Tests</a>
+<a href="#solution">Solution</a>
+</nav>
+</div>
+
+<!-- 01 CONTEXTE -->
+<section id="contexte" class="wrap sec">
+<div class="sechead"><span class="pill"><b>01</b>Contexte</span><span class="rule"></span></div>
+<h2 class="h2" style="margin-bottom: 20px"><span class="mark">Pennylane</span></h2>
+<p class="p" style="max-width: 780px">En trio de product designers, nous avons repensé la gestion des notes de frais dans l’app mobile Pennylane, en parcourant toutes les étapes du processus, de la <strong style="color: #0B2E2A">discovery</strong> au <strong style="color: #0B2E2A">prototype testé</strong>.</p>
+<div style="position: relative; margin-top: 26px; height: 2px; background: #0B2E2A; max-width: 1144px"><span style="position: absolute; left: 0; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: #0B2E2A"></span></div>
+<div class="meta">
+<div><span class="k">Mon rôle</span><span class="v">Product designer, de la recherche à l’UI</span></div>
+<div><span class="k">Équipe</span><span class="v">Avec Rym et Thibaut</span></div>
+<div><span class="k">Support</span><span class="v">App mobile</span></div>
+<div><span class="k">Outils</span><span class="v">Figma, FigJam, Figma Slides, Notion, Claude, Google Meet</span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px">
+<span class="chip">Recherche utilisateur</span><span class="chip">User journey</span><span class="chip">Benchmark</span><span class="chip">Prototype</span><span class="chip">Tests utilisateurs</span><span class="chip">Itération</span>
+</div>
+<div class="g3" style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 32px">
+<div class="card-mint" style="padding: 24px; gap: 8px"><span class="tag tag-n">Ma contribution | Recherche</span><p class="small" style="color: #0B2E2A">Entretiens et tests utilisateurs, synthèse dans FigJam et user journey map détaillée.</p></div>
+<div class="card-mint" style="padding: 24px; gap: 8px"><span class="tag tag-n">Ma contribution | Conception</span><p class="small" style="color: #0B2E2A">Benchmark structuré en cinq axes et reformulation de la problématique.</p></div>
+<div class="card-mint" style="padding: 24px; gap: 8px"><span class="tag tag-n">Ma contribution | UI</span><p class="small" style="color: #0B2E2A">Parcours de scan, formulaire de vérification avec la jauge de plafond et cartes de synthèse de l’accueil.</p></div>
+</div>
+
+<div class="g2" style="position: relative; display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 56px; align-items: center; margin-top: 72px">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div class="card-out">
+<div style="display: flex; align-items: center; gap: 12px"><img src="assets/pennylane/14dfe31a6f5a.webp" alt="" aria-hidden="true" style="width: 34px; height: 34px; border-radius: 9px"><span class="h3" style="font-size: 22px">Qu’est-ce que Pennylane ?</span></div>
+<p class="small vbar">Une plateforme française de comptabilité et de gestion financière, pensée pour les entreprises et leurs experts-comptables. Les notes de frais y concernent trois profils : le collaborateur qui avance et déclare, le manager qui valide, la comptabilité qui contrôle et rembourse.</p>
+</div>
+<div class="card" style="background: #006B66; color: #FFFFFF">
+<span class="h3" style="font-size: 22px">Le brief</span>
+<p class="small vbar" style="color: rgba(255,255,255,0.92); border-left-color: #00F086">Comment simplifier les notes de frais, de la dépense au remboursement ?</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px">
+<div style="padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.12)"><span style="display: block; font-size: 28px; font-weight: 800; color: #00F086">21 jours</span><span style="font-size: 13px; opacity: 0.88">de délai de remboursement</span></div>
+<div style="padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.12)"><span style="display: block; font-size: 28px; font-weight: 800; color: #00F086">30 %</span><span style="font-size: 13px; opacity: 0.88">d’erreurs, avec un aller-retour avec la comptabilité</span></div>
+<div style="padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.12)"><span style="display: block; font-size: 28px; font-weight: 800; color: #00F086">100 %</span><span style="font-size: 13px; opacity: 0.88">des dépenses physiques se font en mobilité</span></div>
+<div style="padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.12)"><span style="display: block; font-size: 28px; font-weight: 800; color: #00F086">800</span><span style="font-size: 13px; opacity: 0.88">entreprises Premium demandent cette fonctionnalité</span></div>
+</div>
+</div>
+</div>
+<div class="duo" style="min-height: 560px">
+<svg aria-hidden="true" class="doodle hide-m" width="160" height="220" viewBox="0 0 160 220" style="left: -70px; top: 40px"><path d="M0 200 C40 180 20 120 70 110 C120 100 90 40 150 20" fill="none" stroke="rgba(11,46,42,0.45)" stroke-width="1.6" stroke-dasharray="5 7" stroke-linecap="round"></path></svg>
+<div class="phone" style="margin-top: 70px; transform: rotate(-3deg)"><img src="assets/pennylane/5a8a2b7fa94a.webp" alt="Nouvelle dépense : jauge verte, limite respectée, remboursement intégral"></div>
+<div class="phone" style="transform: rotate(3deg)"><img src="assets/pennylane/f24be4c05c0e.webp" alt="Détail d’une note de frais de taxi avec son statut et la timeline de validation"></div>
+<svg aria-hidden="true" class="doodle hide-m" width="140" height="160" viewBox="0 0 140 160" style="right: -20px; bottom: -40px"><path d="M10 10 C60 30 30 90 80 100 C120 108 110 150 135 155" fill="none" stroke="rgba(11,46,42,0.45)" stroke-width="1.6" stroke-dasharray="5 7" stroke-linecap="round"></path></svg>
+</div>
+</div>
+</section>
+
+<!-- 02 RECHERCHE -->
+<section id="recherche" class="wrap sec">
+<div class="sechead"><span class="pill"><b>02</b>User research</span><span class="rule"></span></div>
+<p class="p" style="max-width: 720px">Pour mieux comprendre le problème, nous avons mené une recherche qualitative auprès de personnes qui avancent régulièrement des frais professionnels.</p>
+<div class="g2" style="display: grid; grid-template-columns: minmax(0,7fr) minmax(0,5fr); gap: 48px; margin-top: 40px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 class="h2" style="font-size: clamp(28px, 2.8vw, 40px)">Interviews utilisateurs</h2>
+<span style="font-weight: 800; font-size: 15px">Les objectifs :</span>
+<ul class="why">
+<li>Comprendre le contexte : types de dépenses, montants, fréquence</li>
+<li>Comprendre le parcours réel, de l’achat au remboursement</li>
+<li>Comprendre les frictions et les attentes</li>
+</ul>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px"><span class="chip">Entretien semi-directif</span><span class="chip">Qualitatif</span><span class="chip">5 utilisateurs</span></div>
+</div>
+<div class="card" style="gap: 12px">
+<span style="font-weight: 800; font-size: 15px">Nos utilisateurs :</span>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Caroline</strong><span style="color: rgba(11,46,42,0.7)">Collaboratrice, semi-public, Travel Planet</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Gladys</strong><span style="color: rgba(11,46,42,0.7)">Collaboratrice, fonction publique, Chorus DT</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Antoine</strong><span style="color: rgba(11,46,42,0.7)">Senior manager, conseil, Mooncard</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Dom</strong><span style="color: rgba(11,46,42,0.7)">Senior manager, startups, Pivot</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Malika</strong><span style="color: rgba(11,46,42,0.7)">Collaboratrice, organisme privé, Jenji</span></div>
+</div>
+</div>
+</div>
+
+<h3 class="h2" style="margin-top: 72px; font-size: clamp(28px, 2.8vw, 40px)">Ce que <span class="mark">nous avons appris</span></h3>
+<div class="g3" style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; margin-top: 32px">
+<div class="card">
+<span class="tag tag-ko">4 / 5</span>
+<p class="h3" style="font-weight: 600; font-size: 22px">L’OCR <strong style="font-weight: 800">ne fait pas gagner de temps</strong>.</p>
+<span style="font-weight: 800; font-size: 15px">Pourquoi ?</span>
+<ul class="why"><li>Des erreurs fréquentes de pré-remplissage</li><li>Tout vérifier et corriger à la main</li><li>3 / 5 voudraient un pré-remplissage fiable (montant, TVA, marchand)</li></ul>
+<div class="quote"><span class="qicon ko-i">!</span><span>« Tout doit être retapé à la main alors que l’information est sur la photo. »<span class="who">Senior manager, conseil</span></span></div>
+</div>
+<div class="card">
+<span class="tag tag-ko">5 / 5</span>
+<p class="h3" style="font-weight: 600; font-size: 22px">Les règles de remboursement <strong style="font-weight: 800">sont opaques</strong>.</p>
+<span style="font-weight: 800; font-size: 15px">Pourquoi ?</span>
+<ul class="why"><li>Des politiques éparpillées dans plusieurs documents</li><li>Introuvables au moment de soumettre</li><li>3 / 5 ont déjà subi un refus ou un prélèvement sur salaire</li></ul>
+<div class="quote"><span class="qicon ko-i">!</span><span>« Je ne sais jamais ce qui est remboursable ou pas, le parking, les péages, ça dépend du gestionnaire. »<span class="who">Gladys, fonction publique</span></span></div>
+</div>
+<div class="card">
+<span class="tag tag-ko">3 / 5</span>
+<p class="h3" style="font-weight: 600; font-size: 22px">Après l’envoi, <strong style="font-weight: 800">plus aucune visibilité</strong>.</p>
+<span style="font-weight: 800; font-size: 15px">Pourquoi ?</span>
+<ul class="why"><li>Ni le statut, ni le montant total dû, ni la date</li><li>3 / 5 préfèrent relancer de vive voix ou par mail</li></ul>
+<div class="quote"><span class="qicon ko-i">!</span><span>« Je n’ai aucune visibilité sur le montant total que l’entreprise me doit, je dois suivre mon compte bancaire personnellement. »<span class="who">Senior manager, conseil</span></span></div>
+</div>
+</div>
+<div class="card-mint" style="margin-top: 40px; padding: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<span class="h3">Un parcours en cinq étapes, et autant d’inquiétudes</span>
+<p class="small" style="max-width: 540px">La courbe émotionnelle chute là où l’utilisateur perd la main : à la saisie, par peur du refus, et au suivi, faute de délai annoncé. J’ai aussi construit une user journey map détaillée, base de notre cadrage.</p>
+</div>
+<img class="shot" src="assets/pennylane/0ca93536bb21.webp" alt="User journey en cinq étapes : capture, saisie, soumission, suivi, remboursement" style="margin-top: 24px">
+</div>
+</section>
+
+<!-- 03 PROBLÉMATIQUE -->
+<section class="wrap sec">
+<div class="sechead"><span class="pill"><b>03</b>Problématique révisée</span><span class="rule"></span></div>
+<div style="display: flex; gap: 28px; align-items: flex-start">
+<img src="assets/pennylane/14dfe31a6f5a.webp" alt="" aria-hidden="true" class="hide-m" style="flex-shrink: 0; width: 72px; height: 72px; border-radius: 18px">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<p class="h2" style="max-width: 1000px; font-family: Manrope, sans-serif">Comment <span class="mark">simplifier la gestion</span> des notes de frais en apportant une <span class="mark">visibilité claire et rassurante</span> sur les règles et les délais ?</p>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; color: rgba(11,46,42,0.55)">Critères de succès</span>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span class="chip">Réduire les <strong>délais de remboursement</strong></span>
+<span class="chip">Réduire les <strong>allers-retours</strong> dus aux erreurs de saisie</span>
+<span class="chip">Réduire le <strong>temps d’ajout</strong> d’une note de frais</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 04 IDÉATION -->
+<section class="wrap sec">
+<div class="sechead"><span class="pill"><b>04</b>Idéation</span><span class="rule"></span></div>
+<p class="p" style="max-width: 760px">Pour concevoir nos solutions, nous nous sommes inspirés d’apps de dépenses et de productivité, en cherchant des réponses à nos trois irritants. De mon côté, j’ai structuré la veille en cinq axes : suivi lisible, saisie facilitée, erreurs de l’OCR, règles dans l’app, notification du remboursement.</p>
+<div class="card-mint g2" style="display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 40px; align-items: center; margin-top: 40px; padding: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span class="h3">Ce que font les autres</span>
+<p class="small vbar">La timeline de suivi de Revolut, les actions rapides de Travel Perks, l’action de scan mise en avant par Expensify et la détection automatique de document de Dropbox.</p>
+</div>
+<img class="shot" src="assets/pennylane/ff7660cbc35d.webp" alt="Benchmark : Revolut, Travel Perks, Expensify et Dropbox" style="background: #FFFFFF">
+</div>
+<h3 class="h3" style="margin-top: 56px">Cinq pistes de solutions</h3>
+<div class="g3" style="display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 14px; margin-top: 20px">
+<div class="card" style="padding: 22px; gap: 8px"><span class="tag tag-n">01</span><strong>Scan in-app</strong><span class="small" style="font-size: 14px">Pré-remplir la note depuis une photo ou un document.</span></div>
+<div class="card" style="padding: 22px; gap: 8px"><span class="tag tag-n">02</span><strong>Ajout en batch</strong><span class="small" style="font-size: 14px">Un clic depuis l’accueil, plusieurs notes en un import.</span></div>
+<div class="card" style="padding: 22px; gap: 8px"><span class="tag tag-n">03</span><strong>Suivi des dépenses</strong><span class="small" style="font-size: 14px">Le mois en cours, les statuts et la prochaine date de paiement.</span></div>
+<div class="card" style="padding: 22px; gap: 8px"><span class="tag tag-n">04</span><strong>Rappel des règles</strong><span class="small" style="font-size: 14px">Les plafonds en contexte, avec un lien vers le règlement.</span></div>
+<div class="card" style="padding: 22px; gap: 8px"><span class="tag tag-n">05</span><strong>Historique</strong><span class="small" style="font-size: 14px">Tout l’historique d’une note pour un suivi précis.</span></div>
+</div>
+</section>
+
+<!-- 05 TESTS -->
+<section id="tests" class="wrap sec">
+<div class="sechead"><span class="pill"><b>05</b>Users tests</span><span class="rule"></span></div>
+<p class="p" style="max-width: 760px">Notre V1 couvrait tout le parcours collaborateur : l’accueil et ses actions rapides, le scan et l’import de justificatifs, un formulaire pré-rempli avec rappel du plafond, puis le détail d’une note et son historique.</p>
+<div class="g2" style="display: grid; grid-template-columns: minmax(0,7fr) minmax(0,5fr); gap: 48px; margin-top: 40px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 class="h2" style="font-size: clamp(28px, 2.8vw, 40px)">Vérifions nos hypothèses</h2>
+<span style="font-weight: 800; font-size: 15px">Les objectifs :</span>
+<ul class="why">
+<li>Vérifier la réassurance : clarté des règles, suivi du statut</li>
+<li>Évaluer la simplification de la tâche</li>
+<li>Repérer les frictions dans le flux d’ajout</li>
+</ul>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px"><span class="chip">Tests de tâches</span><span class="chip">Qualitatif</span><span class="chip">4 utilisateurs</span></div>
+</div>
+<div class="card" style="gap: 12px">
+<span style="font-weight: 800; font-size: 15px">Nos utilisateurs :</span>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Loïc</strong><span style="color: rgba(11,46,42,0.7)">Coach agile, freelance</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Sabrina</strong><span style="color: rgba(11,46,42,0.7)">Responsable achats, privé</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Marine</strong><span style="color: rgba(11,46,42,0.7)">Chercheuse en immunologie, fonction publique</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><strong>Yannick</strong><span style="color: rgba(11,46,42,0.7)">Chercheur en neurosciences, privé</span></div>
+</div>
+</div>
+</div>
+
+<h3 class="h2" style="margin-top: 72px; font-size: clamp(28px, 2.8vw, 40px)">Ce que <span class="mark">nous avons appris</span></h3>
+<div class="g2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px">
+<div class="card-mint">
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="tag tag-ok">4 / 4</span><span class="tag tag-ko">2 / 4</span></div>
+<p class="h3" style="font-weight: 600; font-size: 22px">Le scan est <strong style="font-weight: 800">compris</strong>, mais la suite <strong style="font-weight: 800">bloque</strong>.</p>
+<ul class="why"><li>4 / 4 trouvent le scan directement et en voient l’intérêt</li><li>2 / 4 ne comprennent pas qu’il faut toucher la vignette du reçu pour continuer</li></ul>
+<div class="quote"><span class="qicon ko-i">!</span><span>« J’aimerais bien passer à la suite mais du coup je peux pas retirer la caméra. »<span class="who">Sabrina</span></span></div>
+</div>
+<div class="card-mint">
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="tag tag-ok">3 / 4</span></div>
+<p class="h3" style="font-weight: 600; font-size: 22px">Importer plusieurs justificatifs <strong style="font-weight: 800">d’un coup</strong> plaît.</p>
+<ul class="why"><li>Un gain de temps attendu pour les déplacements</li><li>Certains gardent le réflexe de les ajouter un par un</li></ul>
+<div class="quote"><span class="qicon ok-i">✓</span><span>« Si c’est bien fait, c’est une bonne idée. »<span class="who">Loïc</span></span></div>
+</div>
+</div>
+<div class="g2" style="display: grid; grid-template-columns: minmax(0,6fr) minmax(0,5fr); gap: 48px; align-items: center; margin-top: 40px">
+<div class="card-mint">
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="tag tag-ko">2 / 4</span><span class="tag tag-n">3 / 4</span></div>
+<p class="h3" style="font-weight: 600; font-size: 22px">Le montant de l’accueil <strong style="font-weight: 800">n’est pas compris</strong>.</p>
+<ul class="why"><li>2 / 4 ne savent pas à quoi correspondent les 120 € affichés</li><li>3 / 4 voudraient y voir les statuts et les actions à faire</li></ul>
+<div class="quote"><span class="qicon ko-i">!</span><span>« C’est pas assez clair à mes yeux, sur ce que sont ces 120 €. »<span class="who">Loïc</span></span></div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 14px">
+<img src="assets/pennylane/e5e7394fef5a.webp" alt="Prototype V1 : accueil avec une carte de 120 € et liste des transactions" style="display: block; width: 100%; max-width: 480px; height: auto">
+<span class="vpill" style="background: #0B2E2A; color: #FFFFFF">Version 1</span>
+</div>
+</div>
+<div class="g2" style="display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: 48px; align-items: center; margin-top: 40px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 14px">
+<img src="assets/pennylane/22fcdd059d31.webp" alt="Prototype V1 : jauge de plafond rouge sur une nuit d’hôtel, verte sur un billet de train" style="display: block; width: 100%; max-width: 480px; height: auto">
+<span class="vpill" style="background: #0B2E2A; color: #FFFFFF">Version 1</span>
+</div>
+<div class="card-mint">
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="tag tag-ok">2 / 4</span><span class="tag tag-ko">3 / 4</span></div>
+<p class="h3" style="font-weight: 600; font-size: 22px">Le rappel du plafond rassure, mais <strong style="font-weight: 800">le rouge fait peur</strong>.</p>
+<ul class="why"><li>2 / 4 apprécient le rappel du plafond</li><li>3 / 4 lisent le rouge comme un refus</li></ul>
+<div class="quote"><span class="qicon ko-i">!</span><span>« Comme c’était rouge, je me suis dit : c’est mort. »<span class="who">Marine</span></span></div>
+</div>
+</div>
+<div class="g2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px">
+<div class="card-mint">
+<div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="tag tag-ok">3 / 4</span></div>
+<p class="h3" style="font-weight: 600; font-size: 22px">L’historique et les délais <strong style="font-weight: 800">rassurent</strong>.</p>
+<ul class="why"><li>3 / 4 apprécient l’historique détaillé</li><li>3 / 4 apprécient d’avoir une idée des délais de paiement</li></ul>
+<div class="quote"><span class="qicon ok-i">✓</span><span>« Mon action est bien venue s’ajouter, j’ai la date, c’est clair. »<span class="who">Loïc</span></span></div>
+</div>
+<div class="card-out" style="border-style: dashed">
+<span style="font-weight: 800">Autres irritants relevés</span>
+<ul class="why">
+<li>4 / 4 attendaient de saisir la TVA en taux, pas en euros</li>
+<li>3 / 4 voulaient revoir leur reçu pendant la vérification</li>
+<li>3 / 4 attendaient une date prévisionnelle de remboursement</li>
+<li>3 / 4 ont trouvé confus le « supprimer puis ajouter » d’un justificatif</li>
+</ul>
+</div>
+</div>
+
+<div class="card-mint" style="margin-top: 56px; padding: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<span class="h3">De nos notes aux priorités</span>
+<p class="small" style="max-width: 560px">Chaque retour a été regroupé par thème dans FigJam (scan, formulaire, TVA, plafonds, timeline, accueil…), puis placé dans une matrice impact / effort et classé en P1, P2 et P3.</p>
+</div>
+<div class="g2" style="display: grid; grid-template-columns: minmax(0,7fr) minmax(0,5fr); gap: 20px; margin-top: 24px; align-items: start">
+<img class="shot" src="assets/pennylane/790107db2f91.webp" alt="Clusterisation des retours de tests dans FigJam, par thème">
+<img class="shot" src="assets/pennylane/436825633b7a.webp" alt="Matrice impact / effort des retours convergents" style="background: #FFFFFF">
+</div>
+</div>
+</section>
+
+<!-- BLOC SOMBRE -->
+<section id="solution" class="dark">
+<span class="glow" style="width: 520px; height: 520px; left: -160px; top: 120px; background: rgba(0,240,134,0.28)"></span>
+<span class="glow" style="width: 420px; height: 420px; right: -120px; top: 1100px; background: rgba(0,240,134,0.2)"></span>
+<div class="wrap" style="position: relative">
+<div class="sechead"><span class="pill pill-light"><b>06</b>Solution après tests</span><span class="rule rule-light"></span></div>
+<div class="g2" style="display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 56px; align-items: center">
+<div style="display: flex; gap: 14px; align-items: flex-start; justify-content: flex-end; text-align: right">
+<svg aria-hidden="true" class="ico" viewBox="0 0 30 30"><path d="M15 0 C16 10 20 14 30 15 C20 16 16 20 15 30 C14 20 10 16 0 15 C10 14 14 10 15 0 Z" fill="#00F086"></path></svg>
+<p class="h2" style="font-size: clamp(28px, 3vw, 42px)">Rassurer à chaque étape, de la capture au virement</p>
+</div>
+<div style="padding: 32px; border-radius: 26px; border: 1.5px solid rgba(255,255,255,0.7)">
+<p style="margin: 0 0 16px; font-weight: 800; font-size: 24px">L’idée</p>
+<p class="p" style="padding-left: 16px; border-left: 2px solid #00F086; color: #FFFFFF">Garder la promesse du scan, mais rendre visibles les règles, les statuts et les délais, pour que personne ne relance « dans le couloir ».</p>
+<p style="margin: 22px 0 8px; font-weight: 800; font-size: 15px">Quatre chantiers :</p>
+<ul class="why" style="color: rgba(255,255,255,0.85)">
+<li><strong style="color: #FFFFFF">Parcours scan :</strong> confirmation visuelle, accès direct au formulaire, TVA pré-calculée</li>
+<li><strong style="color: #FFFFFF">Détail d’une note :</strong> justificatif consultable, historique des statuts plus lisible</li>
+<li><strong style="color: #FFFFFF">Réassurance :</strong> politique de remboursement plus claire</li>
+<li><strong style="color: #FFFFFF">Accueil clarifié :</strong> montant à venir et date estimée du virement</li>
+</ul>
+</div>
+</div>
+
+<div class="row" style="margin-top: 72px">
+<div class="duo">
+<span class="glow" style="width: 360px; height: 360px; left: 50%; top: 50%; margin: -180px 0 0 -180px; background: rgba(0,240,134,0.35)"></span>
+<div class="phone" style="position: relative; width: 260px; background: #000000"><img src="assets/accueil/8f60e023accb.webp" alt="Version finale de l’accueil : total, part validée, date du virement et montants en attente"></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" class="ico" style="width: 22px; height: 22px" viewBox="0 0 30 30"><path d="M15 0 C16 10 20 14 30 15 C20 16 16 20 15 30 C14 20 10 16 0 15 C10 14 14 10 15 0 Z" fill="#00F086"></path></svg><span class="h3">Un accueil qui dit ce qui arrive, et quand</span></div>
+<span class="mono" style="font-size: 11px; color: #8DF7C6">Répond à : un montant incompris (2/4) et des statuts attendus en haut (3/4)</span>
+<p class="p">La carte détaille le total des dépenses, la part déjà validée avec la date du prochain virement, puis les montants en attente et à corriger. Les filtres font ressortir les notes qui demandent une action.</p>
+<span class="vpill" style="align-self: flex-start; background: #00F086; color: #0B2E2A">Version 2</span>
+</div>
+</div>
+
+<div class="row">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" class="ico" style="width: 22px; height: 22px" viewBox="0 0 30 30"><path d="M15 0 C16 10 20 14 30 15 C20 16 16 20 15 30 C14 20 10 16 0 15 C10 14 14 10 15 0 Z" fill="#00F086"></path></svg><span class="h3">Un scan qui enchaîne sans hésiter</span></div>
+<span class="mono" style="font-size: 11px; color: #8DF7C6">Répond à : une étape après la capture mal comprise (2/4)</span>
+<p class="p">Le reçu est détecté et cadré automatiquement, puis confirmé. On en ajoute d’autres ou on génère ses notes en un geste. Le formulaire arrive pré-rempli, et une icône signale chaque champ détecté.</p>
+<span class="vpill" style="align-self: flex-start; background: #00F086; color: #0B2E2A">Version 2</span>
+</div>
+<div class="duo">
+<span class="glow" style="width: 360px; height: 360px; left: 50%; top: 50%; margin: -180px 0 0 -180px; background: rgba(0,240,134,0.3)"></span>
+<div class="phone" style="position: relative; width: 230px; background: #000000"><img src="assets/pennylane/613861be6e19.webp" alt="Caméra : le reçu est détecté et cadré automatiquement"></div>
+<div class="phone" style="position: relative; width: 230px; margin-top: 56px; background: #000000"><img src="assets/pennylane/b14c6fc69aa9.webp" alt="Récapitulatif : un reçu ajouté et bouton Générer mes notes de frais"></div>
+</div>
+</div>
+
+<div class="row">
+<div class="duo">
+<span class="glow" style="width: 360px; height: 360px; left: 50%; top: 50%; margin: -180px 0 0 -180px; background: rgba(255,170,90,0.3)"></span>
+<div class="phone" style="position: relative; width: 230px; background: #000000"><img src="assets/pennylane/5a8a2b7fa94a.webp" alt="Nouvelle dépense : jauge verte, limite respectée, remboursement intégral"></div>
+<div class="phone" style="position: relative; width: 230px; margin-top: 56px; background: #000000"><img src="assets/pennylane/e1cb6e8f0770.webp" alt="Nuit d’hôtel : jauge orange, limite dépassée, remboursement de 150 € et lien vers le règlement"></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" class="ico" style="width: 22px; height: 22px" viewBox="0 0 30 30"><path d="M15 0 C16 10 20 14 30 15 C20 16 16 20 15 30 C14 20 10 16 0 15 C10 14 14 10 15 0 Z" fill="#00F086"></path></svg><span class="h3">Le plafond rappelé, sans faire peur</span></div>
+<span class="mono" style="font-size: 11px; color: #8DF7C6">Répond à : le rouge lu comme un refus (3/4) et la confusion sur la TVA (4/4)</span>
+<p class="p">Une jauge compare le montant au plafond de la catégorie : verte quand la limite est respectée, orange quand elle est dépassée, avec le montant remboursé et un accès direct au règlement. La TVA se saisit en taux, sa part est calculée.</p>
+<span class="vpill" style="align-self: flex-start; background: #00F086; color: #0B2E2A">Version 2</span>
+</div>
+</div>
+
+<div class="row">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" class="ico" style="width: 22px; height: 22px" viewBox="0 0 30 30"><path d="M15 0 C16 10 20 14 30 15 C20 16 16 20 15 30 C14 20 10 16 0 15 C10 14 14 10 15 0 Z" fill="#00F086"></path></svg><span class="h3">Suivre sa note jusqu’au virement</span></div>
+<span class="mono" style="font-size: 11px; color: #8DF7C6">Répond à : une date de remboursement attendue (3/4) et le besoin de revoir son reçu (3/4)</span>
+<p class="p">Le détail d’une note affiche son statut, l’action attendue, un justificatif consultable et remplaçable, et une timeline de validation avec le délai moyen. La confirmation annonce dès l’envoi le temps de validation.</p>
+<span class="vpill" style="align-self: flex-start; background: #00F086; color: #0B2E2A">Version 2</span>
+</div>
+<div class="duo">
+<span class="glow" style="width: 360px; height: 360px; left: 50%; top: 50%; margin: -180px 0 0 -180px; background: rgba(0,240,134,0.3)"></span>
+<div class="phone" style="position: relative; width: 230px; background: #000000"><img src="assets/pennylane/f24be4c05c0e.webp" alt="Détail d’une note de taxi : action requise, justificatif remplacé et timeline de validation"></div>
+<div class="phone" style="position: relative; width: 230px; margin-top: 56px; background: #000000"><img src="assets/pennylane/d2b66adc58db.webp" alt="Confirmation d’envoi : la validation prend en moyenne 3 jours"></div>
+</div>
+</div>
+
+<div class="row">
+<div class="g2" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<span class="h3">Et autour du parcours</span>
+<p class="p">La politique de remboursement se consulte dans l’app (plafonds, justificatifs requis, délai de soumission), et le manager dispose d’un parcours de validation dédié.</p>
+</div>
+<div></div>
+<div style="border-radius: 26px; overflow: hidden; background: #FFFFFF; padding: 24px 24px 0"><img class="shot" src="assets/pennylane/204e287badff.webp" alt="Politique de remboursement dans l’app : catégories, plafonds, justificatifs requis et délais"></div>
+<div style="border-radius: 26px; overflow: hidden; background: #FFFFFF; padding: 24px 24px 0"><img class="shot" src="assets/pennylane/3fe1a9ffc440.webp" alt="Validation côté manager : demandes à traiter, approbation ou refus commenté"></div>
+</div>
+</div>
+
+<div class="row" style="padding-bottom: 0">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span class="h3">Version complète</span>
+<p class="p">Découvrez tout le parcours mis en place pour répondre à notre problématique :</p>
+<p style="margin: 0; font-style: italic; font-weight: 700; font-size: 20px; line-height: 1.4">« Comment simplifier la gestion des notes de frais en apportant une visibilité claire et rassurante sur les règles et les délais ? »</p>
+<a href="https://www.figma.com/proto/B3bM8SLkNOjk0yLox8JQ0k/Rym-x-Thibaut-x-Ma%C3%A9va---Projet-2---Pennylane--Copy-?node-id=2824-33016&amp;m=draw&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=2824%3A33016&amp;show-proto-sidebar=1&amp;page-id=2824%3A20814&amp;t=AB5xtmdpkrUveHpO-1" target="_blank" rel="noopener" class="btn" style="align-self: flex-start; margin-top: 8px; background: #00F086; color: #0B2E2A">Voir le prototype Figma ↗</a>
+</div>
+<div style="position: relative; display: flex; justify-content: center">
+<span class="glow" style="width: 380px; height: 380px; left: 50%; top: 50%; margin: -190px 0 0 -190px; background: rgba(0,240,134,0.35)"></span>
+<img src="assets/accueil/dca264b933c4.webp" alt="" aria-hidden="true" style="position: relative; width: 360px; max-width: 100%; height: auto">
+</div>
+</div>
+</div>
+</section>
+
+<!-- 07 APPRENTISSAGES -->
+<section class="wrap sec">
+<div class="sechead"><span class="pill"><b>07</b>Approfondir</span><span class="rule"></span></div>
+<p class="p" style="max-width: 760px">Les critères de succès (délais, allers-retours, temps de saisie) se mesurent en conditions réelles : ils restent à suivre après un déploiement.</p>
+<div class="g3" style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; margin-top: 36px">
+<div class="card"><span class="tag tag-n">01</span><p class="small" style="color: #0B2E2A">La confiance se joue dans les détails : une couleur ou un libellé mal choisi suffit à faire croire à un refus.</p></div>
+<div class="card"><span class="tag tag-n">02</span><p class="small" style="color: #0B2E2A">L’automatisation ne rassure que si elle reste vérifiable : pouvoir revoir son reçu compte autant que le pré-remplissage.</p></div>
+<div class="card"><span class="tag tag-n">03</span><p class="small" style="color: #0B2E2A">Après l’envoi, l’attente est le vrai irritant : un statut, une date et un montant à venir rassurent plus qu’une fonctionnalité de plus.</p></div>
+</div>
+<h3 class="h2" style="margin-top: 72px; font-size: clamp(28px, 2.8vw, 40px)"><span class="mark">Tester à nouveau</span> la solution</h3>
+<ul class="why" style="margin-top: 18px; font-size: 16px">
+<li>Côté collaborateur : réduire encore les clics, joindre plusieurs justificatifs à une même note, enrichir les statuts.</li>
+<li>Côté manager : simplifier la validation, personnaliser la politique de remboursement et les catégories.</li>
+<li>Tester la version finale avec un panel élargi, des indépendants aux grandes PME.</li>
+</ul>
+</section>
+
+<!-- AUTRES ÉTUDES DE CAS -->
+<section class="wrap sec" style="padding-bottom: 120px">
+<h3 class="h2" style="font-size: clamp(28px, 2.8vw, 40px)">Les autres études de cas</h3>
+<div class="g2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px">
+<a href="alan.html" style="position: relative; display: block; min-height: 300px; border-radius: 28px; overflow: hidden; background: #E4E7FF; text-decoration: none">
+<img src="assets/accueil/313322a6d076.webp" alt="Alan" style="position: absolute; left: 32px; top: 32px; width: 170px; height: auto">
+<img src="assets/accueil/7bdf8ad7a33d.webp" alt="" aria-hidden="true" style="position: absolute; right: 24px; bottom: -16px; width: auto; height: 250px">
+<span style="position: absolute; left: 32px; bottom: 32px; max-width: 260px; font-weight: 800; font-size: 20px; line-height: 1.25; color: #23216E">Faire de la prévention santé une cause commune →</span>
+</a>
+<a href="vestiaire-collective.html" style="position: relative; display: block; min-height: 300px; border-radius: 28px; overflow: hidden; background: #FFE5DA; text-decoration: none">
+<img src="assets/accueil/08fd99fbcb26.webp" alt="Vestiaire Collective" style="position: absolute; left: 32px; top: 32px; width: 190px; height: auto">
+<img src="assets/accueil/d03d77e00bfb.webp" alt="" aria-hidden="true" style="position: absolute; right: 28px; bottom: 20px; width: auto; height: 220px">
+<span style="position: absolute; left: 32px; bottom: 32px; max-width: 260px; font-weight: 800; font-size: 20px; line-height: 1.25; color: #5A1C06">Redonner aux vendeurs le contrôle de leur catalogue →</span>
+</a>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 48px">
+<a href="index.html#projets" class="btn" style="border: 1.5px solid #0B2E2A; color: #0B2E2A">← Retour aux projets</a>
+</div>
+</section>
+
+</div>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chill au Louvre | Identité et site web | Maeva Benakli</title>
+<meta name="description" content="Identité visuelle et site web de Chill au Louvre, association culturelle et citoyenne de Bagnolet.">
+<meta property="og:title" content="Chill au Louvre | Identité et site web | Maeva Benakli">
+<style>html{overflow-x:hidden}body{overflow-x:clip}</style>
+<meta property="og:description" content="Identité visuelle et site web de Chill au Louvre, association culturelle et citoyenne de Bagnolet.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Bricolage+Grotesque:wght@600;700;800&amp;family=Figtree:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#FAF7F2}
+*{box-sizing:border-box}
+.lv{font-family:Manrope,system-ui,sans-serif;color:#111111;background:#FAF7F2;min-height:100vh}
+.lv a{color:inherit}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 28px;background:#111111;color:#FFFFFF;border-radius:0 0 28px 28px;font-size:12px}
+.topbar a{text-decoration:none;padding:10px 0;color:#FFFFFF}
+.split{display:grid;grid-template-columns:minmax(0,1fr) 460px;align-items:start}
+.left{display:flex;flex-direction:column;gap:20px;padding:20px 12px 20px 20px}
+.right{position:sticky;top:0;height:100vh;min-height:640px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:30px 34px 26px 26px;overflow-y:auto}
+.blk{position:relative;border-radius:26px;overflow:hidden;scroll-margin-top:56px}
+.cap{align-self:flex-start;display:inline-flex;align-items:center;margin:6px 0 -8px 4px;padding:6px 10px;border-radius:8px;background:#111111;color:#FFFFFF;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:500;pointer-events:none}
+.cap-l{background:#FFFFFF;color:#111111}
+.sechead{display:flex;align-items:center;gap:16px}
+.pill{flex-shrink:0;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:10px;background:#111111;color:#FFFFFF;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.04em}
+.pill b{font-weight:500;padding-right:10px;border-right:1px solid rgba(255,255,255,.35)}
+.rule{flex:1;height:1px;background:rgba(17,17,17,.85)}
+.mark{background:linear-gradient(transparent 52%,#FFB3D6 52%,#FFB3D6 92%,transparent 92%);padding:0 4px;border-radius:2px}
+.h2{margin:0;font-weight:800;font-size:30px;line-height:1.12;letter-spacing:-.025em}
+.p{margin:0;font-size:15px;line-height:1.58;color:rgba(17,17,17,.78)}
+.meta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 20px}
+.meta span{display:block}
+.meta .k{font-size:12px;color:rgba(17,17,17,.55);margin-bottom:4px}
+.meta .v{font-size:14px;font-weight:800;line-height:1.3}
+.chip{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;border:1px solid #111111;font-size:12.5px;font-weight:600}
+.idrow{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(17,17,17,.1)}
+.sw{width:22px;height:22px;border-radius:50%;flex-shrink:0}
+.brief{border-radius:22px;background:#111111;color:#FFFFFF;padding:22px;display:flex;flex-direction:column;gap:14px}
+.stat{padding:12px;border-radius:14px;background:rgba(255,255,255,.1)}
+.stat b{display:block;font-size:24px;font-weight:800;line-height:1.1;color:#FF1F8A}
+.stat span{font-size:12px;line-height:1.35;opacity:.88}
+.navseg{display:flex;gap:3px;padding:4px;border-radius:13px;background:#FFFFFF;border:1px solid rgba(17,17,17,.12);box-shadow:0 16px 40px -28px rgba(17,17,17,.4)}
+.navseg a{flex:1;padding:9px 4px;border-radius:9px;text-align:center;text-decoration:none;font-size:12px;font-weight:700;white-space:nowrap;transition:background .3s,color .3s}
+.prog{position:relative;padding-top:22px}
+.prog-num{position:absolute;top:0;font-size:12px;font-weight:500;white-space:nowrap;transition:left .2s linear,transform .2s linear}
+.prog-track{position:relative;height:3px;border-radius:3px;background:rgba(17,17,17,.14);overflow:hidden}
+.prog-track span{position:absolute;left:0;top:0;bottom:0;background:#FF1F8A;transition:width .2s linear}
+.bw{border-radius:12px;overflow:hidden;background:#FFFFFF;box-shadow:0 50px 90px -40px rgba(60,0,30,.55)}
+.bw-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#F1ECE4}
+.bw-bar i{width:9px;height:9px;border-radius:50%;background:#D9D1C5}
+.bw-url{margin-left:10px;padding:3px 12px;border-radius:6px;background:#FFFFFF;color:#111111;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bw img{display:block;width:100%;height:auto}
+.scroller{position:relative;height:640px;overflow:hidden;background:#FFFFFF}
+.scroller img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0;animation:lvPage 46s ease-in-out infinite alternate}
+.scroller:hover img{animation-play-state:paused}
+@keyframes lvPage{0%,8%{object-position:50% 0}92%,100%{object-position:50% 100%}}
+.casc{position:relative;height:700px;background:radial-gradient(70% 60% at 85% 15%,rgba(255,31,138,.35),transparent 60%),#111111}
+.casc .pg{position:absolute;width:56%;border-radius:10px;overflow:hidden;box-shadow:0 40px 70px -30px rgba(0,0,0,.85);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.casc .pg img{display:block;width:100%;height:auto}
+.casc:hover .pg1{transform:translate(-18px,-14px)}
+.casc:hover .pg2{transform:translate(-6px,-4px)}
+.casc:hover .pg3{transform:translate(8px,6px)}
+.casc:hover .pg4{transform:translate(22px,18px)}
+.bri{font-family:'Bricolage Grotesque',system-ui,sans-serif}
+.fig{font-family:Figtree,system-ui,sans-serif}
+.tagp{display:inline-block;align-self:flex-start;padding:6px 16px 8px;background:#FF1F8A;color:#FFFFFF;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:24px;line-height:1.1;transform:rotate(-3deg);box-shadow:-8px 8px 0 #C4005F}
+.idh{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap;margin-bottom:24px}
+.idh h3{margin:0;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:34px;line-height:1.05;letter-spacing:-.02em}
+.idh p{margin:0;max-width:360px;font-family:Figtree,system-ui,sans-serif;font-size:15px;line-height:1.55;color:rgba(17,17,17,.72)}
+.tile{position:relative;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tile img{display:block;max-width:100%;height:auto}
+.tlab{display:block;margin-top:18px;text-align:center;font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.swc{border-radius:18px;padding:22px 22px 18px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;color:#FFFFFF;min-height:150px}
+.swc b{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:26px;line-height:1}
+.swc span{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.04em}
+.tyc{border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tyc .aa{font-size:118px;line-height:.9;letter-spacing:-.03em}
+.hsx{position:relative;scroll-margin-top:56px}
+.hsx-panel{position:sticky;top:20px;height:640px;max-height:calc(100vh - 40px);border-radius:26px;overflow:hidden;background:#FAF7F2;border:1px solid rgba(17,17,17,.08);display:flex;flex-direction:column;padding:40px 0 26px}
+.hs-prog{position:relative;height:46px;margin:26px 48px 0}
+.hs-line{position:absolute;left:0;right:0;top:6px;height:2px;background:#DDD6CC}
+.hs-fill{position:absolute;left:0;top:6px;height:2px;background:#FF1F8A;transition:width .8s cubic-bezier(.65,0,.35,1)}
+.hs-dot{position:absolute;top:0;width:14px;height:14px;margin-left:-7px;border-radius:50%;transition:background .5s}
+.hs-yr{position:absolute;top:22px;transform:translateX(-50%);font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:13px;white-space:nowrap;transition:color .5s}
+.hs-vp{flex:1;min-height:0;overflow:hidden;display:flex;align-items:center}
+.hs-track{display:flex;transition:transform .8s cubic-bezier(.65,0,.35,1)}
+.hs-item{flex-shrink:0;box-sizing:border-box;padding:0 28px;display:flex;flex-direction:column;gap:12px;transition:opacity .6s}
+.hs-year{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;line-height:.95;letter-spacing:-.03em;transition:font-size .7s cubic-bezier(.65,0,.35,1),color .6s}
+.pub{position:relative;border-radius:18px;background:#FFFFFF;border:1px solid rgba(17,17,17,.08);padding:26px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.pub h4{margin:0;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:32px;line-height:1;letter-spacing:-.02em}
+.pub .sub{font-family:Figtree,system-ui,sans-serif;font-weight:600;font-size:16px}
+.pub .txt{margin:6px 0 0;font-family:Figtree,system-ui,sans-serif;font-size:14px;line-height:1.5;color:rgba(17,17,17,.72)}
+.pub-c{position:absolute;top:22px;right:22px;width:100px;height:100px;border-radius:50%;background:#FFE6F1}
+.pub-c img{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);display:block}
+@media (prefers-reduced-motion:reduce){.scroller img{animation:none}.hs-track,.hs-fill{transition:none}}
+.right > div:last-child{position:sticky;bottom:0;margin-bottom:-26px;padding:14px 0 26px;background:linear-gradient(to bottom,rgba(250,247,242,0),rgb(250,247,242) 14px)}
+@media (max-width:960px){
+.right > div:last-child{position:static;margin-bottom:0;padding:0;background:none}
+.split{grid-template-columns:minmax(0,1fr)}
+.left{padding:16px}
+.right{position:relative;height:auto;min-height:0;order:-1;padding:28px 20px 8px}
+.casc{height:430px}
+.scroller{height:460px}
+.idg2,.idg3,.pubg{grid-template-columns:minmax(0,1fr) !important}
+.hs-year{font-size:56px !important}
+.hide-m{display:none !important}
+}
+</style>
+</head>
+<body>
+<div id="dc-app"></div>
+<template id="dc-tpl-SiteLouvre"><div class="lv">
+
+<header class="topbar">
+<a href="index.html#projets" class="mono">← Retour aux projets</a>
+<span class="mono" style="padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3)">Site web 02 / 03</span>
+<span class="mono">Maeva Benakli</span>
+</header>
+
+<div id="lv-split" class="split">
+
+<!-- COLONNE GAUCHE : LE SITE -->
+<div class="left">
+
+<span class="cap">Accueil | Du héros à l’Empreinte Citoyenne</span>
+<div id="lv-s0" class="blk" data-sec="0" style="padding: 48px clamp(20px, 5vw, 64px) 64px; background: radial-gradient(80% 70% at 85% 5%, rgba(255,255,255,0.28), transparent 60%), linear-gradient(160deg, #FF1F8A 0%, #E0137A 50%, #C4005F 100%)">
+<div class="bw">
+<div class="bw-bar"><i></i><i></i><i></i><span class="bw-url">Accueil | Chill au Louvre</span></div>
+<img src="assets/chill-au-louvre/f5634075693c.webp" alt="Haut de la page d’accueil : héros « Du quartier au musée, 1er parcours citoyen immersif », bandeau de photos, puis section rose Vivre une situation, Donner du sens, Prendre confiance et bouton Découvrir l’Empreinte Citoyenne">
+</div>
+<div style="position: absolute; left: 20px; right: 20px; bottom: 18px; display: flex; justify-content: space-between; gap: 12px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF"><span>Bagnolet, FR {{clock}}</span><span class="hide-m">Association loi 1901</span></div>
+</div>
+
+<span class="cap">Identité visuelle | Logo</span>
+<div class="blk" data-sec="0" style="background: #FFFFFF; padding: 48px clamp(20px, 3vw, 32px) 28px">
+<div class="idh"><h3>Le logo</h3><p>Les deux « l » de Chill deviennent deux tours d’immeubles : le quartier s’invite dans le nom, à côté du musée.</p></div>
+<div class="idg2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 14px">
+<div class="tile" style="grid-column: 1 / -1; background: #121212; padding: 22px 0 22px"><img src="assets/chill-au-louvre/aee2d67c07dc.webp" alt="Logo Chill au Louvre en framboise sur fond noir" style="width: 72%"><span class="tlab" style="color: rgba(255,255,255,0.6)">Version principale</span></div>
+<div class="tile" style="background: #FAF7F2; padding: 44px 36px 22px"><img src="assets/chill-au-louvre/f7f039e07ecf.webp" alt="Logo Chill au Louvre en rose"><span class="tlab" style="color: rgba(17,17,17,0.55)">Version rose</span></div>
+<div class="tile" style="background: #FFE6F1; padding: 44px 36px 22px"><img src="assets/chill-au-louvre/727f1e85d54e.webp" alt="Logo Chill au Louvre en noir"><span class="tlab" style="color: rgba(17,17,17,0.55)">Version noire</span></div>
+</div>
+</div>
+
+<span class="cap">Identité visuelle | Mascotte et couleurs</span>
+<div class="blk" data-sec="0" style="background: #FFFFFF; padding: 48px clamp(20px, 3vw, 32px) 28px">
+<div class="idh"><h3>Marianne, en version Chill</h3><p>La figure de la République, dessinée au trait, coiffée d’un bonnet phrygien rose et de sa cocarde : la citoyenneté, avec le sourire.</p></div>
+<div class="idg2" style="display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr); gap: 14px">
+<div class="tile" style="background: #FFE6F1; padding: 40px 30px 22px; min-height: 520px"><img src="assets/chill-au-louvre/19a830195b84.webp" alt="Mascotte : Marianne dessinée au trait, bonnet phrygien rose et cocarde tricolore" style="width: 78%"><span class="tlab" style="color: rgba(17,17,17,0.55)">La mascotte</span></div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="swc" style="flex: 1.4; background: #FF1F8A"><b>Rose Chill</b><div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap"><span>#FF1F8A</span><span>RVB 255, 31, 138</span></div></div>
+<div class="swc" style="flex: 1; background: #C4005F"><b>Framboise</b><div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap"><span>#C4005F</span><span>RVB 196, 0, 95</span></div></div>
+<div class="swc" style="flex: 1; background: #000000"><b>Noir</b><div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap"><span>#000000</span><span>RVB 0, 0, 0</span></div></div>
+</div>
+</div>
+</div>
+
+<span class="cap">Identité visuelle | Typographies</span>
+<div class="blk" data-sec="0" style="background: #FFFFFF; padding: 48px clamp(20px, 3vw, 32px) 28px">
+<div class="idh"><h3>Deux typographies</h3><p>Une grotesque expressive et ronde pour les titres, une linéaire simple et très lisible pour les textes.</p></div>
+<div class="idg2" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 14px">
+<div class="tyc" style="background: #FAF7F2">
+<span class="mono" style="font-size: 11px; color: rgba(17,17,17,0.55)">Titres</span>
+<span class="bri" style="font-weight: 800; font-size: 26px">Bricolage Grotesque</span>
+<span class="bri aa" style="font-weight: 800; color: #FF1F8A">Aa</span>
+<span class="bri" style="font-weight: 800; font-size: 28px; line-height: 1.05; letter-spacing: -0.02em">Du quartier au musée, 1er parcours citoyen immersif</span>
+<span class="bri" style="font-weight: 600; font-size: 13px; line-height: 1.5; color: rgba(17,17,17,0.6); word-break: break-all">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</span>
+</div>
+<div class="tyc" style="background: #111111; color: #FFFFFF">
+<span class="mono" style="font-size: 11px; color: rgba(255,255,255,0.6)">Textes</span>
+<span class="fig" style="font-weight: 600; font-size: 26px">Figtree</span>
+<span class="fig aa" style="font-weight: 500; color: #FF1F8A">Aa</span>
+<span class="fig" style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.86)">Chez Chill au Louvre, la culture et la citoyenneté s’apprennent par l’expérience. Chaque parcours place les participants dans une situation concrète.</span>
+<span class="fig" style="font-size: 13px; color: rgba(255,255,255,0.6)"><span style="font-weight: 400">Regular</span> | <span style="font-weight: 500">Medium</span> | <span style="font-weight: 600">SemiBold</span></span>
+</div>
+</div>
+</div>
+
+<span class="cap">Les 7 pages</span>
+<div class="blk casc" data-sec="0">
+<div class="pg pg1" style="left: 5%; top: 64px"><img src="assets/chill-au-louvre/17378bd3541f.webp" alt="En-tête de la page L’association : Une association née aux Malassis"></div>
+<div class="pg pg2" style="left: 15%; top: 170px"><img src="assets/chill-au-louvre/9b23c7faccd9.webp" alt="En-tête de la page Nos parcours : Six univers pour découvrir la culture et la citoyenneté"></div>
+<div class="pg pg3" style="left: 26%; top: 276px"><img src="assets/chill-au-louvre/91d7917e5e70.webp" alt="En-tête de la page Notre méthode : L’Empreinte Citoyenne"></div>
+<div class="pg pg4" style="left: 38%; top: 382px"><img src="assets/chill-au-louvre/3f236e950c73.webp" alt="En-tête de la page Agenda : Les prochains rendez-vous, avec le calendrier"></div>
+</div>
+
+<span class="cap">Accueil | Page complète</span>
+<div class="blk" data-sec="0" style="padding: 48px clamp(20px, 5vw, 64px) 56px; background: #F1E4EA">
+<div class="bw">
+<div class="bw-bar"><i></i><i></i><i></i><span class="bw-url">Accueil | 12 sections</span></div>
+<div class="scroller"><img src="assets/chill-au-louvre/40d837abe39b.webp" alt="Page d’accueil complète, du héros au pied de page"></div>
+</div>
+<p class="mono" style="margin: 16px 0 0; font-size: 11px; text-align: center; color: rgba(17,17,17,0.65)">Survolez pour mettre en pause</p>
+</div>
+
+<span class="cap">L’association | Nos moments forts</span>
+<div id="lv-s1" class="hsx" data-sec="1" style="height: 2600px">
+<div id="lv-hsp" class="hsx-panel">
+<div style="display: flex; flex-direction: column; gap: 18px; padding: 0 48px">
+<span class="tagp">Nos moments forts</span>
+<span class="bri" style="max-width: 560px; font-weight: 800; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em">Une expertise construite sur le terrain depuis 2022</span>
+</div>
+<div class="hs-prog" aria-hidden="true">
+<span class="hs-line"></span>
+<span class="hs-fill" style="width: {{hFill}}"></span>
+<sc-for list="{{hItems}}" as="d" hint-placeholder-count="5">
+<span class="hs-dot" style="left: {{d.pos}}; background: {{d.dot}}"></span>
+<span class="hs-yr" style="left: {{d.pos}}; color: {{d.lab}}">{{d.year}}</span>
+</sc-for>
+</div>
+<div class="hs-vp">
+<div class="hs-track" style="transform: translateX({{htx}})">
+<sc-for list="{{hItems}}" as="d" hint-placeholder-count="5">
+<div class="hs-item" style="width: {{hiw}}; opacity: {{d.op}}">
+<span class="hs-year" style="font-size: {{d.ys}}; color: {{d.yc}}">{{d.year}}</span>
+<span class="fig" style="font-weight: 600; font-size: 20px; line-height: 1.25">{{d.title}}</span>
+<span class="fig" style="max-width: 420px; font-size: 16px; line-height: 1.55; color: rgba(17,17,17,0.72)">{{d.text}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div class="mono" style="display: flex; justify-content: space-between; gap: 12px; padding: 0 48px; font-size: 11px; color: rgba(17,17,17,0.55)"><span>Faites défiler : une date à la fois</span><span>{{hNum}} / 05</span></div>
+</div>
+</div>
+
+<span class="cap">Nos parcours | Six univers</span>
+<div id="lv-s2" class="blk" data-sec="2" style="background: #FAF7F2">
+<img src="assets/chill-au-louvre/2f2fc3d44dea.webp" alt="Page Nos parcours : six cartes d’univers, de Comprendre le monde par les œuvres à Rendre les lieux culturels plus familiers" style="display: block; width: 100%; height: auto">
+</div>
+
+<span class="cap">Nos parcours | Pour qui ?</span>
+<div class="blk" data-sec="2" style="background: #FAF7F2; padding: 56px clamp(20px, 4vw, 48px) 56px">
+<div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px">
+<span class="tagp">Pour qui ?</span>
+<span class="bri" style="font-weight: 800; font-size: 44px; line-height: 1; letter-spacing: -0.02em">Nos publics</span>
+</div>
+<div class="pubg" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 18px">
+<div class="pub" style="background: #111111; color: #FFFFFF; border-color: #111111; transform: rotate(-2deg)">
+<img src="assets/chill-au-louvre/dd687e8047b3.webp" alt="" aria-hidden="true" style="position: absolute; right: 10px; top: -38px; width: 150px; height: auto">
+<h4>7 – 15 ans</h4>
+<span class="sub">Enfants et jeunes</span>
+<p class="txt" style="color: rgba(255,255,255,0.78)">Public prioritaire, avec une attention particulière aux quartiers populaires de Bagnolet et aux Malassis.</p>
+</div>
+<div class="pub">
+<span class="pub-c"><img src="assets/chill-au-louvre/03953e660e8b.webp" alt="" aria-hidden="true" style="width: 92px"></span>
+<h4>Familles</h4>
+<span class="sub">Parents et proches</span>
+<p class="txt">Associés aux parcours culturels, aux temps de convivialité et aux ateliers de dialogue ou de prévention.</p>
+</div>
+<div class="pub">
+<span class="pub-c"><img src="assets/chill-au-louvre/83d4a1ef414b.webp" alt="" aria-hidden="true" style="width: 96px"></span>
+<h4>Structures</h4>
+<span class="sub">Écoles, centres, seniors</span>
+<p class="txt">Classes élémentaires, structures jeunesse, seniors mobilisés sur la mémoire locale, équipes partenaires.</p>
+</div>
+<div class="pub">
+<span class="pub-c"><img src="assets/chill-au-louvre/25db2507c101.webp" alt="" aria-hidden="true" style="width: 100px"></span>
+<h4>Institutions</h4>
+<span class="sub">Élus et représentants</span>
+<p class="txt">Destinataires directs des questions et des propositions préparées par les jeunes.</p>
+</div>
+</div>
+</div>
+
+<span class="cap">Notre méthode | Du déclic à l’empreinte</span>
+<div id="lv-s3" class="blk" data-sec="3" style="background: #FAF7F2">
+<img src="assets/chill-au-louvre/d823cdbc2684.webp" alt="Page Notre méthode : les cinq gestes pédagogiques, du déclic à l’empreinte" style="display: block; width: 100%; height: auto">
+</div>
+
+<span class="cap">Agenda | Calendrier et rendez-vous</span>
+<div id="lv-s4" class="blk" data-sec="4" style="background: #FAF7F2">
+<img src="assets/chill-au-louvre/430bb2b14fed.webp" alt="Page Agenda : calendrier de septembre 2026 avec les dates entourées en rose, puis les trois prochains rendez-vous : Conseil municipal des jeunes, Vacances au Louvre, Prendre la parole" style="display: block; width: 100%; height: auto">
+</div>
+
+<span class="cap">Espace parents | Zoom sur les albums protégés</span>
+<div id="lv-s5" class="blk" data-sec="5" style="background: #FAF7F2; padding: 48px clamp(16px, 3vw, 32px) 32px">
+<img src="assets/chill-au-louvre/01f27920657f.webp" alt="Espace parents : bloc Albums protégés, Les photos de leurs expériences, champ Code d’accès, bouton Accéder et grille d’albums verrouillés" style="display: block; width: 100%; height: auto; border-radius: 18px; box-shadow: 0 30px 60px -36px rgba(60,0,30,0.45)">
+</div>
+
+<span class="cap">Soutenir | Faire un don</span>
+<div class="blk" data-sec="5" style="background: #FAF7F2">
+<img src="assets/chill-au-louvre/c251922e1343.webp" alt="Page Soutenir : Chaque don facilite l’accès à la culture pour la jeunesse, avec le module de don mensuel" style="display: block; width: 100%; height: auto">
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 24px 6px 12px">
+<span class="mono" style="font-size: 12px; color: rgba(17,17,17,0.6)">Fin du défilement</span>
+<a href="index.html#projets" class="mono" style="padding: 14px 22px; border-radius: 999px; border: 1.5px solid #111111; font-size: 12px; text-decoration: none">← Retour aux projets</a>
+</div>
+
+</div>
+
+<!-- COLONNE DROITE : FIXE -->
+<aside class="right" aria-label="Informations sur le projet">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div class="sechead"><span class="pill"><b>01</b>Contexte</span><span class="rule"></span></div>
+<h1 class="h2"><span class="mark">Chill au Louvre</span></h1>
+<p class="p">Association culturelle et citoyenne née aux Malassis, à Bagnolet, Chill au Louvre relie le patrimoine du quartier, les œuvres du Louvre et les institutions. J’ai créé son identité visuelle et conçu son site, de l’accueil à l’espace parents.</p>
+<div style="position: relative; height: 2px; background: #111111"><span style="position: absolute; left: 0; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: #111111"></span></div>
+<div class="meta">
+<div><span class="k">Mon rôle</span><span class="v">Identité visuelle et webdesign</span></div>
+<div><span class="k">Année</span><span class="v">2026</span></div>
+<div><span class="k">Support</span><span class="v">Site web, 7 pages</span></div>
+<div><span class="k">Outils</span><span class="v">Figma, WordPress</span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">Identité visuelle</span><span class="chip">Webdesign</span><span class="chip">Site associatif</span><span class="chip">WordPress</span></div>
+<div class="idrow">
+<span class="sw" style="background: #FF1F8A"></span><span class="sw" style="background: #C4005F"></span><span class="sw" style="background: #000000"></span>
+<span style="margin-left: 6px; font-size: 13px; line-height: 1.3"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800">Bricolage Grotesque</span> <span style="opacity: 0.5">|</span> <span style="font-family: Figtree, sans-serif">Figtree</span></span>
+</div>
+<div class="brief">
+<span style="font-size: 17px; font-weight: 800">L’association en bref</span>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+<div class="stat"><b>2022</b><span>création aux Malassis, à Bagnolet</span></div>
+<div class="stat"><b>5 000</b><span>jeunes et familles touchés depuis 2023</span></div>
+<div class="stat"><b>+3 660</b><span>visiteurs de ses espaces culturels</span></div>
+<div class="stat"><b>98 %</b><span>de satisfaction sur les actions de 2025</span></div>
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<nav class="navseg" aria-label="Pages du site">
+<sc-for list="{{idx}}" as="x" hint-placeholder-count="6">
+<a href="{{x.href}}" style="background: {{x.bg}}; color: {{x.color}}">{{x.label}}</a>
+</sc-for>
+</nav>
+<div class="prog" role="progressbar" aria-label="Progression du défilement" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{pct}}">
+<span class="prog-num mono" style="left: {{pct}}%; transform: translateX(-{{pct}}%)">{{pct}}%</span>
+<div class="prog-track"><span style="width: {{pct}}%"></span></div>
+</div>
+</div>
+</aside>
+
+</div>
+</div></template>
+<script src="dc-runtime.js"></script>
+<script>
+DC.define("SiteLouvre", function (DCLogic) {
+
+class Component extends DCLogic {
+  componentDidMount() {
+    var self = this;
+    this._onScroll = function () { self.measure(); };
+    window.addEventListener('scroll', this._onScroll, true);
+    window.addEventListener('resize', this._onScroll);
+    this._clockT = setInterval(function () { self.setState({ clock: self.clockStr() }); }, 1000);
+    this._mT = setTimeout(function () { self.measure(); }, 400);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll, true);
+    window.removeEventListener('resize', this._onScroll);
+    clearInterval(this._clockT); clearTimeout(this._mT);
+  }
+  clockStr() {
+    try {
+      return new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(new Date());
+    } catch (e) { return ''; }
+  }
+  measure() {
+    var el = document.getElementById('lv-split');
+    if (!el) { return; }
+    var vh = window.innerHeight || 1;
+    var r = el.getBoundingClientRect();
+    var total = Math.max(1, r.height - vh);
+    var p = Math.min(1, Math.max(0, -r.top / total));
+    var act = 0;
+    var blks = document.querySelectorAll('[data-sec]');
+    for (var i = 0; i < blks.length; i++) {
+      if (blks[i].getBoundingClientRect().top < vh * 0.5) { act = parseInt(blks[i].getAttribute('data-sec'), 10) || 0; }
+    }
+    var pct = Math.round(p * 100);
+    var hw = document.getElementById('lv-s1');
+    var hpEl = document.getElementById('lv-hsp');
+    var hi = this._hi || 0, pw = this._pw || 900;
+    if (hw && hpEl) {
+      var hr = hw.getBoundingClientRect();
+      var ph = hpEl.offsetHeight || 640;
+      var hp = Math.min(1, Math.max(0, (20 - hr.top) / Math.max(1, hr.height - ph)));
+      hi = Math.min(4, Math.floor(hp * 5));
+      pw = hpEl.clientWidth || pw;
+    }
+    if (pct !== this._pct || act !== this._act || hi !== this._hi || pw !== this._pw) {
+      this._pct = pct; this._act = act; this._hi = hi; this._pw = pw;
+      this.setState({ pct: pct, act: act, hi: hi, pw: pw });
+    }
+  }
+  renderVals() {
+    var st = this.state || {};
+    var act = typeof st.act === 'number' ? st.act : 0;
+    var pct = typeof st.pct === 'number' ? st.pct : 0;
+    var labels = ['Accueil', 'L’asso', 'Parcours', 'Méthode', 'Agenda', 'Soutenir'];
+    var idx = labels.map(function (l, i) {
+      var on = i === act;
+      return { label: l, href: '#lv-s' + i, bg: on ? '#111111' : 'transparent', color: on ? '#FFFFFF' : '#111111' };
+    });
+    var hi = typeof st.hi === 'number' ? st.hi : 0;
+    var pw = typeof st.pw === 'number' ? st.pw : 900;
+    var iw = Math.round(pw * 0.58);
+    var data = [
+      ['2022', 'Création de l’association', 'Implantation aux Malassis et définition d’une mission reliant culture, patrimoine et citoyenneté.'],
+      ['2023', 'Première Malédiction du Louvre', '114 enfants et 18 accompagnateurs : escape game, documentaire et échange autour du patrimoine.'],
+      ['2023–2024', 'Le musée du Louvre à Bagnolet', 'Un espace pédagogique sur l’Égypte antique et Champollion : 3 663 visiteurs en huit mois.'],
+      ['2025', 'Musée mobile et tournois inter-centres', 'Six centres de loisirs, cinq centres socioculturels, 547 jeunes, 95 à 98 % de satisfaction.'],
+      ['2026', 'L’Empreinte Citoyenne', 'Formalisation de la méthode, premier parcours complet Notre Quartier Malassis, projet de Maison de la Citoyenneté.']
+    ];
+    var hItems = data.map(function (d, i) {
+      var on = i === hi;
+      var last = i === 4;
+      return {
+        year: d[0], title: d[1], text: d[2],
+        pos: (i * 25) + '%',
+        dot: on ? '#FF1F8A' : (i < hi ? '#111111' : '#D9D1C5'),
+        lab: on ? '#FF1F8A' : (i < hi ? '#111111' : '#B9B0A3'),
+        ys: on ? '104px' : '54px',
+        yc: on ? (last ? '#C4005F' : '#111111') : '#CFC7BB',
+        op: on ? 1 : 0.4
+      };
+    });
+    return {
+      clock: st.clock || this.clockStr(), pct: pct, idx: idx,
+      hItems: hItems, hiw: iw + 'px', htx: (Math.round((pw - iw) / 2) - hi * iw) + 'px',
+      hFill: (hi * 25) + '%', hNum: '0' + (hi + 1)
+    };
+  }
+}
+
+return Component;
+}, {"$preview": {"width": 1440, "height": 900}});
+</script>
+<script>DC.mount("SiteLouvre", document.getElementById("dc-app"));</script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
+</body>
+</html>
