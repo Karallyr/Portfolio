@@ -95,9 +95,17 @@ body{margin:0;background:#FAF7F2}
 .pub-c{position:absolute;top:22px;right:22px;width:100px;height:100px;border-radius:50%;background:#FFE6F1}
 .pub-c img{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);display:block}
 @media (prefers-reduced-motion:reduce){.scroller img{animation:none}.hs-track,.hs-fill{transition:none}}
-.right > div:last-child{position:sticky;bottom:0;margin-bottom:-26px;padding:14px 0 26px;background:linear-gradient(to bottom,rgba(250,247,242,0),rgb(250,247,242) 14px)}
+.right{overflow:hidden !important}
+.right > div:first-child{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding-bottom:28px;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 36px),transparent)}
+.right > div:first-child::-webkit-scrollbar{display:none}
+.right > div:first-child > *{flex-shrink:0}
+.right > div:last-child{flex-shrink:0}
 @media (max-width:960px){
-.right > div:last-child{position:static;margin-bottom:0;padding:0;background:none}
+.right > div:first-child{overflow:visible;padding-bottom:0;-webkit-mask-image:none;mask-image:none}
+.right{overflow:visible !important}
+.prog{position:fixed;top:0;left:0;right:0;z-index:80;padding-top:0}
+.prog-num{display:none}
+.prog-track{height:4px;border-radius:0;background:rgba(255,255,255,.35)}
 .split{grid-template-columns:minmax(0,1fr)}
 .left{padding:16px}
 .right{position:relative;height:auto;min-height:0;order:-1;padding:28px 20px 8px}
@@ -111,7 +119,7 @@ body{margin:0;background:#FAF7F2}
 </head>
 <body>
 <div id="dc-app"></div>
-<template id="dc-tpl-SiteLouvre"><div class="lv">
+<template id="dc-tpl-SiteLouvreV3"><div class="lv">
 
 <header class="topbar">
 <a href="index.html#projets" class="mono">← Retour aux projets</a>
@@ -335,7 +343,7 @@ body{margin:0;background:#FAF7F2}
 </div></template>
 <script src="dc-runtime.js"></script>
 <script>
-DC.define("SiteLouvre", function (DCLogic) {
+DC.define("SiteLouvreV3", function (DCLogic) {
 
 class Component extends DCLogic {
   componentDidMount() {
@@ -427,7 +435,7 @@ class Component extends DCLogic {
 return Component;
 }, {"$preview": {"width": 1440, "height": 900}});
 </script>
-<script>DC.mount("SiteLouvre", document.getElementById("dc-app"));</script>
+<script>DC.mount("SiteLouvreV3", document.getElementById("dc-app"));</script>
 <script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
 </body>
 </html>

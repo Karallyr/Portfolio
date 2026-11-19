@@ -61,7 +61,7 @@ body{margin:0;background:#FBF8F5}
 .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;padding:72px 0;border-top:1px solid rgba(255,255,255,.18)}
 .navseg{display:inline-flex;gap:4px;padding:5px;border-radius:12px;background:#FFFFFF;border:1px solid rgba(17,17,17,.12);box-shadow:0 16px 40px -28px rgba(90,30,6,.4)}
 .navseg a{padding:10px 18px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;color:#111111}
-.navseg a:first-child{background:#111111;color:#FFFFFF}
+.navseg a.on{background:#111111;color:#FFFFFF}
 .sec{padding-top:120px}
 .doodle{position:absolute;pointer-events:none;overflow:visible}
 .ico{flex-shrink:0;width:30px;height:30px}
@@ -78,10 +78,31 @@ body{margin:0;background:#FBF8F5}
 .hide-m{display:none !important}
 .dark{border-radius:28px;padding:72px 0}
 }
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:90px}
+.navwrap{position:sticky;top:-26px;z-index:60;pointer-events:none}
+.navwrap .navseg{pointer-events:auto}
+.navseg a{transition:background .3s,color .3s}
+.chip:has(strong){display:inline-block;line-height:1.45}
+@media (max-width:640px){
+.navwrap{top:-30px}
+.navseg{display:flex;width:100%;gap:2px;padding:4px}
+.navseg a{flex:1 1 auto;padding:9px 4px;font-size:13px;text-align:center}
+.phone:has(+ .phone),.phone + .phone,img:has(+ .phone),img + .phone{width:41vw !important;max-width:210px;border-radius:30px}
+.phone:has(+ .phone) img,.phone + .phone img{border-radius:24px}
+.phone:has(+ .phone) .phone-scroll,.phone + .phone .phone-scroll{height:86vw !important;border-radius:24px}
+.sec{padding-top:88px}
+.sechead{margin-bottom:32px}
+.p{font-size:16px}
+.card,.card-lav,.card-out{padding:22px;border-radius:22px}
+.dark{border-radius:24px;margin-top:88px;padding:64px 0}
+.row{gap:36px;padding:48px 0}
+}
 </style>
 </head>
 <body>
-<div class="vc">
+<div id="dc-app"></div>
+<template id="dc-tpl-EtudeVestiaireV3"><div class="vc">
 
 <!-- HÉROS -->
 <section class="grid-bg" style="position: relative; overflow: hidden; background-color: #FF5A27; color: #111111; border-radius: 0 0 48px 48px">
@@ -112,12 +133,12 @@ body{margin:0;background:#FBF8F5}
 </section>
 
 <!-- NAVIGATION -->
-<div class="wrap" style="display: flex; justify-content: center; padding-top: 40px">
+<div class="wrap navwrap" style="display: flex; justify-content: center; padding-top: 40px">
 <nav class="navseg" aria-label="Sections de l’étude de cas">
-<a href="#contexte">Contexte</a>
-<a href="#recherche">Recherche</a>
-<a href="#tests">Tests</a>
-<a href="#solution">Solution</a>
+<a href="#contexte" class="{{nav.contexte}}">Contexte</a>
+<a href="#recherche" class="{{nav.recherche}}">Recherche</a>
+<a href="#tests" class="{{nav.tests}}">Tests</a>
+<a href="#solution" class="{{nav.solution}}">Solution</a>
 </nav>
 </div>
 
@@ -161,7 +182,7 @@ body{margin:0;background:#FBF8F5}
 </div>
 <div class="duo" style="min-height: 560px">
 <svg aria-hidden="true" class="doodle hide-m" width="160" height="220" viewBox="0 0 160 220" style="left: -70px; top: 40px"><path d="M0 200 C40 180 20 120 70 110 C120 100 90 40 150 20" fill="none" stroke="rgba(17,17,17,0.45)" stroke-width="1.6" stroke-dasharray="5 7" stroke-linecap="round"></path></svg>
-<div class="phone" style="margin-top: 70px; transform: rotate(-3deg)"><img src="assets/vestiaire/1830d98cf593.webp" alt="Mes annonces : recherche, filtres, sélection et carte d’annonce avec ses indicateurs"></div>
+<div class="phone" style="margin-top: 70px; transform: rotate(-3deg)"><img src="assets/vestiaire/43db779a9680.webp" alt="Mes annonces : recherche, filtres, sélection et carte d’annonce avec ses indicateurs"></div>
 <div class="phone" style="transform: rotate(3deg)"><img src="assets/vestiaire/1de496fb399a.webp" alt="Faire un lot : prix du lot, gain vendeur et suggestions de remise"></div>
 <svg aria-hidden="true" class="doodle hide-m" width="140" height="160" viewBox="0 0 140 160" style="right: -20px; bottom: -40px"><path d="M10 10 C60 30 30 90 80 100 C120 108 110 150 135 155" fill="none" stroke="rgba(17,17,17,0.45)" stroke-width="1.6" stroke-dasharray="5 7" stroke-linecap="round"></path></svg>
 </div>
@@ -372,13 +393,13 @@ body{margin:0;background:#FBF8F5}
 </div>
 </div>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 14px">
-<div class="phone" style="width: 260px"><img src="assets/vestiaire/08aaee9670d3.webp" alt="V1 : le lot créé apparaît dans l’onglet Collections"></div>
+<div class="phone" style="width: 260px"><img src="assets/vestiaire/efa06fcf2b48.webp" alt="V1 : le lot créé apparaît dans l’onglet Collections"></div>
 <span class="vpill" style="background: #111111; color: #FFFFFF">Version 1</span>
 </div>
 </div>
 <div class="g2" style="display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: 48px; align-items: center; margin-top: 48px">
 <div style="display: flex; flex-direction: column; align-items: center; gap: 14px">
-<div class="phone" style="width: 260px"><img src="assets/vestiaire/4e1e7f821b80.webp" alt="V1 : Mes annonces avec onglets Penderie et Collections, filtres et carte Smart Insight"></div>
+<div class="phone" style="width: 260px"><img src="assets/vestiaire/459694fe48f9.webp" alt="V1 : Mes annonces avec onglets Penderie et Collections, filtres et carte Smart Insight"></div>
 <span class="vpill" style="background: #111111; color: #FFFFFF">Version 1</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 20px">
@@ -444,16 +465,16 @@ body{margin:0;background:#FBF8F5}
 </div>
 <div class="duo" style="align-items: flex-start">
 <span class="glow" style="width: 360px; height: 360px; left: 50%; top: 50%; margin: -180px 0 0 -180px; background: rgba(255,90,39,0.3)"></span>
-<figure class="vs" style="position: relative; margin-top: 40px"><div class="phone" style="width: 200px; opacity: 0.75; background: #2A2A2A"><img src="assets/vestiaire/4e1e7f821b80.webp" alt="V1 : icône de filtre et bouton Modifier plusieurs proches"></div><figcaption class="vpill" style="background: rgba(255,255,255,0.14); color: #FFFFFF">Version 1</figcaption></figure>
-<figure class="vs" style="position: relative"><div class="phone" style="width: 240px; background: #000000"><img src="assets/vestiaire/1830d98cf593.webp" alt="Version finale : barre de filtres et bouton Select. séparés"></div><figcaption class="vpill" style="background: #FF5A27; color: #111111">Version finale</figcaption></figure>
+<figure class="vs" style="position: relative; margin-top: 40px"><div class="phone" style="width: 200px; opacity: 0.75; background: #2A2A2A"><img src="assets/vestiaire/459694fe48f9.webp" alt="V1 : icône de filtre et bouton Modifier plusieurs proches"></div><figcaption class="vpill" style="background: rgba(255,255,255,0.14); color: #FFFFFF">Version 1</figcaption></figure>
+<figure class="vs" style="position: relative"><div class="phone" style="width: 240px; background: #000000"><img src="assets/vestiaire/43db779a9680.webp" alt="Version finale : barre de filtres et bouton Select. séparés"></div><figcaption class="vpill" style="background: #FF5A27; color: #111111">Version finale</figcaption></figure>
 </div>
 </div>
 
 <div class="row">
 <div class="duo">
 <span class="glow" style="width: 360px; height: 360px; left: 50%; top: 50%; margin: -180px 0 0 -180px; background: rgba(255,90,39,0.35)"></span>
-<div class="phone" style="position: relative; width: 230px; background: #000000"><img src="assets/vestiaire/738f189da32f.webp" alt="Onglet Lot : Mon lot du printemps, trois pièces, prix et gain vendeur"></div>
-<div class="phone" style="position: relative; width: 230px; margin-top: 56px; background: #000000"><img src="assets/vestiaire/a37c4dcf5aff.webp" alt="Annonce marquée d’un levier activé, proposée en lot, avec un lien vers le lot"></div>
+<div class="phone" style="position: relative; width: 230px; background: #000000"><img src="assets/vestiaire/38b671995945.webp" alt="Onglet Lot : Mon lot du printemps, trois pièces, prix et gain vendeur"></div>
+<div class="phone" style="position: relative; width: 230px; margin-top: 56px; background: #000000"><img src="assets/vestiaire/641043821cc8.webp" alt="Annonce marquée d’un levier activé, proposée en lot, avec un lien vers le lot"></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" class="ico" style="width: 22px; height: 22px" viewBox="0 0 30 30"><path d="M15 0 C16 10 20 14 30 15 C20 16 16 20 15 30 C14 20 10 16 0 15 C10 14 14 10 15 0 Z" fill="#FF5A27"></path></svg><span class="h3">Le lot a sa place, et se voit sur l’annonce</span></div>
@@ -479,7 +500,7 @@ body{margin:0;background:#FBF8F5}
 <div class="row">
 <div class="duo">
 <span class="glow" style="width: 360px; height: 360px; left: 50%; top: 50%; margin: -180px 0 0 -180px; background: rgba(255,90,39,0.35)"></span>
-<div class="phone" style="position: relative; width: 230px; background: #000000"><img src="assets/vestiaire/78047065cd1e.webp" alt="Sélection de trois annonces avec les actions groupées : baisser, faire un lot, déplacer, booster, supprimer"></div>
+<div class="phone" style="position: relative; width: 230px; background: #000000"><img src="assets/vestiaire/2a5756530ca2.webp" alt="Sélection de trois annonces avec les actions groupées : baisser, faire un lot, déplacer, booster, supprimer"></div>
 <div class="phone" style="position: relative; width: 230px; margin-top: 56px; background: #000000"><img src="assets/vestiaire/1de496fb399a.webp" alt="Faire un lot : nom, prix du lot, gain vendeur et suggestions de remise"></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 16px">
@@ -541,7 +562,42 @@ body{margin:0;background:#FBF8F5}
 </div>
 </section>
 
-</div>
+</div></template>
+<script src="dc-runtime.js"></script>
+<script>
+DC.define("EtudeVestiaireV3", function (DCLogic) {
+
+class Component extends DCLogic {
+  componentDidMount() {
+    var self = this;
+    var ids = ["contexte", "recherche", "tests", "solution"];
+    this._navScroll = function () {
+      var cur = ids[0];
+      for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]);
+        if (el && el.getBoundingClientRect().top <= 160) { cur = ids[i]; }
+      }
+      if (!self.state || self.state.active !== cur) { self.setState({ active: cur }); }
+    };
+    window.addEventListener('scroll', this._navScroll, { passive: true, capture: true });
+    this._navScroll();
+  }
+  componentWillUnmount() {
+    if (this._navScroll) { window.removeEventListener('scroll', this._navScroll, true); }
+  }
+  renderVals() {
+    var ids = ["contexte", "recherche", "tests", "solution"];
+    var active = (this.state && this.state.active) || ids[0];
+    var nav = {};
+    ids.forEach(function (id) { nav[id] = id === active ? 'on' : ''; });
+    return { nav: nav };
+  }
+}
+
+return Component;
+}, {"$preview": {"width": 1440, "height": 11000}});
+</script>
+<script>DC.mount("EtudeVestiaireV3", document.getElementById("dc-app"));</script>
 <script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
 </body>
 </html>

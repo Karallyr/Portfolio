@@ -60,7 +60,7 @@ body{margin:0;background:#F4F5FF}
 .spark{flex-shrink:0}
 .navseg{display:inline-flex;gap:4px;padding:5px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(27,26,58,.12);box-shadow:0 16px 40px -28px rgba(40,38,140,.4)}
 .navseg a{padding:10px 18px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;color:#1B1A3A}
-.navseg a:first-child{background:#1B1A3A;color:#FFFFFF}
+.navseg a.on{background:#1B1A3A;color:#FFFFFF}
 .sec{padding-top:120px}
 .doodle{position:absolute;pointer-events:none;overflow:visible}
 .ptag{position:absolute;z-index:4;display:inline-flex;align-items:center;padding:13px 24px 14px;border-radius:3px 26px 26px 26px;border:2px solid #FFFFFF;font-family:Manrope,system-ui,sans-serif;font-size:19px;font-weight:600;line-height:1;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 14px 30px -14px rgba(0,0,0,.45);transform-origin:0 0;cursor:default}
@@ -74,10 +74,31 @@ body{margin:0;background:#F4F5FF}
 .hide-m{display:none !important}
 .dark{border-radius:28px;padding:72px 0}
 }
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:90px}
+.navwrap{position:sticky;top:-26px;z-index:60;pointer-events:none}
+.navwrap .navseg{pointer-events:auto}
+.navseg a{transition:background .3s,color .3s}
+.chip:has(strong){display:inline-block;line-height:1.45}
+@media (max-width:640px){
+.navwrap{top:-30px}
+.navseg{display:flex;width:100%;gap:2px;padding:4px}
+.navseg a{flex:1 1 auto;padding:9px 4px;font-size:13px;text-align:center}
+.phone:has(+ .phone),.phone + .phone,img:has(+ .phone),img + .phone{width:41vw !important;max-width:210px;border-radius:30px}
+.phone:has(+ .phone) img,.phone + .phone img{border-radius:24px}
+.phone:has(+ .phone) .phone-scroll,.phone + .phone .phone-scroll{height:86vw !important;border-radius:24px}
+.sec{padding-top:88px}
+.sechead{margin-bottom:32px}
+.p{font-size:16px}
+.card,.card-lav,.card-out{padding:22px;border-radius:22px}
+.dark{border-radius:24px;margin-top:88px;padding:64px 0}
+.row{gap:36px;padding:48px 0}
+}
 </style>
 </head>
 <body>
-<div class="al">
+<div id="dc-app"></div>
+<template id="dc-tpl-EtudeAlanV3"><div class="al">
 
 <!-- HÉROS -->
 <section style="position: relative; overflow: hidden; background: #5B59F2; color: #FFFFFF; border-radius: 0 0 48px 48px">
@@ -115,12 +136,12 @@ body{margin:0;background:#F4F5FF}
 </section>
 
 <!-- NAVIGATION -->
-<div class="wrap" style="display: flex; justify-content: center; padding-top: 40px">
+<div class="wrap navwrap" style="display: flex; justify-content: center; padding-top: 40px">
 <nav class="navseg" aria-label="Sections de l’étude de cas">
-<a href="#contexte">Contexte</a>
-<a href="#demarche">Démarche</a>
-<a href="#tests">Tests</a>
-<a href="#solution">Solution</a>
+<a href="#contexte" class="{{nav.contexte}}">Contexte</a>
+<a href="#demarche" class="{{nav.demarche}}">Démarche</a>
+<a href="#tests" class="{{nav.tests}}">Tests</a>
+<a href="#solution" class="{{nav.solution}}">Solution</a>
 </nav>
 </div>
 
@@ -442,7 +463,42 @@ body{margin:0;background:#F4F5FF}
 </div>
 </section>
 
-</div>
+</div></template>
+<script src="dc-runtime.js"></script>
+<script>
+DC.define("EtudeAlanV3", function (DCLogic) {
+
+class Component extends DCLogic {
+  componentDidMount() {
+    var self = this;
+    var ids = ["contexte", "demarche", "tests", "solution"];
+    this._navScroll = function () {
+      var cur = ids[0];
+      for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]);
+        if (el && el.getBoundingClientRect().top <= 160) { cur = ids[i]; }
+      }
+      if (!self.state || self.state.active !== cur) { self.setState({ active: cur }); }
+    };
+    window.addEventListener('scroll', this._navScroll, { passive: true, capture: true });
+    this._navScroll();
+  }
+  componentWillUnmount() {
+    if (this._navScroll) { window.removeEventListener('scroll', this._navScroll, true); }
+  }
+  renderVals() {
+    var ids = ["contexte", "demarche", "tests", "solution"];
+    var active = (this.state && this.state.active) || ids[0];
+    var nav = {};
+    ids.forEach(function (id) { nav[id] = id === active ? 'on' : ''; });
+    return { nav: nav };
+  }
+}
+
+return Component;
+}, {"$preview": {"width": 1440, "height": 10400}});
+</script>
+<script>DC.mount("EtudeAlanV3", document.getElementById("dc-app"));</script>
 <script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
 </body>
 </html>

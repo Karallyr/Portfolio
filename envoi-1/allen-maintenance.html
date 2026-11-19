@@ -99,9 +99,17 @@ body{margin:0;background:#EEF3F5}
 .pill-p{flex-shrink:0;display:inline-flex;align-items:center;gap:10px;margin-right:12px;padding:10px 18px 10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.45);font-family:Geist,system-ui,sans-serif;font-size:14px;color:#FFFFFF;white-space:nowrap}
 .pill-p svg{flex-shrink:0}
 @media (prefers-reduced-motion:reduce){.mq-track,.scroller img,.pulse{animation:none}.ptag:hover{animation:none}}
-.right > div:last-child{position:sticky;bottom:0;margin-bottom:-26px;padding:14px 0 26px;background:linear-gradient(to bottom,rgba(238,243,245,0),rgb(238,243,245) 14px)}
+.right{overflow:hidden !important}
+.right > div:first-child{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding-bottom:28px;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 36px),transparent)}
+.right > div:first-child::-webkit-scrollbar{display:none}
+.right > div:first-child > *{flex-shrink:0}
+.right > div:last-child{flex-shrink:0}
 @media (max-width:960px){
-.right > div:last-child{position:static;margin-bottom:0;padding:0;background:none}
+.right > div:first-child{overflow:visible;padding-bottom:0;-webkit-mask-image:none;mask-image:none}
+.right{overflow:visible !important}
+.prog{position:fixed;top:0;left:0;right:0;z-index:80;padding-top:0}
+.prog-num{display:none}
+.prog-track{height:4px;border-radius:0;background:rgba(255,255,255,.35)}
 .split{grid-template-columns:minmax(0,1fr)}
 .left{padding:16px}
 .right{position:relative;height:auto;min-height:0;order:-1;padding:28px 20px 8px}
@@ -117,7 +125,7 @@ body{margin:0;background:#EEF3F5}
 </head>
 <body>
 <div id="dc-app"></div>
-<template id="dc-tpl-SiteCNA"><div class="cna">
+<template id="dc-tpl-SiteCNAV3"><div class="cna">
 
 <header class="topbar">
 <a href="index.html#projets" class="mono">← Retour aux projets</a>
@@ -323,7 +331,7 @@ body{margin:0;background:#EEF3F5}
 </div></template>
 <script src="dc-runtime.js"></script>
 <script>
-DC.define("SiteCNA", function (DCLogic) {
+DC.define("SiteCNAV3", function (DCLogic) {
 
 class Component extends DCLogic {
   componentDidMount() {
@@ -478,7 +486,7 @@ class Component extends DCLogic {
 return Component;
 }, {"$preview": {"width": 1440, "height": 900}});
 </script>
-<script>DC.mount("SiteCNA", document.getElementById("dc-app"));</script>
+<script>DC.mount("SiteCNAV3", document.getElementById("dc-app"));</script>
 <script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
 </body>
 </html>
