@@ -8,11 +8,19 @@
 <meta property="og:title" content="Pennylane | Étude de cas | Maeva Benakli">
 <style>html{overflow-x:hidden}body{overflow-x:clip}</style>
 <meta property="og:description" content="Étude de cas Pennylane : simplifier les notes de frais, de la dépense au remboursement.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
+@font-face{font-family:'Neue Montreal';src:url(cd44b6646192.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url(5ea7defc0d90.woff2) format('woff2');font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url(0c3d1f1d66ee.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url(eb0fe66a5be9.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url(6cc4b8694ac7.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url(37f6399060f4.woff2) format('woff2');font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url(26afbf4f4e87.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Neue Montreal';src:url(71956495d922.woff2) format('woff2');font-weight:700;font-style:italic;font-display:swap}
 body{margin:0;background:#F1FBF6}
 *{box-sizing:border-box}
-.pl{font-family:Manrope,system-ui,sans-serif;color:#0B2E2A;background:#F1FBF6}
+.pl{font-family:'Neue Montreal',system-ui,sans-serif;color:#0B2E2A;background:#F1FBF6}
 .pl a{color:inherit}
 .wrap{max-width:1240px;margin:0 auto;padding-left:48px;padding-right:48px}
 .mono{font-family:'Geist Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase}
@@ -24,8 +32,8 @@ body{margin:0;background:#F1FBF6}
 .rule{flex:1;height:1px;background:rgba(11,46,42,.85)}
 .rule-light{background:rgba(255,255,255,.5)}
 .mark{background:linear-gradient(transparent 52%,#8DF7C6 52%,#8DF7C6 92%,transparent 92%);padding:0 4px;border-radius:2px}
-.h2{margin:0;font-weight:800;font-size:clamp(32px,3.6vw,50px);line-height:1.08;letter-spacing:-.025em}
-.h3{margin:0;font-weight:800;font-size:clamp(23px,2.1vw,29px);line-height:1.15;letter-spacing:-.015em}
+.h2{margin:0;font-weight:800;font-size:clamp(32px,3.6vw,50px);line-height:1.08;letter-spacing:-.012em}
+.h3{margin:0;font-weight:800;font-size:clamp(23px,2.1vw,29px);line-height:1.15;letter-spacing:-.008em}
 .p{margin:0;font-size:17px;line-height:1.6;color:rgba(11,46,42,.82)}
 .small{margin:0;font-size:15px;line-height:1.55;color:rgba(11,46,42,.78)}
 .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #0B2E2A;font-size:14px;font-weight:600;background:transparent}
@@ -63,7 +71,7 @@ body{margin:0;background:#F1FBF6}
 .sec{padding-top:120px}
 .doodle{position:absolute;pointer-events:none;overflow:visible}
 .ico{flex-shrink:0;width:30px;height:30px}
-.ptag{position:absolute;z-index:4;display:inline-flex;align-items:center;padding:13px 24px 14px;border-radius:3px 26px 26px 26px;border:2px solid #FFFFFF;font-family:Manrope,system-ui,sans-serif;font-size:19px;font-weight:600;line-height:1;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 14px 30px -14px rgba(0,0,0,.45);transform-origin:0 0;cursor:default}
+.ptag{position:absolute;z-index:4;display:inline-flex;align-items:center;padding:13px 24px 14px;border-radius:3px 26px 26px 26px;border:2px solid #FFFFFF;font-family:'Neue Montreal',system-ui,sans-serif;font-size:19px;font-weight:600;line-height:1;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 14px 30px -14px rgba(0,0,0,.45);transform-origin:0 0;cursor:default}
 .ptag:hover{animation:ptag-wiggle .7s cubic-bezier(.36,.07,.19,.97) both}
 @keyframes ptag-wiggle{0%{transform:translate(0,0) rotate(0)}15%{transform:translate(-3px,-2px) rotate(-6deg)}30%{transform:translate(3px,1px) rotate(5deg)}45%{transform:translate(-2px,0) rotate(-3deg)}60%{transform:translate(2px,-1px) rotate(2deg)}78%{transform:translate(-1px,0) rotate(-1deg)}100%{transform:translate(0,0) rotate(0)}}
 @media (prefers-reduced-motion:reduce){.ptag:hover{animation:none}}
@@ -124,7 +132,7 @@ section[id]{scroll-margin-top:90px}
 </div>
 <div style="display: flex; flex-direction: column; gap: 26px; padding-bottom: 80px">
 <img src="assets/accueil/c3024dc47134.webp" alt="Pennylane" style="display: block; width: clamp(240px, 30vw, 440px); height: auto; filter: brightness(0) invert(1)">
-<p style="margin: 0; max-width: 640px; font-weight: 800; font-size: clamp(32px, 3.8vw, 54px); line-height: 1.06; letter-spacing: -0.025em">Simplifier les notes de frais, <span style="color: #00F086">de la dépense au remboursement.</span></p>
+<p style="margin: 0; max-width: 640px; font-weight: 800; font-size: clamp(32px, 3.8vw, 54px); line-height: 1.06; letter-spacing: -0.012em">Simplifier les notes de frais, <span style="color: #00F086">de la dépense au remboursement.</span></p>
 <div style="display: flex; align-items: center; gap: 14px; max-width: 520px; padding: 14px 18px; border-radius: 20px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.32); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px)">
 <img src="assets/pennylane/14dfe31a6f5a.webp" alt="" aria-hidden="true" style="flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px">
 <div style="flex: 1; min-width: 0">
@@ -259,7 +267,7 @@ section[id]{scroll-margin-top:90px}
 <div style="display: flex; gap: 28px; align-items: flex-start">
 <img src="assets/pennylane/14dfe31a6f5a.webp" alt="" aria-hidden="true" class="hide-m" style="flex-shrink: 0; width: 72px; height: 72px; border-radius: 18px">
 <div style="display: flex; flex-direction: column; gap: 24px">
-<p class="h2" style="max-width: 1000px; font-family: Manrope, sans-serif">Comment <span class="mark">simplifier la gestion</span> des notes de frais en apportant une <span class="mark">visibilité claire et rassurante</span> sur les règles et les délais ?</p>
+<p class="h2" style="max-width: 1000px; font-family: 'Neue Montreal', system-ui, sans-serif">Comment <span class="mark">simplifier la gestion</span> des notes de frais en apportant une <span class="mark">visibilité claire et rassurante</span> sur les règles et les délais ?</p>
 <div style="display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 13px; color: rgba(11,46,42,0.55)">Critères de succès</span>
 <div style="display: flex; flex-wrap: wrap; gap: 10px">

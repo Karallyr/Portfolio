@@ -8,7 +8,7 @@
 <meta property="og:title" content="Maeva Benakli | Product designer">
 <style>html{overflow-x:hidden}body{overflow-x:clip}</style>
 <meta property="og:description" content="Portfolio de Maeva Benakli, product designer : études de cas UX/UI, sites web et identités visuelles.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&amp;family=Geist+Mono:wght@400;500&amp;family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
 @font-face{font-family:'Neue Montreal';src:url(cd44b6646192.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Neue Montreal';src:url(5ea7defc0d90.woff2) format('woff2');font-weight:300;font-style:italic;font-display:swap}
@@ -33,7 +33,10 @@ article:hover .plink-arr,.plink:focus-visible .plink-arr{transform:translateX(4p
 @media (max-width:640px){
 .pj-br{display:none}
 .pj-sec{gap:64px !important;padding-top:96px !important}
-.pj-v1{min-height:430px !important;padding:56px 18px 36px !important;justify-content:center !important}
+.pj-v1{min-height:0 !important;padding:132px 18px 34px !important;justify-content:center !important;align-items:flex-start !important}
+.pj-logo{top:58px !important;left:24px !important;width:128px !important;z-index:3}
+.pj-deco-over{z-index:2}
+.pj-deco-vc{left:-4px !important;bottom:18px !important}
 .pj-v2{min-height:340px !important;padding:40px 22px !important}
 .pj-phone{width:200px !important;border-radius:34px !important}
 .pj-deco{width:130px !important;height:auto !important}
@@ -41,7 +44,7 @@ article:hover .plink-arr,.plink:focus-visible .plink-arr{transform:translateX(4p
 }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&amp;family=Geist+Mono:wght@400;500&amp;family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
 @font-face{font-family:'Neue Montreal';src:url(cd44b6646192.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Neue Montreal';src:url(5ea7defc0d90.woff2) format('woff2');font-weight:300;font-style:italic;font-display:swap}
@@ -156,16 +159,16 @@ a{color:#3B5013}a:hover{color:#26340C}
 <span style="position: absolute; left: 24px; bottom: 6px; font-family: {{p.tf}}; font-weight: 300; font-size: clamp(76px, 9.4vw, 152px); line-height: 1; letter-spacing: -0.035em; color: {{p.big}}">{{p.name}}</span>
 </sc-if>
 <sc-if value="{{p.isAlan}}" hint-placeholder-val="{{ false }}">
-<img src="assets/accueil/313322a6d076.webp" alt="Logo Alan" style="position: absolute; left: 32px; top: 68px; width: clamp(150px, 16vw, 230px); height: auto">
-<img src="assets/accueil/7bdf8ad7a33d.webp" alt="" class="pj-deco" aria-hidden="true" style="position: absolute; left: 12px; bottom: 0; width: auto; height: clamp(260px, 26vw, 380px)">
+<img src="assets/accueil/313322a6d076.webp" alt="Logo Alan" class="pj-logo" style="position: absolute; left: 32px; top: 68px; width: clamp(150px, 16vw, 230px); height: auto">
+<img src="assets/accueil/7bdf8ad7a33d.webp" alt="" class="pj-deco pj-deco-over" aria-hidden="true" style="position: absolute; left: 12px; bottom: 0; width: auto; height: clamp(260px, 26vw, 380px)">
 </sc-if>
 <sc-if value="{{p.isPenny}}" hint-placeholder-val="{{ false }}">
-<img src="assets/accueil/c3024dc47134.webp" alt="Logo Pennylane" style="position: absolute; left: 32px; top: 70px; width: clamp(170px, 18vw, 260px); height: auto">
-<img src="assets/accueil/dca264b933c4.webp" alt="" class="pj-deco" aria-hidden="true" style="position: absolute; left: 4px; bottom: 4px; width: clamp(250px, 26vw, 380px); height: auto">
+<img src="assets/accueil/c3024dc47134.webp" alt="Logo Pennylane" class="pj-logo" style="position: absolute; left: 32px; top: 70px; width: clamp(170px, 18vw, 260px); height: auto">
+<img src="assets/accueil/dca264b933c4.webp" alt="" class="pj-deco pj-deco-over" aria-hidden="true" style="position: absolute; left: 4px; bottom: 4px; width: clamp(250px, 26vw, 380px); height: auto">
 </sc-if>
 <sc-if value="{{p.isVc}}" hint-placeholder-val="{{ false }}">
-<img src="assets/accueil/08fd99fbcb26.webp" alt="Logo Vestiaire Collective" style="position: absolute; left: 32px; top: 66px; width: clamp(150px, 15vw, 220px); height: auto">
-<img src="assets/accueil/d03d77e00bfb.webp" alt="" class="pj-deco" aria-hidden="true" style="position: absolute; left: 24px; bottom: 24px; width: 218px; height: 228px; transform: rotate(-13deg)">
+<img src="assets/accueil/08fd99fbcb26.webp" alt="Logo Vestiaire Collective" class="pj-logo" style="position: absolute; left: 32px; top: 66px; width: clamp(150px, 15vw, 220px); height: auto">
+<img src="assets/accueil/d03d77e00bfb.webp" alt="" class="pj-deco pj-deco-vc" aria-hidden="true" style="position: absolute; left: 24px; bottom: 24px; width: 218px; height: 228px; transform: rotate(-13deg)">
 </sc-if>
 <sc-if value="{{p.isAlan}}" hint-placeholder-val="{{ false }}">
 <div class="pj-phone" style="box-sizing: border-box; position: relative; z-index: 1; flex-shrink: 0; width: 250px; padding: 8px; border-radius: 42px; background: #14141F; transform: rotate(-6deg); box-shadow: 0 40px 70px -26px rgba(40,30,110,0.55)">
@@ -570,10 +573,8 @@ class Component extends DCLogic {
     if (typeof window !== 'undefined' && window.__pjCursor) { window.__pjCursor(); }
   }
   renderVals() {
-    var fontName = this.props.titleFont ?? 'Noto Serif';
-    var tf = fontName === 'BIZ UDMincho'
-      ? "'BIZ UDMincho', 'Noto Serif', Georgia, serif"
-      : "'Noto Serif', Georgia, serif";
+    var fontName = 'Neue Montreal';
+    var tf = "'Neue Montreal', system-ui, sans-serif";
     function rows(list, bg, dot) {
       return list.map(function (t) { return { t: t, bg: bg, dot: dot }; });
     }
@@ -654,7 +655,7 @@ class Component extends DCLogic {
 }
 
 return Component;
-}, {"titleFont": {"editor": "enum", "options": ["Noto Serif", "BIZ UDMincho"], "default": "Noto Serif", "section": "Typographie des titres"}, "$preview": {"width": 1440, "height": 5600}});
+}, {"titleFont": {"editor": "enum", "options": ["Neue Montreal"], "default": "Neue Montreal", "section": "Typographie des titres"}, "$preview": {"width": 1440, "height": 5600}});
 </script>
 <script>
 DC.define("MainV3", function (DCLogic) {
@@ -684,10 +685,8 @@ class Component extends DCLogic {
     var introPhase = (this.state && this.state.introPhase) ? this.state.introPhase : (introEnabled ? 'loading' : 'gone');
     if (!introEnabled) { introPhase = 'gone'; }
     var layout = this.props.layout ?? 'A | Éditorial';
-    var fontName = this.props.titleFont ?? 'Noto Serif';
-    var tf = fontName === 'BIZ UDMincho'
-      ? "'BIZ UDMincho', 'Noto Serif', Georgia, serif"
-      : "'Noto Serif', Georgia, serif";
+    var fontName = 'Neue Montreal';
+    var tf = "'Neue Montreal', system-ui, sans-serif";
     var active = (this.state && typeof this.state.active === 'number') ? this.state.active : 0;
     var self = this;
     var list = [
@@ -729,7 +728,7 @@ class Component extends DCLogic {
 }
 
 return Component;
-}, {"intro": {"editor": "boolean", "default": true, "section": "Intro de chargement"}, "layout": {"editor": "enum", "options": ["A | Éditorial", "B | Grandes cartes", "C | Grille décalée"], "default": "A | Éditorial", "section": "Mise en page des projets"}, "titleFont": {"editor": "enum", "options": ["Noto Serif", "BIZ UDMincho"], "default": "Noto Serif", "section": "Typographie des titres"}, "$preview": {"width": 1440, "height": 10200}});
+}, {"intro": {"editor": "boolean", "default": true, "section": "Intro de chargement"}, "layout": {"editor": "enum", "options": ["A | Éditorial", "B | Grandes cartes", "C | Grille décalée"], "default": "A | Éditorial", "section": "Mise en page des projets"}, "titleFont": {"editor": "enum", "options": ["Neue Montreal"], "default": "Neue Montreal", "section": "Typographie des titres"}, "$preview": {"width": 1440, "height": 10200}});
 </script>
 <script>DC.mount("MainV3", document.getElementById("dc-app"));</script>
 <script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href="#"]');if(a){e.preventDefault();}},true);</script>
