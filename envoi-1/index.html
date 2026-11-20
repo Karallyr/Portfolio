@@ -85,6 +85,7 @@ a{color:#3B5013}a:hover{color:#26340C}
 @keyframes blink{50%{opacity:0}}
 .principle-note{transition:opacity .35s,transform .35s}
 .btn{transition:transform .2s,box-shadow .2s}
+.mlogo{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto;overflow:visible;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(38,52,12,.5)}
 @property --pct{syntax:'<integer>';inherits:false;initial-value:0}
 .intro{position:fixed;top:0;right:0;bottom:0;left:0;width:auto;height:100vh;height:100dvh;min-height:100%;overflow:hidden;z-index:9999;display:flex;align-items:center;justify-content:center;background:#3B5013 url(assets/accueil/78b3680eb2a8.jpg) center/cover no-repeat;color:#FDFBD4;transition:transform .9s cubic-bezier(.76,0,.24,1)}
@@ -348,7 +349,7 @@ a{color:#3B5013}a:hover{color:#26340C}
 </div>
 <nav class="hd-nav" aria-label="Navigation principale" style="display: flex; gap: 28px; flex-wrap: wrap">
 <a href="#projets" class="nav-link">Projets</a>
-<a href="#" class="nav-link" style="letter-spacing: 0px">Qui je suis ?</a>
+<a href="qui-suis-je.html" class="nav-link" style="letter-spacing: 0px">Qui je suis ?</a>
 <a href="#" class="nav-link">CV</a>
 </nav>
 <div class="hd-right" style="display: flex; align-items: center; gap: 12px">
@@ -519,7 +520,11 @@ a{color:#3B5013}a:hover{color:#26340C}
 
 <!-- FOOTER -->
 <footer class="pad-x" style="background: #3B5013; color: #FDFBD4; padding: 96px 48px 28px">
-<img src="assets/accueil/e94a2aeeb0bb.svg" alt="maë — logo de Maeva Benakli" style="display: block; width: 100%; max-width: 1100px; height: auto; margin: 0 auto">
+<div><svg id="mf-lg" class="mlogo" viewBox="-20 -40 640 320" role="img" aria-label="maë, logo de Maeva Benakli">
+<defs><filter id="mf-goo" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"></feGaussianBlur><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -11"></feColorMatrix></filter></defs>
+<path d="M511.9 259.9C463.8 254.8 430.8 219.3 430.7 172.5C430.6 127.3 459.3 92.5 502.3 85.5C543.2 78.9 583.4 93.6 595.9 120C599.9 128.5 599.7 144 595.6 152.3C589.9 163.4 580.5 169.3 568.5 169.4C550 169.5 535.4 158.4 511.3 126C492.4 100.5 485.9 95.4 477.4 99.6C465 105.8 466.9 123 481.7 139C496.8 155.3 515.2 165 551.3 175.6C582.3 184.6 592.5 190.8 596.5 203.1C605.3 229.4 576.3 255.9 534.2 260C523.3 261.1 522.6 261.1 511.9 259.9ZM67.6 255.2C78.3 239.1 95.6 211.2 101.2 201.3C127.3 154.6 134.2 121.6 120.7 107.2C112.2 98 91.9 97.6 73 106.2C67.2 108.8 52 117.7 52 118.5C52 118.6 54.9 118.5 58.5 118.2C76.2 116.8 88.4 132.3 85 151.8C81.4 172.9 62.3 192.8 42.8 196C20.6 199.5 2.1 183.5 1.2 159.9C0.3 138.1 12.5 116.9 45.4 83.2C109.4 17.7 160.3 -6.5 215.6 2.5C258.3 9.4 283.7 35.4 285.8 74.3L286.5 86.1L293 80.9C317.7 61 339.7 51.8 363.5 51.6C384.9 51.4 397.2 56 410.1 68.9C427.9 86.7 433.1 111.4 426.5 146.5C422.5 167.6 422 171.5 422 184C422 213.4 435.2 241.3 455.2 254.3L460.3 257.5L422.4 257.8C381.2 258.1 376.6 257.6 370.2 253C363.7 248.3 361.6 242.7 362.3 231.7C362.5 226.6 363.1 221.6 363.5 220.5C363.9 219.4 362.5 220.5 360.4 223C349 236.6 332.9 249.5 321.3 254.1C312.2 257.7 295.6 257.6 287.9 253.7C269.2 244.5 259.9 222.6 265.6 200.6C275.3 163 319.1 143 340 166.7C347 174.7 348.7 185.8 345 199.8C341.1 214.4 349.1 218.9 359.9 208.2C376.5 191.6 378.9 155.2 364.5 139.2C344.4 116.9 298.9 130.5 274.3 166.2C250.1 201.3 252.1 236.3 279.5 255.8L282.5 257.9L245.2 258C224.7 258 208.1 257.7 208.3 257.2C225.9 227.5 251.9 176.3 256.3 162.5C268.2 125.5 260.9 103.3 235.9 100.4C220.3 98.6 196.8 110.9 180.9 129.2C172.8 138.4 172.9 139 181 132.1C198.6 117.3 214 115.3 219.9 126.9C225.9 138.6 221.7 147.8 176.6 221.8L154.5 258L110.2 258L65.8 258L67.6 255.2Z" fill="#FFF6A2" fill-rule="evenodd"></path>
+<g filter="url(#mf-goo)"><g id="mf-dl"><circle cx="478" cy="40" r="35.5" fill="#FFF6A2"></circle></g><g id="mf-dr"><circle cx="554" cy="39.5" r="35.5" fill="#FFF6A2"></circle></g></g>
+</svg></div>
 <div style="max-width: 1344px; margin: 72px auto 0; padding-top: 20px; border-top: 1px solid rgba(253,251,212,0.16); display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(253,251,212,0.75)">
 <span>© 2026 Maeva Benakli</span>
 <span>Creative product designer | AI product</span>
@@ -661,13 +666,83 @@ return Component;
 DC.define("MainV3", function (DCLogic) {
 
 class Component extends DCLogic {
-  componentDidMount() { this.playIntro(); }
+  componentDidMount() {
+    this.playIntro();
+
+    (function (self) {
+      var ID = 'mf';
+      function el(n) { return document.getElementById(ID + '-' + n); }
+      if (!el('lg')) { return; }
+      var P = [{ x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, cx: 478, cy: 40, id: 'dl', side: -1 }, { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, cx: 554, cy: 40, id: 'dr', side: 1 }];
+      var raf = 0, holdT = 0, holding = false, inside = false;
+      function loop() {
+        var moving = false;
+        P.forEach(function (p) {
+          p.vx += (p.tx - p.x) * 0.12; p.vy += (p.ty - p.y) * 0.12; p.vx *= 0.8; p.vy *= 0.8; p.x += p.vx; p.y += p.vy;
+          if (Math.abs(p.vx) + Math.abs(p.vy) + Math.abs(p.tx - p.x) + Math.abs(p.ty - p.y) > 0.05) { moving = true; }
+          var g = el(p.id); if (g) { g.setAttribute('transform', 'translate(' + p.x.toFixed(2) + ' ' + p.y.toFixed(2) + ')'); }
+        });
+        raf = moving ? requestAnimationFrame(loop) : 0;
+      }
+      function go() { if (!raf) { raf = requestAnimationFrame(loop); } }
+      function aim(cx, cy, strong) {
+        var s = el('lg'); if (!s) { return; }
+        var m = s.getScreenCTM(); if (!m) { return; }
+        var pt = s.createSVGPoint(); pt.x = cx; pt.y = cy; var q = pt.matrixTransform(m.inverse());
+        P.forEach(function (p) {
+          var dx = q.x - p.cx, dy = q.y - p.cy, d = Math.hypot(dx, dy) || 1;
+          var near = Math.max(0, 1 - d / (strong ? 320 : 220));
+          p.tx = dx / d * Math.min(16, d * 0.06) + p.side * near * 30;
+          p.ty = dy / d * Math.min(16, d * 0.06) - near * 6;
+        });
+        go();
+      }
+      function rest() { P.forEach(function (p) { p.tx = 0; p.ty = 0; }); go(); }
+      function jump() { P.forEach(function (p, i) { setTimeout(function () { p.vy -= 16; p.vx += p.side * 3; go(); }, i * 90); }); }
+      function over(t, pad) {
+        var s = el('lg'); if (!s) { return false; }
+        var r = s.getBoundingClientRect(); pad = pad || 0;
+        return t.x >= r.left - pad && t.x <= r.right + pad && t.y >= r.top - pad && t.y <= r.bottom + pad;
+      }
+      function onMove(e) {
+        if (e.pointerType === 'touch') { return; }
+        var inNow = over({ x: e.clientX, y: e.clientY }, 120);
+        if (inNow) { inside = true; aim(e.clientX, e.clientY, false); } else if (inside) { inside = false; rest(); }
+      }
+      function onClick(e) { var s = el('lg'); if (s && s.contains(e.target)) { jump(); } }
+      function tStart(e) {
+        var t = e.touches[0]; var s = el('lg'); if (!t || !s || !s.contains(e.target)) { return; }
+        var x = t.clientX, y = t.clientY;
+        clearTimeout(holdT);
+        holdT = setTimeout(function () { holding = true; jump(); aim(x, y, true); }, 220);
+      }
+      function tMove(e) {
+        var t = e.touches[0]; if (!t) { return; }
+        if (holding) { e.preventDefault(); aim(t.clientX, t.clientY, true); } else { clearTimeout(holdT); }
+      }
+      function tEnd() { clearTimeout(holdT); if (holding) { holding = false; rest(); } }
+      function ctx(e) { var s = el('lg'); if (s && s.contains(e.target)) { e.preventDefault(); } }
+      document.addEventListener('pointermove', onMove, { passive: true });
+      document.addEventListener('click', onClick);
+      document.addEventListener('touchstart', tStart, { passive: true });
+      document.addEventListener('touchmove', tMove, { passive: false });
+      document.addEventListener('touchend', tEnd); document.addEventListener('touchcancel', tEnd);
+      document.addEventListener('contextmenu', ctx);
+      self._logoOff = function () {
+        document.removeEventListener('pointermove', onMove); document.removeEventListener('click', onClick);
+        document.removeEventListener('touchstart', tStart); document.removeEventListener('touchmove', tMove);
+        document.removeEventListener('touchend', tEnd); document.removeEventListener('touchcancel', tEnd);
+        document.removeEventListener('contextmenu', ctx);
+        clearTimeout(holdT); if (raf) { cancelAnimationFrame(raf); }
+      };
+    })(this);
+  }
   componentDidUpdate(prevProps) {
     var was = prevProps.intro ?? true;
     var now = this.props.intro ?? true;
     if (now && !was) { this.playIntro(); }
   }
-  componentWillUnmount() { this.clearIntro(); }
+  componentWillUnmount() { this.clearIntro(); if (this._logoOff) { this._logoOff(); } }
   clearIntro() {
     if (this._introT1) { clearTimeout(this._introT1); }
     if (this._introT2) { clearTimeout(this._introT2); }
