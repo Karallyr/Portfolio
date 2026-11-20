@@ -115,6 +115,32 @@ a{color:#3B5013}a:hover{color:#26340C}
 .hero-main{padding-top:400px !important}
 }
 .badge-ic{display:none}
+.pgf{display:none}
+@media (max-width:640px){
+.folder-wrap{display:none !important}
+.pgf{grid-column:1;grid-row:3;margin:30px 0 4px;position:relative;display:block;width:92px;height:64px;text-decoration:none;color:#26340C;cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+.pgf-bk{position:absolute;left:0;right:0;bottom:0;height:56px;border-radius:3px 8px 8px 8px;background:#F3D34A}
+.pgf-bk::before{content:"";position:absolute;left:0;top:-8px;width:36px;height:11px;border-radius:5px 7px 0 0;background:#F3D34A}
+.pgf-sh{position:absolute;left:50%;bottom:9px;width:37px;height:47px;margin-left:-18.5px;border-radius:4.5px;overflow:hidden;opacity:0;transform:translateY(8px);box-shadow:0 6px 11px -5px rgba(10,14,4,.6);transition:transform .5s cubic-bezier(.2,.9,.25,1.2),opacity .2s}
+.pgf-s1{background:#FFFFFF;padding:5px;display:flex;flex-direction:column;gap:3px}
+.pgf-tg{position:relative;display:block;width:14px;height:8px;border-radius:999px;background:#3B5013}
+.pgf-tg i{position:absolute;right:1.5px;top:1.5px;width:5px;height:5px;border-radius:50%;background:#FFF6A2}
+.pgf-s1 b{display:block;height:2.5px;border-radius:1.5px;background:rgba(59,80,19,.25)}
+.pgf-s1 em{margin-top:auto;height:7.5px;border-radius:2.5px;background:#FFF6A2}
+.pgf-s2{background:radial-gradient(70% 60% at 60% 70%,#D9F27A 0%,#FFF6A2 45%,#FDFBD4 100%)}
+.pgf-s3{background:#3B5013;display:flex;align-items:center;justify-content:center;padding:5px}
+.pgf-s3 img{width:100%;height:auto;display:block}
+.pgf-fr{position:absolute;left:0;right:0;bottom:0;height:50px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 8px 7px;border-radius:6.5px;background:linear-gradient(180deg,#FFF6A2 0%,#F3E77E 100%);box-shadow:0 -2.5px 6px -4px rgba(20,26,10,.35);transform-origin:50% 100%;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.pgf-lb{font-family:'Geist Mono',ui-monospace,monospace;font-size:7.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.pgf-ar{font-size:10px;line-height:1;transform:rotate(-45deg);transition:transform .3s}
+.pgf.open .pgf-sh{opacity:1}
+.pgf.open .pgf-s1{transform:translate(-17px,-18px) rotate(-11deg)}
+.pgf.open .pgf-s2{transform:translate(1px,-25px) rotate(2deg);transition-delay:.05s}
+.pgf.open .pgf-s3{transform:translate(18px,-17px) rotate(10deg);transition-delay:.1s}
+.pgf.open .pgf-fr{transform:perspective(320px) rotateX(-16deg)}
+.pgf.open .pgf-ar{transform:rotate(-45deg) translateX(2px)}
+@media (prefers-reduced-motion:reduce){.pgf-sh,.pgf-fr,.pgf-ar{transition:none}}
+}
 @media (max-width:640px){
 .hd{display:grid !important;grid-template-columns:minmax(0,1fr) auto;align-items:start !important;gap:0 16px !important;padding-top:14px !important}
 .hd-brand{grid-column:1;grid-row:1}
@@ -351,6 +377,7 @@ a{color:#3B5013}a:hover{color:#26340C}
 <a href="#projets" class="nav-link">Projets</a>
 <a href="qui-suis-je.html" class="nav-link" style="letter-spacing: 0px">Qui je suis ?</a>
 </nav>
+<a href="#" class="pgf" data-pg aria-label="Ouvrir le playground : explorations, UI et visuels"><span class="pgf-bk"></span><span class="pgf-sh pgf-s1"><span class="pgf-tg"><i></i></span><b style="width: 70%"></b><b style="width: 50%; opacity: .6"></b><em></em></span><span class="pgf-sh pgf-s2"></span><span class="pgf-sh pgf-s3"><img src="assets/accueil/e94a2aeeb0bb.svg" alt=""></span><span class="pgf-fr"><span class="pgf-lb">Playground</span><span class="pgf-ar" aria-hidden="true">→</span></span></a>
 <div class="hd-right" style="display: flex; align-items: center; gap: 12px">
 <div class="soc-wrap" style="display: flex; align-items: center">
 <a href="https://www.linkedin.com/in/maevabenakli/" target="_blank" rel="noopener" class="soc" aria-label="LinkedIn"><span style="font-size: 11px">IN</span></a>
@@ -404,7 +431,6 @@ a{color:#3B5013}a:hover{color:#26340C}
 
 <div class="pad-x" style="position: relative; z-index: 2; border-top: 1px solid rgba(253,251,212,0.18); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(253,251,212,0.75)">
 <div class="parcours" style="display: flex; align-items: baseline; gap: 6px 18px; flex-wrap: wrap"><span>Mon parcours</span><span style="color: rgba(253,251,212,0.48)">Marketing digital → Web design freelance → Product design</span></div>
-<a href="#projets" class="nav-link" style="padding: 12px 0">Voir les projets ↓</a>
 </div>
 </section>
 
@@ -668,6 +694,15 @@ class Component extends DCLogic {
     this.playIntro();
 
     (function (self) {
+      function find(t) { return t && t.closest ? t.closest('[data-pg]') : null; }
+      var c = function (e) { var a = find(e.target); if (!a) { return; } e.preventDefault(); a.classList.toggle('open'); };
+      var en = function (e) { if (e.pointerType !== 'mouse') { return; } var a = find(e.target); if (a) { a.classList.add('open'); } };
+      var lv = function (e) { if (e.pointerType !== 'mouse') { return; } var a = find(e.target); if (a && !a.contains(e.relatedTarget)) { a.classList.remove('open'); } };
+      document.addEventListener('click', c); document.addEventListener('pointerover', en); document.addEventListener('pointerout', lv);
+      self._pgOff = function () { document.removeEventListener('click', c); document.removeEventListener('pointerover', en); document.removeEventListener('pointerout', lv); };
+    })(this);
+
+    (function (self) {
       var ID = 'mf';
       function el(n) { return document.getElementById(ID + '-' + n); }
       if (!el('lg')) { return; }
@@ -740,7 +775,7 @@ class Component extends DCLogic {
     var now = this.props.intro ?? true;
     if (now && !was) { this.playIntro(); }
   }
-  componentWillUnmount() { this.clearIntro(); if (this._logoOff) { this._logoOff(); } }
+  componentWillUnmount() { this.clearIntro(); if (this._logoOff) { this._logoOff(); } if (this._pgOff) { this._pgOff(); } }
   clearIntro() {
     if (this._introT1) { clearTimeout(this._introT1); }
     if (this._introT2) { clearTimeout(this._introT2); }
